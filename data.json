@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-06-03T15:18:15.086348",
+  "generatedAt": "2026-06-03T15:58:09.900380",
   "daily": {
     "20260602": {
       "date": "20260602",
@@ -10,8 +10,8 @@
         "normalCount": 1810,
         "noreadCount": 6245,
         "noreadEvents": 13,
-        "deviceFaults": 26,
-        "deviceCount": 18,
+        "deviceFaults": 96,
+        "deviceCount": 25,
         "timeSpan": {
           "start": "07:22:12.422",
           "end": "22:18:08.929"
@@ -116,1470 +116,964 @@
           "normal": 0
         }
       ],
-      "noreadEvents": [
+      "hourlyEvents": [
         {
-          "device": "SS3008",
-          "start": "2026-06-02 08:03:51.221",
-          "end": "2026-06-02 08:09:23.626",
-          "count": 641,
-          "date": "20260602",
-          "recovery": {
-            "time": "2026-06-02 08:09:24.308",
-            "barcode": "L02438",
-            "type": "入库"
+          "total": 0,
+          "types": {}
+        },
+        {
+          "total": 0,
+          "types": {}
+        },
+        {
+          "total": 0,
+          "types": {}
+        },
+        {
+          "total": 0,
+          "types": {}
+        },
+        {
+          "total": 0,
+          "types": {}
+        },
+        {
+          "total": 0,
+          "types": {}
+        },
+        {
+          "total": 0,
+          "types": {}
+        },
+        {
+          "total": 6,
+          "types": {
+            "扫描故障": 1,
+            "获取任务列表异常(?)": 4,
+            "任务写入失败(5次)": 1
           }
         },
         {
-          "device": "SS3008",
-          "start": "2026-06-02 10:23:10.037",
-          "end": "2026-06-02 10:28:30.276",
-          "count": 617,
-          "date": "20260602",
-          "recovery": {
-            "time": "2026-06-02 10:28:30.992",
-            "barcode": "L02359",
-            "type": "入库"
+          "total": 21,
+          "types": {
+            "扫描故障": 2,
+            "条码识别失败(NOREAD)": 2,
+            "托盘超宽": 1,
+            "提升向下软限位报警": 1,
+            "升降变频器故障": 1,
+            "任务写入失败(5次)": 1,
+            "任务超时": 2,
+            "数据库异常(ORA-12570:)": 3,
+            "数据库异常(Oracle)": 7,
+            "数据库异常(ORA-03135:)": 1
           }
         },
         {
-          "device": "SS3004",
-          "start": "2026-06-02 08:54:02.777",
-          "end": "2026-06-02 08:57:40.287",
-          "count": 420,
-          "date": "20260602",
-          "recovery": {
-            "time": "2026-06-02 08:57:41.212",
-            "barcode": "L01735",
-            "type": "入库"
+          "total": 2,
+          "types": {
+            "任务写入失败(5次)": 1,
+            "托盘超长": 1
           }
         },
         {
-          "device": "SS3004",
-          "start": "2026-06-02 20:25:26.543",
-          "end": "2026-06-02 20:31:00.708",
-          "count": 643,
-          "date": "20260602",
-          "recovery": {
-            "time": "2026-06-02 20:31:01.374",
-            "barcode": "L01503",
-            "type": "入库"
+          "total": 6,
+          "types": {
+            "行走轴故障": 1,
+            "条码识别失败(NOREAD)": 2,
+            "托盘超长": 1,
+            "扫描故障": 1,
+            "行走时货叉不居中": 1
           }
         },
         {
-          "device": "SS4004",
-          "start": "2026-06-02 10:53:36.593",
-          "end": "2026-06-02 10:57:18.816",
-          "count": 428,
-          "date": "20260602",
-          "recovery": {
-            "time": "2026-06-02 10:57:19.484",
-            "barcode": "L01609",
-            "type": "入库"
+          "total": 5,
+          "types": {
+            "扫描故障": 2,
+            "条码识别失败(NOREAD)": 2,
+            "托盘超长": 1
           }
         },
         {
-          "device": "SS4004",
-          "start": "2026-06-02 15:36:26.138",
-          "end": "2026-06-02 15:37:33.180",
-          "count": 130,
-          "date": "20260602",
-          "recovery": {
-            "time": "2026-06-02 15:37:33.854",
-            "barcode": "L02650",
-            "type": "入库"
+          "total": 10,
+          "types": {
+            "数据库异常(ORA-12570:)": 3,
+            "数据库异常(Oracle)": 7
           }
         },
         {
-          "device": "SS4004",
-          "start": "2026-06-02 21:14:19.749",
-          "end": "2026-06-02 21:18:44.781",
-          "count": 511,
-          "date": "20260602",
-          "recovery": {
-            "time": "2026-06-02 21:18:45.449",
-            "barcode": "L02403",
-            "type": "入库"
+          "total": 3,
+          "types": {
+            "数据库异常(Oracle)": 1,
+            "获取任务列表异常(?)": 2
           }
         },
         {
-          "device": "SS2008",
-          "start": "2026-06-02 11:15:57.872",
-          "end": "2026-06-02 11:18:31.849",
-          "count": 297,
-          "date": "20260602",
-          "recovery": {
-            "time": "2026-06-02 11:18:32.518",
-            "barcode": "L02651",
-            "type": "入库"
+          "total": 11,
+          "types": {
+            "获取任务列表异常(?)": 2,
+            "数据库异常(ORA-12570:)": 4,
+            "任务写入失败(5次)": 2,
+            "条码识别失败(NOREAD)": 1,
+            "扫描故障": 1,
+            "托盘超宽": 1
           }
         },
         {
-          "device": "SS1002",
-          "start": "2026-06-02 11:46:08.557",
-          "end": "2026-06-02 11:46:08.557",
-          "count": 1,
-          "date": "20260602",
-          "manualBarcode": {
-            "time": "2026-06-02 11:46:59.222",
-            "barcode": "L02411"
-          },
-          "recovery": {
-            "time": "2026-06-02 11:46:59.273",
-            "barcode": "L02411",
-            "type": "入库"
+          "total": 3,
+          "types": {
+            "托盘超长": 2,
+            "条码识别失败(NOREAD)": 1
           }
         },
         {
-          "device": "SS3006",
-          "start": "2026-06-02 14:46:31.203",
-          "end": "2026-06-02 14:48:28.240",
-          "count": 226,
-          "date": "20260602",
-          "recovery": {
-            "time": "2026-06-02 14:48:28.909",
-            "barcode": "L02650",
-            "type": "入库"
+          "total": 6,
+          "types": {
+            "托盘超长": 1,
+            "获取任务列表异常(?)": 1,
+            "入货超时": 2,
+            "出货超时": 2
           }
         },
         {
-          "device": "SS3002",
-          "start": "2026-06-02 17:44:41.705",
-          "end": "2026-06-02 17:46:03.547",
-          "count": 158,
-          "date": "20260602",
-          "recovery": {
-            "time": "2026-06-02 17:46:04.274",
-            "barcode": "L03599",
-            "type": "入库"
+          "total": 5,
+          "types": {
+            "升降变频器故障": 1,
+            "托盘超长": 2,
+            "条码识别失败(NOREAD)": 1,
+            "扫描故障": 1
           }
         },
         {
-          "device": "SS2004",
-          "start": "2026-06-02 18:10:37.051",
-          "end": "2026-06-02 18:11:34.447",
-          "count": 111,
-          "date": "20260602",
-          "recovery": {
-            "time": "2026-06-02 18:11:35.113",
-            "barcode": "L03569",
-            "type": "入库"
+          "total": 7,
+          "types": {
+            "电源缺相报警": 1,
+            "扫描故障": 2,
+            "条码识别失败(NOREAD)": 2,
+            "出货超时": 1,
+            "入货超时": 1
           }
         },
         {
-          "device": "SS4006",
-          "start": "2026-06-02 18:30:29.283",
-          "end": "2026-06-02 18:48:20.411",
-          "count": 2062,
-          "date": "20260602",
-          "recovery": {
-            "time": "2026-06-02 18:48:21.089",
-            "barcode": "L03253",
-            "type": "入库"
+          "total": 4,
+          "types": {
+            "托盘超长": 2,
+            "托盘超宽": 1,
+            "托盘超高": 1
           }
+        },
+        {
+          "total": 5,
+          "types": {
+            "获取任务列表异常(?)": 3,
+            "扫描故障": 1,
+            "条码识别失败(NOREAD)": 1
+          }
+        },
+        {
+          "total": 2,
+          "types": {
+            "条码识别失败(NOREAD)": 1,
+            "扫描故障": 1
+          }
+        },
+        {
+          "total": 0,
+          "types": {}
+        },
+        {
+          "total": 0,
+          "types": {}
         }
       ],
       "deviceFaults": [
         {
           "device": "SS1014",
           "faultType": "扫描故障",
-          "time": "2026-06-02 07:40:29.855",
-          "date": "20260602",
-          "recovery": "2026-06-02 07:52:02.377"
+          "startTime": "2026-06-02 07:40:29.855",
+          "endTime": "2026-06-02 07:40:29.855",
+          "occurrences": 1,
+          "isNoread": false
+        },
+        {
+          "device": "SK0004",
+          "faultType": "获取任务列表异常(?)",
+          "startTime": "2026-06-02 07:52:03.289",
+          "endTime": "2026-06-02 11:41:57.687",
+          "occurrences": 23,
+          "isNoread": false
+        },
+        {
+          "device": "SK0002",
+          "faultType": "获取任务列表异常(?)",
+          "startTime": "2026-06-02 07:52:33.681",
+          "endTime": "2026-06-02 12:00:24.297",
+          "occurrences": 25,
+          "isNoread": false
+        },
+        {
+          "device": "SK0001",
+          "faultType": "获取任务列表异常(?)",
+          "startTime": "2026-06-02 07:54:04.068",
+          "endTime": "2026-06-02 11:50:18.438",
+          "occurrences": 23,
+          "isNoread": false
+        },
+        {
+          "device": "SK0003",
+          "faultType": "获取任务列表异常(?)",
+          "startTime": "2026-06-02 07:55:21.430",
+          "endTime": "2026-06-02 11:45:26.850",
+          "occurrences": 19,
+          "isNoread": false
+        },
+        {
+          "device": "SK0002",
+          "faultType": "任务写入失败(5次)",
+          "startTime": "2026-06-02 07:59:46.970",
+          "endTime": "2026-06-02 08:02:12.971",
+          "occurrences": 2,
+          "isNoread": false
         },
         {
           "device": "SS3008",
           "faultType": "扫描故障",
-          "time": "2026-06-02 08:03:51.156",
-          "date": "20260602",
-          "recovery": "2026-06-02 08:09:24.308"
+          "startTime": "2026-06-02 08:03:51.156",
+          "endTime": "2026-06-02 08:03:51.156",
+          "occurrences": 1,
+          "isNoread": false
+        },
+        {
+          "device": "SS3008",
+          "faultType": "条码识别失败(NOREAD)",
+          "startTime": "2026-06-02 08:03:51.221",
+          "endTime": "2026-06-02 08:09:23.626",
+          "occurrences": 641,
+          "isNoread": true
+        },
+        {
+          "device": "SK0001",
+          "faultType": "托盘超宽",
+          "startTime": "2026-06-02 08:05:08.633",
+          "endTime": "2026-06-02 08:05:08.633",
+          "occurrences": 1,
+          "isNoread": false
         },
         {
           "device": "SK0004",
           "faultType": "提升向下软限位报警",
-          "time": "2026-06-02 08:09:28.380",
-          "date": "20260602",
-          "recovery": "2026-06-02 08:10:29.148"
+          "startTime": "2026-06-02 08:09:28.380",
+          "endTime": "2026-06-02 08:09:28.380",
+          "occurrences": 1,
+          "isNoread": false
         },
         {
           "device": "SK0004",
           "faultType": "升降变频器故障",
-          "time": "2026-06-02 08:10:00.143",
-          "date": "20260602",
-          "recovery": "2026-06-02 08:10:29.148"
+          "startTime": "2026-06-02 08:10:00.143",
+          "endTime": "2026-06-02 08:10:00.143",
+          "occurrences": 1,
+          "isNoread": false
+        },
+        {
+          "device": "SK0003",
+          "faultType": "任务写入失败(5次)",
+          "startTime": "2026-06-02 08:11:25.369",
+          "endTime": "2026-06-02 08:11:25.369",
+          "occurrences": 1,
+          "isNoread": false
         },
         {
           "device": "SS4002",
           "faultType": "任务超时",
-          "time": "2026-06-02 08:28:54.867",
-          "date": "20260602",
-          "recovery": "2026-06-02 08:35:48.263"
+          "startTime": "2026-06-02 08:28:54.867",
+          "endTime": "2026-06-02 08:28:54.867",
+          "occurrences": 1,
+          "isNoread": false
+        },
+        {
+          "device": "Unknown",
+          "faultType": "数据库异常(ORA-12570:)",
+          "startTime": "2026-06-02 08:29:05.651",
+          "endTime": "2026-06-02 09:13:56.086",
+          "occurrences": 18,
+          "isNoread": false
+        },
+        {
+          "device": "SS2005",
+          "faultType": "数据库异常(ORA-12570:)",
+          "startTime": "2026-06-02 08:29:06.474",
+          "endTime": "2026-06-02 08:29:06.474",
+          "occurrences": 1,
+          "isNoread": false
+        },
+        {
+          "device": "SS4002",
+          "faultType": "数据库异常(ORA-12570:)",
+          "startTime": "2026-06-02 08:29:09.215",
+          "endTime": "2026-06-02 08:29:09.215",
+          "occurrences": 1,
+          "isNoread": false
+        },
+        {
+          "device": "Unknown",
+          "faultType": "数据库异常(Oracle)",
+          "startTime": "2026-06-02 08:29:26.710",
+          "endTime": "2026-06-02 08:35:25.270",
+          "occurrences": 62,
+          "isNoread": false
+        },
+        {
+          "device": "SS2005",
+          "faultType": "数据库异常(Oracle)",
+          "startTime": "2026-06-02 08:29:48.543",
+          "endTime": "2026-06-02 08:34:42.280",
+          "occurrences": 6,
+          "isNoread": false
+        },
+        {
+          "device": "SS4002",
+          "faultType": "数据库异常(Oracle)",
+          "startTime": "2026-06-02 08:29:48.575",
+          "endTime": "2026-06-02 08:35:25.130",
+          "occurrences": 9,
+          "isNoread": false
+        },
+        {
+          "device": "SK0002",
+          "faultType": "数据库异常(Oracle)",
+          "startTime": "2026-06-02 08:30:29.819",
+          "endTime": "2026-06-02 08:35:24.476",
+          "occurrences": 8,
+          "isNoread": false
+        },
+        {
+          "device": "SK0003",
+          "faultType": "数据库异常(Oracle)",
+          "startTime": "2026-06-02 08:30:50.954",
+          "endTime": "2026-06-02 08:30:50.954",
+          "occurrences": 1,
+          "isNoread": false
+        },
+        {
+          "device": "SK0004",
+          "faultType": "数据库异常(Oracle)",
+          "startTime": "2026-06-02 08:31:33.028",
+          "endTime": "2026-06-02 08:31:33.028",
+          "occurrences": 1,
+          "isNoread": false
+        },
+        {
+          "device": "SK0001",
+          "faultType": "数据库异常(Oracle)",
+          "startTime": "2026-06-02 08:32:15.816",
+          "endTime": "2026-06-02 08:32:15.816",
+          "occurrences": 1,
+          "isNoread": false
+        },
+        {
+          "device": "SS3004",
+          "faultType": "条码识别失败(NOREAD)",
+          "startTime": "2026-06-02 08:54:02.777",
+          "endTime": "2026-06-02 08:57:40.287",
+          "occurrences": 420,
+          "isNoread": true
         },
         {
           "device": "SS3004",
           "faultType": "扫描故障",
-          "time": "2026-06-02 08:54:02.964",
-          "date": "20260602",
-          "recovery": "2026-06-02 08:57:41.212"
+          "startTime": "2026-06-02 08:54:02.964",
+          "endTime": "2026-06-02 08:54:02.964",
+          "occurrences": 1,
+          "isNoread": false
         },
         {
           "device": "SS4004",
           "faultType": "任务超时",
-          "time": "2026-06-02 08:59:35.068",
-          "date": "20260602",
-          "recovery": "2026-06-02 08:59:40.104"
+          "startTime": "2026-06-02 08:59:35.068",
+          "endTime": "2026-06-02 08:59:35.068",
+          "occurrences": 1,
+          "isNoread": false
+        },
+        {
+          "device": "Unknown",
+          "faultType": "数据库异常(ORA-03135:)",
+          "startTime": "2026-06-02 08:59:45.558",
+          "endTime": "2026-06-02 08:59:45.558",
+          "occurrences": 1,
+          "isNoread": false
+        },
+        {
+          "device": "SK0002",
+          "faultType": "任务写入失败(5次)",
+          "startTime": "2026-06-02 09:05:10.980",
+          "endTime": "2026-06-02 09:05:10.980",
+          "occurrences": 1,
+          "isNoread": false
+        },
+        {
+          "device": "SS1014",
+          "faultType": "托盘超长",
+          "startTime": "2026-06-02 09:38:10.956",
+          "endTime": "2026-06-02 09:38:10.956",
+          "occurrences": 1,
+          "isNoread": false
         },
         {
           "device": "SK0004",
           "faultType": "行走轴故障",
-          "time": "2026-06-02 10:10:32.318",
-          "date": "20260602",
-          "recovery": "2026-06-02 10:20:40.262"
+          "startTime": "2026-06-02 10:10:32.318",
+          "endTime": "2026-06-02 10:10:32.318",
+          "occurrences": 1,
+          "isNoread": false
+        },
+        {
+          "device": "SS3008",
+          "faultType": "条码识别失败(NOREAD)",
+          "startTime": "2026-06-02 10:23:10.037",
+          "endTime": "2026-06-02 10:28:30.276",
+          "occurrences": 617,
+          "isNoread": true
+        },
+        {
+          "device": "SS3004",
+          "faultType": "托盘超长",
+          "startTime": "2026-06-02 10:26:41.945",
+          "endTime": "2026-06-02 10:26:41.945",
+          "occurrences": 1,
+          "isNoread": false
+        },
+        {
+          "device": "SS4004",
+          "faultType": "条码识别失败(NOREAD)",
+          "startTime": "2026-06-02 10:53:36.593",
+          "endTime": "2026-06-02 10:57:18.816",
+          "occurrences": 428,
+          "isNoread": true
         },
         {
           "device": "SS4004",
           "faultType": "扫描故障",
-          "time": "2026-06-02 10:53:36.760",
-          "date": "20260602",
-          "recovery": "2026-06-02 10:57:19.484"
+          "startTime": "2026-06-02 10:53:36.760",
+          "endTime": "2026-06-02 10:53:36.760",
+          "occurrences": 1,
+          "isNoread": false
         },
         {
           "device": "SK0002",
           "faultType": "行走时货叉不居中",
-          "time": "2026-06-02 10:58:15.043",
-          "date": "20260602",
-          "recovery": "2026-06-02 11:03:00.189"
+          "startTime": "2026-06-02 10:58:15.043",
+          "endTime": "2026-06-02 10:58:15.043",
+          "occurrences": 1,
+          "isNoread": false
         },
         {
           "device": "SS2008",
           "faultType": "扫描故障",
-          "time": "2026-06-02 11:15:57.750",
-          "date": "20260602",
-          "recovery": "2026-06-02 11:18:32.518"
+          "startTime": "2026-06-02 11:15:57.750",
+          "endTime": "2026-06-02 11:15:57.750",
+          "occurrences": 1,
+          "isNoread": false
+        },
+        {
+          "device": "SS2008",
+          "faultType": "条码识别失败(NOREAD)",
+          "startTime": "2026-06-02 11:15:57.872",
+          "endTime": "2026-06-02 11:18:31.849",
+          "occurrences": 297,
+          "isNoread": true
+        },
+        {
+          "device": "SS4002",
+          "faultType": "托盘超长",
+          "startTime": "2026-06-02 11:17:37.450",
+          "endTime": "2026-06-02 11:17:37.450",
+          "occurrences": 1,
+          "isNoread": false
+        },
+        {
+          "device": "SS1002",
+          "faultType": "条码识别失败(NOREAD)",
+          "startTime": "2026-06-02 11:46:08.557",
+          "endTime": "2026-06-02 11:46:08.557",
+          "occurrences": 1,
+          "isNoread": true
         },
         {
           "device": "SS1002",
           "faultType": "扫描故障",
-          "time": "2026-06-02 11:46:08.656",
-          "date": "20260602",
-          "recovery": "2026-06-02 11:46:59.273"
+          "startTime": "2026-06-02 11:46:08.656",
+          "endTime": "2026-06-02 11:46:08.656",
+          "occurrences": 1,
+          "isNoread": false
+        },
+        {
+          "device": "Unknown",
+          "faultType": "数据库异常(ORA-12570:)",
+          "startTime": "2026-06-02 12:17:16.385",
+          "endTime": "2026-06-02 12:43:40.088",
+          "occurrences": 40,
+          "isNoread": false
+        },
+        {
+          "device": "SS1001",
+          "faultType": "数据库异常(ORA-12570:)",
+          "startTime": "2026-06-02 12:17:17.232",
+          "endTime": "2026-06-02 12:43:20.469",
+          "occurrences": 3,
+          "isNoread": false
+        },
+        {
+          "device": "SS1009",
+          "faultType": "数据库异常(ORA-12570:)",
+          "startTime": "2026-06-02 12:17:18.115",
+          "endTime": "2026-06-02 12:43:21.429",
+          "occurrences": 3,
+          "isNoread": false
+        },
+        {
+          "device": "Unknown",
+          "faultType": "数据库异常(Oracle)",
+          "startTime": "2026-06-02 12:17:37.748",
+          "endTime": "2026-06-02 14:26:50.540",
+          "occurrences": 907,
+          "isNoread": false
+        },
+        {
+          "device": "SS1001",
+          "faultType": "数据库异常(Oracle)",
+          "startTime": "2026-06-02 12:17:59.426",
+          "endTime": "2026-06-02 14:26:53.734",
+          "occurrences": 100,
+          "isNoread": false
+        },
+        {
+          "device": "SS1009",
+          "faultType": "数据库异常(Oracle)",
+          "startTime": "2026-06-02 12:17:59.687",
+          "endTime": "2026-06-02 14:26:11.646",
+          "occurrences": 99,
+          "isNoread": false
+        },
+        {
+          "device": "SK0002",
+          "faultType": "数据库异常(Oracle)",
+          "startTime": "2026-06-02 12:19:23.833",
+          "endTime": "2026-06-02 12:19:23.833",
+          "occurrences": 1,
+          "isNoread": false
+        },
+        {
+          "device": "SK0003",
+          "faultType": "数据库异常(Oracle)",
+          "startTime": "2026-06-02 12:19:44.019",
+          "endTime": "2026-06-02 12:19:44.019",
+          "occurrences": 1,
+          "isNoread": false
+        },
+        {
+          "device": "SK0004",
+          "faultType": "数据库异常(Oracle)",
+          "startTime": "2026-06-02 12:19:44.690",
+          "endTime": "2026-06-02 12:19:44.690",
+          "occurrences": 1,
+          "isNoread": false
+        },
+        {
+          "device": "SK0001",
+          "faultType": "数据库异常(Oracle)",
+          "startTime": "2026-06-02 12:20:26.779",
+          "endTime": "2026-06-02 12:20:26.779",
+          "occurrences": 1,
+          "isNoread": false
+        },
+        {
+          "device": "SS1005",
+          "faultType": "数据库异常(Oracle)",
+          "startTime": "2026-06-02 13:47:10.221",
+          "endTime": "2026-06-02 14:26:53.545",
+          "occurrences": 4,
+          "isNoread": false
+        },
+        {
+          "device": "SK0002",
+          "faultType": "获取任务列表异常(?)",
+          "startTime": "2026-06-02 13:50:24.777",
+          "endTime": "2026-06-02 19:25:12.437",
+          "occurrences": 26,
+          "isNoread": false
+        },
+        {
+          "device": "SK0003",
+          "faultType": "获取任务列表异常(?)",
+          "startTime": "2026-06-02 13:59:04.382",
+          "endTime": "2026-06-02 19:17:15.121",
+          "occurrences": 20,
+          "isNoread": false
+        },
+        {
+          "device": "SK0001",
+          "faultType": "获取任务列表异常(?)",
+          "startTime": "2026-06-02 14:07:21.045",
+          "endTime": "2026-06-02 14:43:25.851",
+          "occurrences": 6,
+          "isNoread": false
+        },
+        {
+          "device": "SK0004",
+          "faultType": "获取任务列表异常(?)",
+          "startTime": "2026-06-02 14:12:36.390",
+          "endTime": "2026-06-02 21:47:01.693",
+          "occurrences": 31,
+          "isNoread": false
+        },
+        {
+          "device": "SK0002",
+          "faultType": "数据库异常(ORA-12570:)",
+          "startTime": "2026-06-02 14:26:08.318",
+          "endTime": "2026-06-02 14:26:08.318",
+          "occurrences": 1,
+          "isNoread": false
+        },
+        {
+          "device": "Unknown",
+          "faultType": "数据库异常(ORA-12570:)",
+          "startTime": "2026-06-02 14:26:08.363",
+          "endTime": "2026-06-02 14:26:09.015",
+          "occurrences": 7,
+          "isNoread": false
+        },
+        {
+          "device": "SS1005",
+          "faultType": "数据库异常(ORA-12570:)",
+          "startTime": "2026-06-02 14:26:08.712",
+          "endTime": "2026-06-02 14:26:08.712",
+          "occurrences": 1,
+          "isNoread": false
+        },
+        {
+          "device": "SS1001",
+          "faultType": "数据库异常(ORA-12570:)",
+          "startTime": "2026-06-02 14:26:08.728",
+          "endTime": "2026-06-02 14:26:08.728",
+          "occurrences": 1,
+          "isNoread": false
+        },
+        {
+          "device": "SK0003",
+          "faultType": "任务写入失败(5次)",
+          "startTime": "2026-06-02 14:38:57.666",
+          "endTime": "2026-06-02 15:37:08.714",
+          "occurrences": 2,
+          "isNoread": false
+        },
+        {
+          "device": "SS3006",
+          "faultType": "条码识别失败(NOREAD)",
+          "startTime": "2026-06-02 14:46:31.203",
+          "endTime": "2026-06-02 14:48:28.240",
+          "occurrences": 226,
+          "isNoread": true
         },
         {
           "device": "SS3006",
           "faultType": "扫描故障",
-          "time": "2026-06-02 14:46:31.247",
-          "date": "20260602",
-          "recovery": "2026-06-02 14:48:28.909"
+          "startTime": "2026-06-02 14:46:31.247",
+          "endTime": "2026-06-02 14:46:31.247",
+          "occurrences": 1,
+          "isNoread": false
+        },
+        {
+          "device": "SK0004",
+          "faultType": "托盘超宽",
+          "startTime": "2026-06-02 14:47:39.532",
+          "endTime": "2026-06-02 14:47:39.532",
+          "occurrences": 1,
+          "isNoread": false
+        },
+        {
+          "device": "SK0002",
+          "faultType": "任务写入失败(5次)",
+          "startTime": "2026-06-02 14:50:42.070",
+          "endTime": "2026-06-02 14:50:42.070",
+          "occurrences": 1,
+          "isNoread": false
+        },
+        {
+          "device": "SS1010",
+          "faultType": "托盘超长",
+          "startTime": "2026-06-02 15:18:40.345",
+          "endTime": "2026-06-02 15:18:40.345",
+          "occurrences": 1,
+          "isNoread": false
+        },
+        {
+          "device": "SS4004",
+          "faultType": "条码识别失败(NOREAD)",
+          "startTime": "2026-06-02 15:36:26.138",
+          "endTime": "2026-06-02 15:37:33.180",
+          "occurrences": 130,
+          "isNoread": true
+        },
+        {
+          "device": "SS3006",
+          "faultType": "托盘超长",
+          "startTime": "2026-06-02 15:56:36.363",
+          "endTime": "2026-06-02 15:56:36.363",
+          "occurrences": 1,
+          "isNoread": false
+        },
+        {
+          "device": "SS3008",
+          "faultType": "托盘超长",
+          "startTime": "2026-06-02 16:03:22.661",
+          "endTime": "2026-06-02 16:03:22.661",
+          "occurrences": 1,
+          "isNoread": false
+        },
+        {
+          "device": "SK0001",
+          "faultType": "获取任务列表异常(?)",
+          "startTime": "2026-06-02 16:07:09.282",
+          "endTime": "2026-06-02 18:50:11.676",
+          "occurrences": 11,
+          "isNoread": false
         },
         {
           "device": "SS2001",
           "faultType": "入货超时",
-          "time": "2026-06-02 16:30:47.062",
-          "date": "20260602",
-          "recovery": "2026-06-02 16:31:43.433"
+          "startTime": "2026-06-02 16:30:47.062",
+          "endTime": "2026-06-02 16:30:47.062",
+          "occurrences": 1,
+          "isNoread": false
         },
         {
           "device": "SS2002",
           "faultType": "出货超时",
-          "time": "2026-06-02 16:31:17.148",
-          "date": "20260602"
+          "startTime": "2026-06-02 16:31:17.148",
+          "endTime": "2026-06-02 16:31:17.148",
+          "occurrences": 1,
+          "isNoread": false
         },
         {
           "device": "SS4004",
           "faultType": "入货超时",
-          "time": "2026-06-02 16:47:32.560",
-          "date": "20260602",
-          "recovery": "2026-06-02 17:16:57.459"
+          "startTime": "2026-06-02 16:47:32.560",
+          "endTime": "2026-06-02 16:47:32.560",
+          "occurrences": 1,
+          "isNoread": false
         },
         {
           "device": "SS4003",
           "faultType": "出货超时",
-          "time": "2026-06-02 16:47:32.560",
-          "date": "20260602"
+          "startTime": "2026-06-02 16:47:32.560",
+          "endTime": "2026-06-02 16:47:32.560",
+          "occurrences": 1,
+          "isNoread": false
         },
         {
           "device": "SK0004",
           "faultType": "升降变频器故障",
-          "time": "2026-06-02 17:31:22.659",
-          "date": "20260602",
-          "recovery": "2026-06-02 17:41:22.314"
+          "startTime": "2026-06-02 17:31:22.659",
+          "endTime": "2026-06-02 17:31:22.659",
+          "occurrences": 1,
+          "isNoread": false
+        },
+        {
+          "device": "SS1010",
+          "faultType": "托盘超长",
+          "startTime": "2026-06-02 17:33:18.359",
+          "endTime": "2026-06-02 17:33:18.359",
+          "occurrences": 1,
+          "isNoread": false
+        },
+        {
+          "device": "SS3002",
+          "faultType": "条码识别失败(NOREAD)",
+          "startTime": "2026-06-02 17:44:41.705",
+          "endTime": "2026-06-02 17:46:03.547",
+          "occurrences": 158,
+          "isNoread": true
         },
         {
           "device": "SS3002",
           "faultType": "扫描故障",
-          "time": "2026-06-02 17:44:41.763",
-          "date": "20260602",
-          "recovery": "2026-06-02 17:46:04.274"
+          "startTime": "2026-06-02 17:44:41.763",
+          "endTime": "2026-06-02 17:44:41.763",
+          "occurrences": 1,
+          "isNoread": false
+        },
+        {
+          "device": "SS3002",
+          "faultType": "托盘超长",
+          "startTime": "2026-06-02 17:47:36.960",
+          "endTime": "2026-06-02 17:47:36.960",
+          "occurrences": 1,
+          "isNoread": false
         },
         {
           "device": "SK0003",
           "faultType": "电源缺相报警",
-          "time": "2026-06-02 18:07:39.280",
-          "date": "20260602",
-          "recovery": "2026-06-02 18:11:49.020"
+          "startTime": "2026-06-02 18:07:39.280",
+          "endTime": "2026-06-02 18:07:39.280",
+          "occurrences": 1,
+          "isNoread": false
         },
         {
           "device": "SS2004",
           "faultType": "扫描故障",
-          "time": "2026-06-02 18:10:36.970",
-          "date": "20260602",
-          "recovery": "2026-06-02 18:11:35.113"
+          "startTime": "2026-06-02 18:10:36.970",
+          "endTime": "2026-06-02 18:10:36.970",
+          "occurrences": 1,
+          "isNoread": false
+        },
+        {
+          "device": "SS2004",
+          "faultType": "条码识别失败(NOREAD)",
+          "startTime": "2026-06-02 18:10:37.051",
+          "endTime": "2026-06-02 18:11:34.447",
+          "occurrences": 111,
+          "isNoread": true
+        },
+        {
+          "device": "SS4006",
+          "faultType": "条码识别失败(NOREAD)",
+          "startTime": "2026-06-02 18:30:29.283",
+          "endTime": "2026-06-02 18:48:20.411",
+          "occurrences": 2062,
+          "isNoread": true
         },
         {
           "device": "SS4006",
           "faultType": "扫描故障",
-          "time": "2026-06-02 18:30:29.355",
-          "date": "20260602",
-          "recovery": "2026-06-02 18:48:21.089"
+          "startTime": "2026-06-02 18:30:29.355",
+          "endTime": "2026-06-02 18:30:29.355",
+          "occurrences": 1,
+          "isNoread": false
         },
         {
           "device": "SS4005",
           "faultType": "出货超时",
-          "time": "2026-06-02 18:55:49.862",
-          "date": "20260602",
-          "recovery": "2026-06-02 19:11:52.152"
+          "startTime": "2026-06-02 18:55:49.862",
+          "endTime": "2026-06-02 18:55:49.862",
+          "occurrences": 1,
+          "isNoread": false
         },
         {
           "device": "SS4006",
           "faultType": "入货超时",
-          "time": "2026-06-02 18:55:49.862",
-          "date": "20260602",
-          "recovery": "2026-06-02 19:05:15.488"
+          "startTime": "2026-06-02 18:55:49.862",
+          "endTime": "2026-06-02 18:55:49.862",
+          "occurrences": 1,
+          "isNoread": false
+        },
+        {
+          "device": "SS4004",
+          "faultType": "托盘超长",
+          "startTime": "2026-06-02 19:03:52.956",
+          "endTime": "2026-06-02 19:03:52.956",
+          "occurrences": 1,
+          "isNoread": false
+        },
+        {
+          "device": "SK0002",
+          "faultType": "托盘超宽",
+          "startTime": "2026-06-02 19:10:21.470",
+          "endTime": "2026-06-02 19:10:21.470",
+          "occurrences": 1,
+          "isNoread": false
+        },
+        {
+          "device": "SS1014",
+          "faultType": "托盘超高",
+          "startTime": "2026-06-02 19:11:06.460",
+          "endTime": "2026-06-02 19:11:06.460",
+          "occurrences": 1,
+          "isNoread": false
+        },
+        {
+          "device": "SS1014",
+          "faultType": "托盘超长",
+          "startTime": "2026-06-02 19:26:41.860",
+          "endTime": "2026-06-02 19:26:41.860",
+          "occurrences": 1,
+          "isNoread": false
+        },
+        {
+          "device": "SK0003",
+          "faultType": "获取任务列表异常(?)",
+          "startTime": "2026-06-02 20:22:03.692",
+          "endTime": "2026-06-02 21:50:55.659",
+          "occurrences": 5,
+          "isNoread": false
         },
         {
           "device": "SS3004",
           "faultType": "扫描故障",
-          "time": "2026-06-02 20:25:26.164",
-          "date": "20260602",
-          "recovery": "2026-06-02 20:31:01.374"
+          "startTime": "2026-06-02 20:25:26.164",
+          "endTime": "2026-06-02 20:25:26.164",
+          "occurrences": 1,
+          "isNoread": false
+        },
+        {
+          "device": "SS3004",
+          "faultType": "条码识别失败(NOREAD)",
+          "startTime": "2026-06-02 20:25:26.543",
+          "endTime": "2026-06-02 20:31:00.708",
+          "occurrences": 643,
+          "isNoread": true
+        },
+        {
+          "device": "SK0001",
+          "faultType": "获取任务列表异常(?)",
+          "startTime": "2026-06-02 20:28:49.990",
+          "endTime": "2026-06-02 21:15:07.397",
+          "occurrences": 2,
+          "isNoread": false
+        },
+        {
+          "device": "SK0002",
+          "faultType": "获取任务列表异常(?)",
+          "startTime": "2026-06-02 20:31:02.363",
+          "endTime": "2026-06-02 21:42:08.680",
+          "occurrences": 5,
+          "isNoread": false
+        },
+        {
+          "device": "SS4004",
+          "faultType": "条码识别失败(NOREAD)",
+          "startTime": "2026-06-02 21:14:19.749",
+          "endTime": "2026-06-02 21:18:44.781",
+          "occurrences": 511,
+          "isNoread": true
         },
         {
           "device": "SS4004",
           "faultType": "扫描故障",
-          "time": "2026-06-02 21:14:19.768",
-          "date": "20260602",
-          "recovery": "2026-06-02 21:18:45.449"
-        }
-      ],
-      "taskFails": [
-        {
-          "device": "SK0002",
-          "time": "2026-06-02 07:59:46.970",
-          "retries": 5,
-          "date": "20260602"
-        },
-        {
-          "device": "SK0002",
-          "time": "2026-06-02 08:02:12.971",
-          "retries": 5,
-          "date": "20260602"
-        },
-        {
-          "device": "SK0003",
-          "time": "2026-06-02 08:11:25.369",
-          "retries": 5,
-          "date": "20260602"
-        },
-        {
-          "device": "SK0002",
-          "time": "2026-06-02 09:05:10.980",
-          "retries": 5,
-          "date": "20260602"
-        },
-        {
-          "device": "SK0003",
-          "time": "2026-06-02 14:38:57.666",
-          "retries": 5,
-          "date": "20260602"
-        },
-        {
-          "device": "SK0002",
-          "time": "2026-06-02 14:50:42.070",
-          "retries": 5,
-          "date": "20260602"
-        },
-        {
-          "device": "SK0003",
-          "time": "2026-06-02 15:37:08.714",
-          "retries": 5,
-          "date": "20260602"
-        }
-      ],
-      "dbErrorCount": 1279,
-      "trayAnomalies": [
-        {
-          "device": "SK0001",
-          "time": "2026-06-02 08:05:08.633",
-          "type": "超宽",
-          "date": "20260602"
-        },
-        {
-          "device": "SS1014",
-          "time": "2026-06-02 09:38:10.956",
-          "type": "超长",
-          "date": "20260602"
-        },
-        {
-          "device": "SS3004",
-          "time": "2026-06-02 10:26:41.945",
-          "type": "超长",
-          "date": "20260602"
-        },
-        {
-          "device": "SS4002",
-          "time": "2026-06-02 11:17:37.450",
-          "type": "超长",
-          "date": "20260602"
-        },
-        {
-          "device": "SK0004",
-          "time": "2026-06-02 14:47:39.532",
-          "type": "超宽",
-          "date": "20260602"
-        },
-        {
-          "device": "SS1010",
-          "time": "2026-06-02 15:18:40.345",
-          "type": "超长",
-          "date": "20260602"
-        },
-        {
-          "device": "SS3006",
-          "time": "2026-06-02 15:56:36.363",
-          "type": "超长",
-          "date": "20260602"
-        },
-        {
-          "device": "SS3008",
-          "time": "2026-06-02 16:03:22.661",
-          "type": "超长",
-          "date": "20260602"
-        },
-        {
-          "device": "SS1010",
-          "time": "2026-06-02 17:33:18.359",
-          "type": "超长",
-          "date": "20260602"
-        },
-        {
-          "device": "SS3002",
-          "time": "2026-06-02 17:47:36.960",
-          "type": "超长",
-          "date": "20260602"
-        },
-        {
-          "device": "SS4004",
-          "time": "2026-06-02 19:03:52.956",
-          "type": "超长",
-          "date": "20260602"
-        },
-        {
-          "device": "SK0002",
-          "time": "2026-06-02 19:10:21.470",
-          "type": "超宽",
-          "date": "20260602"
-        },
-        {
-          "device": "SS1014",
-          "time": "2026-06-02 19:11:06.460",
-          "type": "超高",
-          "date": "20260602"
-        },
-        {
-          "device": "SS1014",
-          "time": "2026-06-02 19:26:41.860",
-          "type": "超长",
-          "date": "20260602"
-        }
-      ],
-      "wmsWaits": [
-        {
-          "device": "SK0004",
-          "time": "2026-06-02 07:52:03.289",
-          "date": "20260602"
-        },
-        {
-          "device": "SK0002",
-          "time": "2026-06-02 07:52:33.681",
-          "date": "20260602"
-        },
-        {
-          "device": "SK0001",
-          "time": "2026-06-02 07:54:04.068",
-          "date": "20260602"
-        },
-        {
-          "device": "SK0004",
-          "time": "2026-06-02 07:55:08.210",
-          "date": "20260602"
-        },
-        {
-          "device": "SK0003",
-          "time": "2026-06-02 07:55:21.430",
-          "date": "20260602"
-        },
-        {
-          "device": "SK0002",
-          "time": "2026-06-02 07:57:22.775",
-          "date": "20260602"
-        },
-        {
-          "device": "SK0002",
-          "time": "2026-06-02 07:59:43.817",
-          "date": "20260602"
-        },
-        {
-          "device": "SK0004",
-          "time": "2026-06-02 08:01:36.810",
-          "date": "20260602"
-        },
-        {
-          "device": "SK0001",
-          "time": "2026-06-02 08:04:21.493",
-          "date": "20260602"
-        },
-        {
-          "device": "SK0001",
-          "time": "2026-06-02 08:08:06.682",
-          "date": "20260602"
-        },
-        {
-          "device": "SK0003",
-          "time": "2026-06-02 08:08:30.314",
-          "date": "20260602"
-        },
-        {
-          "device": "SK0004",
-          "time": "2026-06-02 08:10:26.381",
-          "date": "20260602"
-        },
-        {
-          "device": "SK0003",
-          "time": "2026-06-02 08:11:22.208",
-          "date": "20260602"
-        },
-        {
-          "device": "SK0001",
-          "time": "2026-06-02 08:11:49.836",
-          "date": "20260602"
-        },
-        {
-          "device": "SK0004",
-          "time": "2026-06-02 08:12:21.370",
-          "date": "20260602"
-        },
-        {
-          "device": "SK0004",
-          "time": "2026-06-02 08:14:54.341",
-          "date": "20260602"
-        },
-        {
-          "device": "SK0001",
-          "time": "2026-06-02 08:16:15.706",
-          "date": "20260602"
-        },
-        {
-          "device": "SK0003",
-          "time": "2026-06-02 08:18:43.868",
-          "date": "20260602"
-        },
-        {
-          "device": "SK0001",
-          "time": "2026-06-02 08:21:16.640",
-          "date": "20260602"
-        },
-        {
-          "device": "SK0003",
-          "time": "2026-06-02 08:23:15.725",
-          "date": "20260602"
-        },
-        {
-          "device": "SK0002",
-          "time": "2026-06-02 08:25:12.889",
-          "date": "20260602"
-        },
-        {
-          "device": "SK0002",
-          "time": "2026-06-02 08:27:28.881",
-          "date": "20260602"
-        },
-        {
-          "device": "SK0001",
-          "time": "2026-06-02 08:35:49.363",
-          "date": "20260602"
-        },
-        {
-          "device": "SK0002",
-          "time": "2026-06-02 08:36:26.862",
-          "date": "20260602"
-        },
-        {
-          "device": "SK0002",
-          "time": "2026-06-02 08:39:11.106",
-          "date": "20260602"
-        },
-        {
-          "device": "SK0002",
-          "time": "2026-06-02 08:41:08.401",
-          "date": "20260602"
-        },
-        {
-          "device": "SK0004",
-          "time": "2026-06-02 08:43:34.693",
-          "date": "20260602"
-        },
-        {
-          "device": "SK0002",
-          "time": "2026-06-02 08:47:06.372",
-          "date": "20260602"
-        },
-        {
-          "device": "SK0001",
-          "time": "2026-06-02 08:50:53.606",
-          "date": "20260602"
-        },
-        {
-          "device": "SK0004",
-          "time": "2026-06-02 08:57:02.043",
-          "date": "20260602"
-        },
-        {
-          "device": "SK0003",
-          "time": "2026-06-02 08:57:25.761",
-          "date": "20260602"
-        },
-        {
-          "device": "SK0002",
-          "time": "2026-06-02 08:57:41.801",
-          "date": "20260602"
-        },
-        {
-          "device": "SK0002",
-          "time": "2026-06-02 08:59:46.218",
-          "date": "20260602"
-        },
-        {
-          "device": "SK0004",
-          "time": "2026-06-02 09:02:23.429",
-          "date": "20260602"
-        },
-        {
-          "device": "SK0001",
-          "time": "2026-06-02 09:04:27.070",
-          "date": "20260602"
-        },
-        {
-          "device": "SK0004",
-          "time": "2026-06-02 09:24:30.168",
-          "date": "20260602"
-        },
-        {
-          "device": "SK0002",
-          "time": "2026-06-02 09:24:55.643",
-          "date": "20260602"
-        },
-        {
-          "device": "SK0003",
-          "time": "2026-06-02 09:25:45.186",
-          "date": "20260602"
-        },
-        {
-          "device": "SK0004",
-          "time": "2026-06-02 09:30:35.213",
-          "date": "20260602"
-        },
-        {
-          "device": "SK0004",
-          "time": "2026-06-02 09:39:57.496",
-          "date": "20260602"
-        },
-        {
-          "device": "SK0001",
-          "time": "2026-06-02 09:54:31.145",
-          "date": "20260602"
-        },
-        {
-          "device": "SK0003",
-          "time": "2026-06-02 10:04:01.374",
-          "date": "20260602"
-        },
-        {
-          "device": "SK0003",
-          "time": "2026-06-02 10:13:35.016",
-          "date": "20260602"
-        },
-        {
-          "device": "SK0002",
-          "time": "2026-06-02 10:17:11.237",
-          "date": "20260602"
-        },
-        {
-          "device": "SK0003",
-          "time": "2026-06-02 10:18:19.402",
-          "date": "20260602"
-        },
-        {
-          "device": "SK0001",
-          "time": "2026-06-02 10:21:04.785",
-          "date": "20260602"
-        },
-        {
-          "device": "SK0004",
-          "time": "2026-06-02 10:28:31.958",
-          "date": "20260602"
-        },
-        {
-          "device": "SK0002",
-          "time": "2026-06-02 10:28:52.108",
-          "date": "20260602"
-        },
-        {
-          "device": "SK0001",
-          "time": "2026-06-02 10:30:17.495",
-          "date": "20260602"
-        },
-        {
-          "device": "SK0003",
-          "time": "2026-06-02 10:36:42.440",
-          "date": "20260602"
-        },
-        {
-          "device": "SK0001",
-          "time": "2026-06-02 10:43:04.328",
-          "date": "20260602"
-        },
-        {
-          "device": "SK0004",
-          "time": "2026-06-02 10:45:38.386",
-          "date": "20260602"
-        },
-        {
-          "device": "SK0002",
-          "time": "2026-06-02 10:46:41.599",
-          "date": "20260602"
-        },
-        {
-          "device": "SK0003",
-          "time": "2026-06-02 10:48:33.267",
-          "date": "20260602"
-        },
-        {
-          "device": "SK0001",
-          "time": "2026-06-02 10:50:48.915",
-          "date": "20260602"
-        },
-        {
-          "device": "SK0003",
-          "time": "2026-06-02 10:54:46.484",
-          "date": "20260602"
-        },
-        {
-          "device": "SK0002",
-          "time": "2026-06-02 10:57:20.093",
-          "date": "20260602"
-        },
-        {
-          "device": "SK0001",
-          "time": "2026-06-02 10:58:21.198",
-          "date": "20260602"
-        },
-        {
-          "device": "SK0004",
-          "time": "2026-06-02 11:02:02.897",
-          "date": "20260602"
-        },
-        {
-          "device": "SK0001",
-          "time": "2026-06-02 11:02:08.041",
-          "date": "20260602"
-        },
-        {
-          "device": "SK0003",
-          "time": "2026-06-02 11:06:22.608",
-          "date": "20260602"
-        },
-        {
-          "device": "SK0001",
-          "time": "2026-06-02 11:08:10.825",
-          "date": "20260602"
-        },
-        {
-          "device": "SK0004",
-          "time": "2026-06-02 11:09:32.847",
-          "date": "20260602"
-        },
-        {
-          "device": "SK0004",
-          "time": "2026-06-02 11:12:36.829",
-          "date": "20260602"
-        },
-        {
-          "device": "SK0003",
-          "time": "2026-06-02 11:15:22.451",
-          "date": "20260602"
-        },
-        {
-          "device": "SK0002",
-          "time": "2026-06-02 11:18:06.846",
-          "date": "20260602"
-        },
-        {
-          "device": "SK0001",
-          "time": "2026-06-02 11:18:51.218",
-          "date": "20260602"
-        },
-        {
-          "device": "SK0004",
-          "time": "2026-06-02 11:20:28.028",
-          "date": "20260602"
-        },
-        {
-          "device": "SK0001",
-          "time": "2026-06-02 11:20:49.967",
-          "date": "20260602"
-        },
-        {
-          "device": "SK0004",
-          "time": "2026-06-02 11:22:05.055",
-          "date": "20260602"
-        },
-        {
-          "device": "SK0002",
-          "time": "2026-06-02 11:23:05.253",
-          "date": "20260602"
-        },
-        {
-          "device": "SK0004",
-          "time": "2026-06-02 11:23:48.898",
-          "date": "20260602"
-        },
-        {
-          "device": "SK0002",
-          "time": "2026-06-02 11:24:48.824",
-          "date": "20260602"
-        },
-        {
-          "device": "SK0003",
-          "time": "2026-06-02 11:27:43.314",
-          "date": "20260602"
-        },
-        {
-          "device": "SK0004",
-          "time": "2026-06-02 11:30:53.445",
-          "date": "20260602"
-        },
-        {
-          "device": "SK0002",
-          "time": "2026-06-02 11:31:11.250",
-          "date": "20260602"
-        },
-        {
-          "device": "SK0004",
-          "time": "2026-06-02 11:33:01.014",
-          "date": "20260602"
-        },
-        {
-          "device": "SK0002",
-          "time": "2026-06-02 11:33:03.099",
-          "date": "20260602"
-        },
-        {
-          "device": "SK0003",
-          "time": "2026-06-02 11:33:11.498",
-          "date": "20260602"
-        },
-        {
-          "device": "SK0001",
-          "time": "2026-06-02 11:34:39.849",
-          "date": "20260602"
-        },
-        {
-          "device": "SK0002",
-          "time": "2026-06-02 11:36:20.247",
-          "date": "20260602"
-        },
-        {
-          "device": "SK0003",
-          "time": "2026-06-02 11:36:59.899",
-          "date": "20260602"
-        },
-        {
-          "device": "SK0001",
-          "time": "2026-06-02 11:40:01.470",
-          "date": "20260602"
-        },
-        {
-          "device": "SK0004",
-          "time": "2026-06-02 11:41:57.687",
-          "date": "20260602"
-        },
-        {
-          "device": "SK0002",
-          "time": "2026-06-02 11:44:23.700",
-          "date": "20260602"
-        },
-        {
-          "device": "SK0003",
-          "time": "2026-06-02 11:45:26.850",
-          "date": "20260602"
-        },
-        {
-          "device": "SK0001",
-          "time": "2026-06-02 11:46:59.830",
-          "date": "20260602"
-        },
-        {
-          "device": "SK0002",
-          "time": "2026-06-02 11:47:22.469",
-          "date": "20260602"
-        },
-        {
-          "device": "SK0001",
-          "time": "2026-06-02 11:50:18.438",
-          "date": "20260602"
-        },
-        {
-          "device": "SK0002",
-          "time": "2026-06-02 12:00:24.297",
-          "date": "20260602"
-        },
-        {
-          "device": "SK0002",
-          "time": "2026-06-02 13:50:24.777",
-          "date": "20260602"
-        },
-        {
-          "device": "SK0003",
-          "time": "2026-06-02 13:59:04.382",
-          "date": "20260602"
-        },
-        {
-          "device": "SK0001",
-          "time": "2026-06-02 14:07:21.045",
-          "date": "20260602"
-        },
-        {
-          "device": "SK0001",
-          "time": "2026-06-02 14:09:59.661",
-          "date": "20260602"
-        },
-        {
-          "device": "SK0002",
-          "time": "2026-06-02 14:12:14.220",
-          "date": "20260602"
-        },
-        {
-          "device": "SK0004",
-          "time": "2026-06-02 14:12:36.390",
-          "date": "20260602"
-        },
-        {
-          "device": "SK0001",
-          "time": "2026-06-02 14:13:18.108",
-          "date": "20260602"
-        },
-        {
-          "device": "SK0001",
-          "time": "2026-06-02 14:23:14.681",
-          "date": "20260602"
-        },
-        {
-          "device": "SK0001",
-          "time": "2026-06-02 14:32:24.174",
-          "date": "20260602"
-        },
-        {
-          "device": "SK0003",
-          "time": "2026-06-02 14:33:18.001",
-          "date": "20260602"
-        },
-        {
-          "device": "SK0004",
-          "time": "2026-06-02 14:36:24.052",
-          "date": "20260602"
-        },
-        {
-          "device": "SK0003",
-          "time": "2026-06-02 14:38:53.680",
-          "date": "20260602"
-        },
-        {
-          "device": "SK0001",
-          "time": "2026-06-02 14:43:25.851",
-          "date": "20260602"
-        },
-        {
-          "device": "SK0004",
-          "time": "2026-06-02 14:47:03.697",
-          "date": "20260602"
-        },
-        {
-          "device": "SK0003",
-          "time": "2026-06-02 14:48:29.799",
-          "date": "20260602"
-        },
-        {
-          "device": "SK0002",
-          "time": "2026-06-02 14:50:38.921",
-          "date": "20260602"
-        },
-        {
-          "device": "SK0002",
-          "time": "2026-06-02 14:52:05.150",
-          "date": "20260602"
-        },
-        {
-          "device": "SK0004",
-          "time": "2026-06-02 15:10:33.078",
-          "date": "20260602"
-        },
-        {
-          "device": "SK0002",
-          "time": "2026-06-02 15:11:00.190",
-          "date": "20260602"
-        },
-        {
-          "device": "SK0003",
-          "time": "2026-06-02 15:18:55.209",
-          "date": "20260602"
-        },
-        {
-          "device": "SK0004",
-          "time": "2026-06-02 15:19:43.110",
-          "date": "20260602"
-        },
-        {
-          "device": "SK0002",
-          "time": "2026-06-02 15:20:50.627",
-          "date": "20260602"
-        },
-        {
-          "device": "SK0004",
-          "time": "2026-06-02 15:25:18.622",
-          "date": "20260602"
-        },
-        {
-          "device": "SK0002",
-          "time": "2026-06-02 15:31:12.793",
-          "date": "20260602"
-        },
-        {
-          "device": "SK0002",
-          "time": "2026-06-02 15:37:34.810",
-          "date": "20260602"
-        },
-        {
-          "device": "SK0003",
-          "time": "2026-06-02 15:39:39.755",
-          "date": "20260602"
-        },
-        {
-          "device": "SK0004",
-          "time": "2026-06-02 15:41:26.600",
-          "date": "20260602"
-        },
-        {
-          "device": "SK0002",
-          "time": "2026-06-02 15:43:18.769",
-          "date": "20260602"
-        },
-        {
-          "device": "SK0004",
-          "time": "2026-06-02 15:50:12.144",
-          "date": "20260602"
-        },
-        {
-          "device": "SK0003",
-          "time": "2026-06-02 15:57:02.909",
-          "date": "20260602"
-        },
-        {
-          "device": "SK0002",
-          "time": "2026-06-02 16:00:33.967",
-          "date": "20260602"
-        },
-        {
-          "device": "SK0003",
-          "time": "2026-06-02 16:02:56.470",
-          "date": "20260602"
-        },
-        {
-          "device": "SK0004",
-          "time": "2026-06-02 16:05:08.662",
-          "date": "20260602"
-        },
-        {
-          "device": "SK0001",
-          "time": "2026-06-02 16:07:09.282",
-          "date": "20260602"
-        },
-        {
-          "device": "SK0002",
-          "time": "2026-06-02 16:12:07.910",
-          "date": "20260602"
-        },
-        {
-          "device": "SK0004",
-          "time": "2026-06-02 16:41:00.308",
-          "date": "20260602"
-        },
-        {
-          "device": "SK0003",
-          "time": "2026-06-02 16:45:16.305",
-          "date": "20260602"
-        },
-        {
-          "device": "SK0004",
-          "time": "2026-06-02 16:46:17.335",
-          "date": "20260602"
-        },
-        {
-          "device": "SK0002",
-          "time": "2026-06-02 16:46:31.087",
-          "date": "20260602"
-        },
-        {
-          "device": "SK0004",
-          "time": "2026-06-02 16:49:04.385",
-          "date": "20260602"
-        },
-        {
-          "device": "SK0001",
-          "time": "2026-06-02 16:49:42.842",
-          "date": "20260602"
-        },
-        {
-          "device": "SK0002",
-          "time": "2026-06-02 16:51:43.713",
-          "date": "20260602"
-        },
-        {
-          "device": "SK0003",
-          "time": "2026-06-02 16:59:22.093",
-          "date": "20260602"
-        },
-        {
-          "device": "SK0004",
-          "time": "2026-06-02 17:16:08.555",
-          "date": "20260602"
-        },
-        {
-          "device": "SK0002",
-          "time": "2026-06-02 17:16:58.175",
-          "date": "20260602"
-        },
-        {
-          "device": "SK0004",
-          "time": "2026-06-02 17:22:39.987",
-          "date": "20260602"
-        },
-        {
-          "device": "SK0002",
-          "time": "2026-06-02 17:26:08.024",
-          "date": "20260602"
-        },
-        {
-          "device": "SK0003",
-          "time": "2026-06-02 17:27:04.698",
-          "date": "20260602"
-        },
-        {
-          "device": "SK0001",
-          "time": "2026-06-02 17:28:51.199",
-          "date": "20260602"
-        },
-        {
-          "device": "SK0004",
-          "time": "2026-06-02 17:30:30.677",
-          "date": "20260602"
-        },
-        {
-          "device": "SK0003",
-          "time": "2026-06-02 17:34:32.908",
-          "date": "20260602"
-        },
-        {
-          "device": "SK0003",
-          "time": "2026-06-02 17:37:45.505",
-          "date": "20260602"
-        },
-        {
-          "device": "SK0002",
-          "time": "2026-06-02 17:40:55.091",
-          "date": "20260602"
-        },
-        {
-          "device": "SK0004",
-          "time": "2026-06-02 17:41:18.550",
-          "date": "20260602"
-        },
-        {
-          "device": "SK0001",
-          "time": "2026-06-02 17:46:05.172",
-          "date": "20260602"
-        },
-        {
-          "device": "SK0001",
-          "time": "2026-06-02 17:48:32.523",
-          "date": "20260602"
-        },
-        {
-          "device": "SK0003",
-          "time": "2026-06-02 17:51:10.577",
-          "date": "20260602"
-        },
-        {
-          "device": "SK0004",
-          "time": "2026-06-02 17:55:14.742",
-          "date": "20260602"
-        },
-        {
-          "device": "SK0002",
-          "time": "2026-06-02 17:57:14.393",
-          "date": "20260602"
-        },
-        {
-          "device": "SK0003",
-          "time": "2026-06-02 17:59:04.732",
-          "date": "20260602"
-        },
-        {
-          "device": "SK0004",
-          "time": "2026-06-02 18:00:33.404",
-          "date": "20260602"
-        },
-        {
-          "device": "SK0001",
-          "time": "2026-06-02 18:03:16.619",
-          "date": "20260602"
-        },
-        {
-          "device": "SK0002",
-          "time": "2026-06-02 18:05:34.596",
-          "date": "20260602"
-        },
-        {
-          "device": "SK0003",
-          "time": "2026-06-02 18:06:10.896",
-          "date": "20260602"
-        },
-        {
-          "device": "SK0002",
-          "time": "2026-06-02 18:11:36.034",
-          "date": "20260602"
-        },
-        {
-          "device": "SK0004",
-          "time": "2026-06-02 18:12:24.713",
-          "date": "20260602"
-        },
-        {
-          "device": "SK0003",
-          "time": "2026-06-02 18:13:44.033",
-          "date": "20260602"
-        },
-        {
-          "device": "SK0004",
-          "time": "2026-06-02 18:15:17.393",
-          "date": "20260602"
-        },
-        {
-          "device": "SK0001",
-          "time": "2026-06-02 18:21:47.106",
-          "date": "20260602"
-        },
-        {
-          "device": "SK0002",
-          "time": "2026-06-02 18:22:48.221",
-          "date": "20260602"
-        },
-        {
-          "device": "SK0001",
-          "time": "2026-06-02 18:23:28.158",
-          "date": "20260602"
-        },
-        {
-          "device": "SK0004",
-          "time": "2026-06-02 18:23:55.663",
-          "date": "20260602"
-        },
-        {
-          "device": "SK0002",
-          "time": "2026-06-02 18:24:38.952",
-          "date": "20260602"
-        },
-        {
-          "device": "SK0001",
-          "time": "2026-06-02 18:25:47.523",
-          "date": "20260602"
-        },
-        {
-          "device": "SK0004",
-          "time": "2026-06-02 18:37:21.973",
-          "date": "20260602"
-        },
-        {
-          "device": "SK0002",
-          "time": "2026-06-02 18:40:23.539",
-          "date": "20260602"
-        },
-        {
-          "device": "SK0001",
-          "time": "2026-06-02 18:41:10.821",
-          "date": "20260602"
-        },
-        {
-          "device": "SK0004",
-          "time": "2026-06-02 18:43:47.509",
-          "date": "20260602"
-        },
-        {
-          "device": "SK0002",
-          "time": "2026-06-02 18:44:16.222",
-          "date": "20260602"
-        },
-        {
-          "device": "SK0003",
-          "time": "2026-06-02 18:48:21.657",
-          "date": "20260602"
-        },
-        {
-          "device": "SK0001",
-          "time": "2026-06-02 18:50:11.676",
-          "date": "20260602"
-        },
-        {
-          "device": "SK0002",
-          "time": "2026-06-02 18:56:15.839",
-          "date": "20260602"
-        },
-        {
-          "device": "SK0004",
-          "time": "2026-06-02 18:59:44.710",
-          "date": "20260602"
-        },
-        {
-          "device": "SK0003",
-          "time": "2026-06-02 19:05:16.485",
-          "date": "20260602"
-        },
-        {
-          "device": "SK0002",
-          "time": "2026-06-02 19:08:48.205",
-          "date": "20260602"
-        },
-        {
-          "device": "SK0004",
-          "time": "2026-06-02 19:12:04.894",
-          "date": "20260602"
-        },
-        {
-          "device": "SK0003",
-          "time": "2026-06-02 19:17:15.121",
-          "date": "20260602"
-        },
-        {
-          "device": "SK0002",
-          "time": "2026-06-02 19:25:12.437",
-          "date": "20260602"
-        },
-        {
-          "device": "SK0004",
-          "time": "2026-06-02 19:27:19.613",
-          "date": "20260602"
-        },
-        {
-          "device": "SK0004",
-          "time": "2026-06-02 20:18:23.521",
-          "date": "20260602"
-        },
-        {
-          "device": "SK0003",
-          "time": "2026-06-02 20:22:03.692",
-          "date": "20260602"
-        },
-        {
-          "device": "SK0001",
-          "time": "2026-06-02 20:28:49.990",
-          "date": "20260602"
-        },
-        {
-          "device": "SK0002",
-          "time": "2026-06-02 20:31:02.363",
-          "date": "20260602"
-        },
-        {
-          "device": "SK0003",
-          "time": "2026-06-02 21:00:27.792",
-          "date": "20260602"
-        },
-        {
-          "device": "SK0002",
-          "time": "2026-06-02 21:07:34.682",
-          "date": "20260602"
-        },
-        {
-          "device": "SK0003",
-          "time": "2026-06-02 21:08:29.981",
-          "date": "20260602"
-        },
-        {
-          "device": "SK0004",
-          "time": "2026-06-02 21:11:19.620",
-          "date": "20260602"
-        },
-        {
-          "device": "SK0001",
-          "time": "2026-06-02 21:15:07.397",
-          "date": "20260602"
-        },
-        {
-          "device": "SK0004",
-          "time": "2026-06-02 21:17:11.287",
-          "date": "20260602"
-        },
-        {
-          "device": "SK0003",
-          "time": "2026-06-02 21:18:39.532",
-          "date": "20260602"
-        },
-        {
-          "device": "SK0002",
-          "time": "2026-06-02 21:18:46.283",
-          "date": "20260602"
-        },
-        {
-          "device": "SK0004",
-          "time": "2026-06-02 21:24:12.622",
-          "date": "20260602"
-        },
-        {
-          "device": "SK0002",
-          "time": "2026-06-02 21:28:02.504",
-          "date": "20260602"
-        },
-        {
-          "device": "SK0002",
-          "time": "2026-06-02 21:42:08.680",
-          "date": "20260602"
-        },
-        {
-          "device": "SK0004",
-          "time": "2026-06-02 21:47:01.693",
-          "date": "20260602"
-        },
-        {
-          "device": "SK0003",
-          "time": "2026-06-02 21:50:55.659",
-          "date": "20260602"
+          "startTime": "2026-06-02 21:14:19.768",
+          "endTime": "2026-06-02 21:14:19.768",
+          "occurrences": 1,
+          "isNoread": false
         }
       ],
       "errorTypes": {
-        "noread": 6245,
-        "deviceFault": 26,
-        "dbError": 1279,
-        "taskFail": 7,
-        "trayAnomaly": 14,
-        "wmsWait": 196
+        "数据库异常(Oracle)": 15,
+        "条码识别失败(NOREAD)": 13,
+        "扫描故障": 12,
+        "获取任务列表异常(?)": 12,
+        "数据库异常(ORA-12570:)": 10,
+        "托盘超长": 10,
+        "任务写入失败(5次)": 5,
+        "托盘超宽": 3,
+        "入货超时": 3,
+        "出货超时": 3,
+        "升降变频器故障": 2,
+        "任务超时": 2,
+        "提升向下软限位报警": 1,
+        "数据库异常(ORA-03135:)": 1,
+        "行走轴故障": 1,
+        "行走时货叉不居中": 1,
+        "电源缺相报警": 1,
+        "托盘超高": 1
       },
       "rawCount": 9579
     }
@@ -1600,8 +1094,12 @@
         "normalCount": 1810,
         "noreadCount": 6245,
         "noreadEvents": 13,
-        "deviceFaults": 26,
-        "deviceCount": 18,
+        "deviceFaults": 96,
+        "deviceCount": 25,
+        "timeSpan": {
+          "start": "07:22:12.422",
+          "end": "22:18:08.929"
+        },
         "healthScore": 18.9
       },
       "hourly": [
@@ -1702,1470 +1200,964 @@
           "normal": 0
         }
       ],
-      "noreadEvents": [
+      "hourlyEvents": [
         {
-          "device": "SS4006",
-          "start": "2026-06-02 18:30:29.283",
-          "end": "2026-06-02 18:48:20.411",
-          "count": 2062,
-          "date": "20260602",
-          "recovery": {
-            "time": "2026-06-02 18:48:21.089",
-            "barcode": "L03253",
-            "type": "入库"
+          "total": 0,
+          "types": {}
+        },
+        {
+          "total": 0,
+          "types": {}
+        },
+        {
+          "total": 0,
+          "types": {}
+        },
+        {
+          "total": 0,
+          "types": {}
+        },
+        {
+          "total": 0,
+          "types": {}
+        },
+        {
+          "total": 0,
+          "types": {}
+        },
+        {
+          "total": 0,
+          "types": {}
+        },
+        {
+          "total": 6,
+          "types": {
+            "扫描故障": 1,
+            "获取任务列表异常(?)": 4,
+            "任务写入失败(5次)": 1
           }
         },
         {
-          "device": "SS3004",
-          "start": "2026-06-02 20:25:26.543",
-          "end": "2026-06-02 20:31:00.708",
-          "count": 643,
-          "date": "20260602",
-          "recovery": {
-            "time": "2026-06-02 20:31:01.374",
-            "barcode": "L01503",
-            "type": "入库"
+          "total": 21,
+          "types": {
+            "扫描故障": 2,
+            "条码识别失败(NOREAD)": 2,
+            "托盘超宽": 1,
+            "提升向下软限位报警": 1,
+            "升降变频器故障": 1,
+            "任务写入失败(5次)": 1,
+            "任务超时": 2,
+            "数据库异常(ORA-12570:)": 3,
+            "数据库异常(Oracle)": 7,
+            "数据库异常(ORA-03135:)": 1
           }
         },
         {
-          "device": "SS3008",
-          "start": "2026-06-02 08:03:51.221",
-          "end": "2026-06-02 08:09:23.626",
-          "count": 641,
-          "date": "20260602",
-          "recovery": {
-            "time": "2026-06-02 08:09:24.308",
-            "barcode": "L02438",
-            "type": "入库"
+          "total": 2,
+          "types": {
+            "任务写入失败(5次)": 1,
+            "托盘超长": 1
           }
         },
         {
-          "device": "SS3008",
-          "start": "2026-06-02 10:23:10.037",
-          "end": "2026-06-02 10:28:30.276",
-          "count": 617,
-          "date": "20260602",
-          "recovery": {
-            "time": "2026-06-02 10:28:30.992",
-            "barcode": "L02359",
-            "type": "入库"
+          "total": 6,
+          "types": {
+            "行走轴故障": 1,
+            "条码识别失败(NOREAD)": 2,
+            "托盘超长": 1,
+            "扫描故障": 1,
+            "行走时货叉不居中": 1
           }
         },
         {
-          "device": "SS4004",
-          "start": "2026-06-02 21:14:19.749",
-          "end": "2026-06-02 21:18:44.781",
-          "count": 511,
-          "date": "20260602",
-          "recovery": {
-            "time": "2026-06-02 21:18:45.449",
-            "barcode": "L02403",
-            "type": "入库"
+          "total": 5,
+          "types": {
+            "扫描故障": 2,
+            "条码识别失败(NOREAD)": 2,
+            "托盘超长": 1
           }
         },
         {
-          "device": "SS4004",
-          "start": "2026-06-02 10:53:36.593",
-          "end": "2026-06-02 10:57:18.816",
-          "count": 428,
-          "date": "20260602",
-          "recovery": {
-            "time": "2026-06-02 10:57:19.484",
-            "barcode": "L01609",
-            "type": "入库"
+          "total": 10,
+          "types": {
+            "数据库异常(ORA-12570:)": 3,
+            "数据库异常(Oracle)": 7
           }
         },
         {
-          "device": "SS3004",
-          "start": "2026-06-02 08:54:02.777",
-          "end": "2026-06-02 08:57:40.287",
-          "count": 420,
-          "date": "20260602",
-          "recovery": {
-            "time": "2026-06-02 08:57:41.212",
-            "barcode": "L01735",
-            "type": "入库"
+          "total": 3,
+          "types": {
+            "数据库异常(Oracle)": 1,
+            "获取任务列表异常(?)": 2
           }
         },
         {
-          "device": "SS2008",
-          "start": "2026-06-02 11:15:57.872",
-          "end": "2026-06-02 11:18:31.849",
-          "count": 297,
-          "date": "20260602",
-          "recovery": {
-            "time": "2026-06-02 11:18:32.518",
-            "barcode": "L02651",
-            "type": "入库"
+          "total": 11,
+          "types": {
+            "获取任务列表异常(?)": 2,
+            "数据库异常(ORA-12570:)": 4,
+            "任务写入失败(5次)": 2,
+            "条码识别失败(NOREAD)": 1,
+            "扫描故障": 1,
+            "托盘超宽": 1
           }
         },
         {
-          "device": "SS3006",
-          "start": "2026-06-02 14:46:31.203",
-          "end": "2026-06-02 14:48:28.240",
-          "count": 226,
-          "date": "20260602",
-          "recovery": {
-            "time": "2026-06-02 14:48:28.909",
-            "barcode": "L02650",
-            "type": "入库"
+          "total": 3,
+          "types": {
+            "托盘超长": 2,
+            "条码识别失败(NOREAD)": 1
           }
         },
         {
-          "device": "SS3002",
-          "start": "2026-06-02 17:44:41.705",
-          "end": "2026-06-02 17:46:03.547",
-          "count": 158,
-          "date": "20260602",
-          "recovery": {
-            "time": "2026-06-02 17:46:04.274",
-            "barcode": "L03599",
-            "type": "入库"
+          "total": 6,
+          "types": {
+            "托盘超长": 1,
+            "获取任务列表异常(?)": 1,
+            "入货超时": 2,
+            "出货超时": 2
           }
         },
         {
-          "device": "SS4004",
-          "start": "2026-06-02 15:36:26.138",
-          "end": "2026-06-02 15:37:33.180",
-          "count": 130,
-          "date": "20260602",
-          "recovery": {
-            "time": "2026-06-02 15:37:33.854",
-            "barcode": "L02650",
-            "type": "入库"
+          "total": 5,
+          "types": {
+            "升降变频器故障": 1,
+            "托盘超长": 2,
+            "条码识别失败(NOREAD)": 1,
+            "扫描故障": 1
           }
         },
         {
-          "device": "SS2004",
-          "start": "2026-06-02 18:10:37.051",
-          "end": "2026-06-02 18:11:34.447",
-          "count": 111,
-          "date": "20260602",
-          "recovery": {
-            "time": "2026-06-02 18:11:35.113",
-            "barcode": "L03569",
-            "type": "入库"
+          "total": 7,
+          "types": {
+            "电源缺相报警": 1,
+            "扫描故障": 2,
+            "条码识别失败(NOREAD)": 2,
+            "出货超时": 1,
+            "入货超时": 1
           }
         },
         {
-          "device": "SS1002",
-          "start": "2026-06-02 11:46:08.557",
-          "end": "2026-06-02 11:46:08.557",
-          "count": 1,
-          "date": "20260602",
-          "manualBarcode": {
-            "time": "2026-06-02 11:46:59.222",
-            "barcode": "L02411"
-          },
-          "recovery": {
-            "time": "2026-06-02 11:46:59.273",
-            "barcode": "L02411",
-            "type": "入库"
+          "total": 4,
+          "types": {
+            "托盘超长": 2,
+            "托盘超宽": 1,
+            "托盘超高": 1
           }
+        },
+        {
+          "total": 5,
+          "types": {
+            "获取任务列表异常(?)": 3,
+            "扫描故障": 1,
+            "条码识别失败(NOREAD)": 1
+          }
+        },
+        {
+          "total": 2,
+          "types": {
+            "条码识别失败(NOREAD)": 1,
+            "扫描故障": 1
+          }
+        },
+        {
+          "total": 0,
+          "types": {}
+        },
+        {
+          "total": 0,
+          "types": {}
         }
       ],
       "deviceFaults": [
         {
           "device": "SS1014",
           "faultType": "扫描故障",
-          "time": "2026-06-02 07:40:29.855",
-          "date": "20260602",
-          "recovery": "2026-06-02 07:52:02.377"
+          "startTime": "2026-06-02 07:40:29.855",
+          "endTime": "2026-06-02 07:40:29.855",
+          "occurrences": 1,
+          "isNoread": false
+        },
+        {
+          "device": "SK0004",
+          "faultType": "获取任务列表异常(?)",
+          "startTime": "2026-06-02 07:52:03.289",
+          "endTime": "2026-06-02 11:41:57.687",
+          "occurrences": 23,
+          "isNoread": false
+        },
+        {
+          "device": "SK0002",
+          "faultType": "获取任务列表异常(?)",
+          "startTime": "2026-06-02 07:52:33.681",
+          "endTime": "2026-06-02 12:00:24.297",
+          "occurrences": 25,
+          "isNoread": false
+        },
+        {
+          "device": "SK0001",
+          "faultType": "获取任务列表异常(?)",
+          "startTime": "2026-06-02 07:54:04.068",
+          "endTime": "2026-06-02 11:50:18.438",
+          "occurrences": 23,
+          "isNoread": false
+        },
+        {
+          "device": "SK0003",
+          "faultType": "获取任务列表异常(?)",
+          "startTime": "2026-06-02 07:55:21.430",
+          "endTime": "2026-06-02 11:45:26.850",
+          "occurrences": 19,
+          "isNoread": false
+        },
+        {
+          "device": "SK0002",
+          "faultType": "任务写入失败(5次)",
+          "startTime": "2026-06-02 07:59:46.970",
+          "endTime": "2026-06-02 08:02:12.971",
+          "occurrences": 2,
+          "isNoread": false
         },
         {
           "device": "SS3008",
           "faultType": "扫描故障",
-          "time": "2026-06-02 08:03:51.156",
-          "date": "20260602",
-          "recovery": "2026-06-02 08:09:24.308"
+          "startTime": "2026-06-02 08:03:51.156",
+          "endTime": "2026-06-02 08:03:51.156",
+          "occurrences": 1,
+          "isNoread": false
+        },
+        {
+          "device": "SS3008",
+          "faultType": "条码识别失败(NOREAD)",
+          "startTime": "2026-06-02 08:03:51.221",
+          "endTime": "2026-06-02 08:09:23.626",
+          "occurrences": 641,
+          "isNoread": true
+        },
+        {
+          "device": "SK0001",
+          "faultType": "托盘超宽",
+          "startTime": "2026-06-02 08:05:08.633",
+          "endTime": "2026-06-02 08:05:08.633",
+          "occurrences": 1,
+          "isNoread": false
         },
         {
           "device": "SK0004",
           "faultType": "提升向下软限位报警",
-          "time": "2026-06-02 08:09:28.380",
-          "date": "20260602",
-          "recovery": "2026-06-02 08:10:29.148"
+          "startTime": "2026-06-02 08:09:28.380",
+          "endTime": "2026-06-02 08:09:28.380",
+          "occurrences": 1,
+          "isNoread": false
         },
         {
           "device": "SK0004",
           "faultType": "升降变频器故障",
-          "time": "2026-06-02 08:10:00.143",
-          "date": "20260602",
-          "recovery": "2026-06-02 08:10:29.148"
+          "startTime": "2026-06-02 08:10:00.143",
+          "endTime": "2026-06-02 08:10:00.143",
+          "occurrences": 1,
+          "isNoread": false
+        },
+        {
+          "device": "SK0003",
+          "faultType": "任务写入失败(5次)",
+          "startTime": "2026-06-02 08:11:25.369",
+          "endTime": "2026-06-02 08:11:25.369",
+          "occurrences": 1,
+          "isNoread": false
         },
         {
           "device": "SS4002",
           "faultType": "任务超时",
-          "time": "2026-06-02 08:28:54.867",
-          "date": "20260602",
-          "recovery": "2026-06-02 08:35:48.263"
+          "startTime": "2026-06-02 08:28:54.867",
+          "endTime": "2026-06-02 08:28:54.867",
+          "occurrences": 1,
+          "isNoread": false
+        },
+        {
+          "device": "Unknown",
+          "faultType": "数据库异常(ORA-12570:)",
+          "startTime": "2026-06-02 08:29:05.651",
+          "endTime": "2026-06-02 09:13:56.086",
+          "occurrences": 18,
+          "isNoread": false
+        },
+        {
+          "device": "SS2005",
+          "faultType": "数据库异常(ORA-12570:)",
+          "startTime": "2026-06-02 08:29:06.474",
+          "endTime": "2026-06-02 08:29:06.474",
+          "occurrences": 1,
+          "isNoread": false
+        },
+        {
+          "device": "SS4002",
+          "faultType": "数据库异常(ORA-12570:)",
+          "startTime": "2026-06-02 08:29:09.215",
+          "endTime": "2026-06-02 08:29:09.215",
+          "occurrences": 1,
+          "isNoread": false
+        },
+        {
+          "device": "Unknown",
+          "faultType": "数据库异常(Oracle)",
+          "startTime": "2026-06-02 08:29:26.710",
+          "endTime": "2026-06-02 08:35:25.270",
+          "occurrences": 62,
+          "isNoread": false
+        },
+        {
+          "device": "SS2005",
+          "faultType": "数据库异常(Oracle)",
+          "startTime": "2026-06-02 08:29:48.543",
+          "endTime": "2026-06-02 08:34:42.280",
+          "occurrences": 6,
+          "isNoread": false
+        },
+        {
+          "device": "SS4002",
+          "faultType": "数据库异常(Oracle)",
+          "startTime": "2026-06-02 08:29:48.575",
+          "endTime": "2026-06-02 08:35:25.130",
+          "occurrences": 9,
+          "isNoread": false
+        },
+        {
+          "device": "SK0002",
+          "faultType": "数据库异常(Oracle)",
+          "startTime": "2026-06-02 08:30:29.819",
+          "endTime": "2026-06-02 08:35:24.476",
+          "occurrences": 8,
+          "isNoread": false
+        },
+        {
+          "device": "SK0003",
+          "faultType": "数据库异常(Oracle)",
+          "startTime": "2026-06-02 08:30:50.954",
+          "endTime": "2026-06-02 08:30:50.954",
+          "occurrences": 1,
+          "isNoread": false
+        },
+        {
+          "device": "SK0004",
+          "faultType": "数据库异常(Oracle)",
+          "startTime": "2026-06-02 08:31:33.028",
+          "endTime": "2026-06-02 08:31:33.028",
+          "occurrences": 1,
+          "isNoread": false
+        },
+        {
+          "device": "SK0001",
+          "faultType": "数据库异常(Oracle)",
+          "startTime": "2026-06-02 08:32:15.816",
+          "endTime": "2026-06-02 08:32:15.816",
+          "occurrences": 1,
+          "isNoread": false
+        },
+        {
+          "device": "SS3004",
+          "faultType": "条码识别失败(NOREAD)",
+          "startTime": "2026-06-02 08:54:02.777",
+          "endTime": "2026-06-02 08:57:40.287",
+          "occurrences": 420,
+          "isNoread": true
         },
         {
           "device": "SS3004",
           "faultType": "扫描故障",
-          "time": "2026-06-02 08:54:02.964",
-          "date": "20260602",
-          "recovery": "2026-06-02 08:57:41.212"
+          "startTime": "2026-06-02 08:54:02.964",
+          "endTime": "2026-06-02 08:54:02.964",
+          "occurrences": 1,
+          "isNoread": false
         },
         {
           "device": "SS4004",
           "faultType": "任务超时",
-          "time": "2026-06-02 08:59:35.068",
-          "date": "20260602",
-          "recovery": "2026-06-02 08:59:40.104"
+          "startTime": "2026-06-02 08:59:35.068",
+          "endTime": "2026-06-02 08:59:35.068",
+          "occurrences": 1,
+          "isNoread": false
+        },
+        {
+          "device": "Unknown",
+          "faultType": "数据库异常(ORA-03135:)",
+          "startTime": "2026-06-02 08:59:45.558",
+          "endTime": "2026-06-02 08:59:45.558",
+          "occurrences": 1,
+          "isNoread": false
+        },
+        {
+          "device": "SK0002",
+          "faultType": "任务写入失败(5次)",
+          "startTime": "2026-06-02 09:05:10.980",
+          "endTime": "2026-06-02 09:05:10.980",
+          "occurrences": 1,
+          "isNoread": false
+        },
+        {
+          "device": "SS1014",
+          "faultType": "托盘超长",
+          "startTime": "2026-06-02 09:38:10.956",
+          "endTime": "2026-06-02 09:38:10.956",
+          "occurrences": 1,
+          "isNoread": false
         },
         {
           "device": "SK0004",
           "faultType": "行走轴故障",
-          "time": "2026-06-02 10:10:32.318",
-          "date": "20260602",
-          "recovery": "2026-06-02 10:20:40.262"
+          "startTime": "2026-06-02 10:10:32.318",
+          "endTime": "2026-06-02 10:10:32.318",
+          "occurrences": 1,
+          "isNoread": false
+        },
+        {
+          "device": "SS3008",
+          "faultType": "条码识别失败(NOREAD)",
+          "startTime": "2026-06-02 10:23:10.037",
+          "endTime": "2026-06-02 10:28:30.276",
+          "occurrences": 617,
+          "isNoread": true
+        },
+        {
+          "device": "SS3004",
+          "faultType": "托盘超长",
+          "startTime": "2026-06-02 10:26:41.945",
+          "endTime": "2026-06-02 10:26:41.945",
+          "occurrences": 1,
+          "isNoread": false
+        },
+        {
+          "device": "SS4004",
+          "faultType": "条码识别失败(NOREAD)",
+          "startTime": "2026-06-02 10:53:36.593",
+          "endTime": "2026-06-02 10:57:18.816",
+          "occurrences": 428,
+          "isNoread": true
         },
         {
           "device": "SS4004",
           "faultType": "扫描故障",
-          "time": "2026-06-02 10:53:36.760",
-          "date": "20260602",
-          "recovery": "2026-06-02 10:57:19.484"
+          "startTime": "2026-06-02 10:53:36.760",
+          "endTime": "2026-06-02 10:53:36.760",
+          "occurrences": 1,
+          "isNoread": false
         },
         {
           "device": "SK0002",
           "faultType": "行走时货叉不居中",
-          "time": "2026-06-02 10:58:15.043",
-          "date": "20260602",
-          "recovery": "2026-06-02 11:03:00.189"
+          "startTime": "2026-06-02 10:58:15.043",
+          "endTime": "2026-06-02 10:58:15.043",
+          "occurrences": 1,
+          "isNoread": false
         },
         {
           "device": "SS2008",
           "faultType": "扫描故障",
-          "time": "2026-06-02 11:15:57.750",
-          "date": "20260602",
-          "recovery": "2026-06-02 11:18:32.518"
+          "startTime": "2026-06-02 11:15:57.750",
+          "endTime": "2026-06-02 11:15:57.750",
+          "occurrences": 1,
+          "isNoread": false
+        },
+        {
+          "device": "SS2008",
+          "faultType": "条码识别失败(NOREAD)",
+          "startTime": "2026-06-02 11:15:57.872",
+          "endTime": "2026-06-02 11:18:31.849",
+          "occurrences": 297,
+          "isNoread": true
+        },
+        {
+          "device": "SS4002",
+          "faultType": "托盘超长",
+          "startTime": "2026-06-02 11:17:37.450",
+          "endTime": "2026-06-02 11:17:37.450",
+          "occurrences": 1,
+          "isNoread": false
+        },
+        {
+          "device": "SS1002",
+          "faultType": "条码识别失败(NOREAD)",
+          "startTime": "2026-06-02 11:46:08.557",
+          "endTime": "2026-06-02 11:46:08.557",
+          "occurrences": 1,
+          "isNoread": true
         },
         {
           "device": "SS1002",
           "faultType": "扫描故障",
-          "time": "2026-06-02 11:46:08.656",
-          "date": "20260602",
-          "recovery": "2026-06-02 11:46:59.273"
+          "startTime": "2026-06-02 11:46:08.656",
+          "endTime": "2026-06-02 11:46:08.656",
+          "occurrences": 1,
+          "isNoread": false
+        },
+        {
+          "device": "Unknown",
+          "faultType": "数据库异常(ORA-12570:)",
+          "startTime": "2026-06-02 12:17:16.385",
+          "endTime": "2026-06-02 12:43:40.088",
+          "occurrences": 40,
+          "isNoread": false
+        },
+        {
+          "device": "SS1001",
+          "faultType": "数据库异常(ORA-12570:)",
+          "startTime": "2026-06-02 12:17:17.232",
+          "endTime": "2026-06-02 12:43:20.469",
+          "occurrences": 3,
+          "isNoread": false
+        },
+        {
+          "device": "SS1009",
+          "faultType": "数据库异常(ORA-12570:)",
+          "startTime": "2026-06-02 12:17:18.115",
+          "endTime": "2026-06-02 12:43:21.429",
+          "occurrences": 3,
+          "isNoread": false
+        },
+        {
+          "device": "Unknown",
+          "faultType": "数据库异常(Oracle)",
+          "startTime": "2026-06-02 12:17:37.748",
+          "endTime": "2026-06-02 14:26:50.540",
+          "occurrences": 907,
+          "isNoread": false
+        },
+        {
+          "device": "SS1001",
+          "faultType": "数据库异常(Oracle)",
+          "startTime": "2026-06-02 12:17:59.426",
+          "endTime": "2026-06-02 14:26:53.734",
+          "occurrences": 100,
+          "isNoread": false
+        },
+        {
+          "device": "SS1009",
+          "faultType": "数据库异常(Oracle)",
+          "startTime": "2026-06-02 12:17:59.687",
+          "endTime": "2026-06-02 14:26:11.646",
+          "occurrences": 99,
+          "isNoread": false
+        },
+        {
+          "device": "SK0002",
+          "faultType": "数据库异常(Oracle)",
+          "startTime": "2026-06-02 12:19:23.833",
+          "endTime": "2026-06-02 12:19:23.833",
+          "occurrences": 1,
+          "isNoread": false
+        },
+        {
+          "device": "SK0003",
+          "faultType": "数据库异常(Oracle)",
+          "startTime": "2026-06-02 12:19:44.019",
+          "endTime": "2026-06-02 12:19:44.019",
+          "occurrences": 1,
+          "isNoread": false
+        },
+        {
+          "device": "SK0004",
+          "faultType": "数据库异常(Oracle)",
+          "startTime": "2026-06-02 12:19:44.690",
+          "endTime": "2026-06-02 12:19:44.690",
+          "occurrences": 1,
+          "isNoread": false
+        },
+        {
+          "device": "SK0001",
+          "faultType": "数据库异常(Oracle)",
+          "startTime": "2026-06-02 12:20:26.779",
+          "endTime": "2026-06-02 12:20:26.779",
+          "occurrences": 1,
+          "isNoread": false
+        },
+        {
+          "device": "SS1005",
+          "faultType": "数据库异常(Oracle)",
+          "startTime": "2026-06-02 13:47:10.221",
+          "endTime": "2026-06-02 14:26:53.545",
+          "occurrences": 4,
+          "isNoread": false
+        },
+        {
+          "device": "SK0002",
+          "faultType": "获取任务列表异常(?)",
+          "startTime": "2026-06-02 13:50:24.777",
+          "endTime": "2026-06-02 19:25:12.437",
+          "occurrences": 26,
+          "isNoread": false
+        },
+        {
+          "device": "SK0003",
+          "faultType": "获取任务列表异常(?)",
+          "startTime": "2026-06-02 13:59:04.382",
+          "endTime": "2026-06-02 19:17:15.121",
+          "occurrences": 20,
+          "isNoread": false
+        },
+        {
+          "device": "SK0001",
+          "faultType": "获取任务列表异常(?)",
+          "startTime": "2026-06-02 14:07:21.045",
+          "endTime": "2026-06-02 14:43:25.851",
+          "occurrences": 6,
+          "isNoread": false
+        },
+        {
+          "device": "SK0004",
+          "faultType": "获取任务列表异常(?)",
+          "startTime": "2026-06-02 14:12:36.390",
+          "endTime": "2026-06-02 21:47:01.693",
+          "occurrences": 31,
+          "isNoread": false
+        },
+        {
+          "device": "SK0002",
+          "faultType": "数据库异常(ORA-12570:)",
+          "startTime": "2026-06-02 14:26:08.318",
+          "endTime": "2026-06-02 14:26:08.318",
+          "occurrences": 1,
+          "isNoread": false
+        },
+        {
+          "device": "Unknown",
+          "faultType": "数据库异常(ORA-12570:)",
+          "startTime": "2026-06-02 14:26:08.363",
+          "endTime": "2026-06-02 14:26:09.015",
+          "occurrences": 7,
+          "isNoread": false
+        },
+        {
+          "device": "SS1005",
+          "faultType": "数据库异常(ORA-12570:)",
+          "startTime": "2026-06-02 14:26:08.712",
+          "endTime": "2026-06-02 14:26:08.712",
+          "occurrences": 1,
+          "isNoread": false
+        },
+        {
+          "device": "SS1001",
+          "faultType": "数据库异常(ORA-12570:)",
+          "startTime": "2026-06-02 14:26:08.728",
+          "endTime": "2026-06-02 14:26:08.728",
+          "occurrences": 1,
+          "isNoread": false
+        },
+        {
+          "device": "SK0003",
+          "faultType": "任务写入失败(5次)",
+          "startTime": "2026-06-02 14:38:57.666",
+          "endTime": "2026-06-02 15:37:08.714",
+          "occurrences": 2,
+          "isNoread": false
+        },
+        {
+          "device": "SS3006",
+          "faultType": "条码识别失败(NOREAD)",
+          "startTime": "2026-06-02 14:46:31.203",
+          "endTime": "2026-06-02 14:48:28.240",
+          "occurrences": 226,
+          "isNoread": true
         },
         {
           "device": "SS3006",
           "faultType": "扫描故障",
-          "time": "2026-06-02 14:46:31.247",
-          "date": "20260602",
-          "recovery": "2026-06-02 14:48:28.909"
+          "startTime": "2026-06-02 14:46:31.247",
+          "endTime": "2026-06-02 14:46:31.247",
+          "occurrences": 1,
+          "isNoread": false
+        },
+        {
+          "device": "SK0004",
+          "faultType": "托盘超宽",
+          "startTime": "2026-06-02 14:47:39.532",
+          "endTime": "2026-06-02 14:47:39.532",
+          "occurrences": 1,
+          "isNoread": false
+        },
+        {
+          "device": "SK0002",
+          "faultType": "任务写入失败(5次)",
+          "startTime": "2026-06-02 14:50:42.070",
+          "endTime": "2026-06-02 14:50:42.070",
+          "occurrences": 1,
+          "isNoread": false
+        },
+        {
+          "device": "SS1010",
+          "faultType": "托盘超长",
+          "startTime": "2026-06-02 15:18:40.345",
+          "endTime": "2026-06-02 15:18:40.345",
+          "occurrences": 1,
+          "isNoread": false
+        },
+        {
+          "device": "SS4004",
+          "faultType": "条码识别失败(NOREAD)",
+          "startTime": "2026-06-02 15:36:26.138",
+          "endTime": "2026-06-02 15:37:33.180",
+          "occurrences": 130,
+          "isNoread": true
+        },
+        {
+          "device": "SS3006",
+          "faultType": "托盘超长",
+          "startTime": "2026-06-02 15:56:36.363",
+          "endTime": "2026-06-02 15:56:36.363",
+          "occurrences": 1,
+          "isNoread": false
+        },
+        {
+          "device": "SS3008",
+          "faultType": "托盘超长",
+          "startTime": "2026-06-02 16:03:22.661",
+          "endTime": "2026-06-02 16:03:22.661",
+          "occurrences": 1,
+          "isNoread": false
+        },
+        {
+          "device": "SK0001",
+          "faultType": "获取任务列表异常(?)",
+          "startTime": "2026-06-02 16:07:09.282",
+          "endTime": "2026-06-02 18:50:11.676",
+          "occurrences": 11,
+          "isNoread": false
         },
         {
           "device": "SS2001",
           "faultType": "入货超时",
-          "time": "2026-06-02 16:30:47.062",
-          "date": "20260602",
-          "recovery": "2026-06-02 16:31:43.433"
+          "startTime": "2026-06-02 16:30:47.062",
+          "endTime": "2026-06-02 16:30:47.062",
+          "occurrences": 1,
+          "isNoread": false
         },
         {
           "device": "SS2002",
           "faultType": "出货超时",
-          "time": "2026-06-02 16:31:17.148",
-          "date": "20260602"
+          "startTime": "2026-06-02 16:31:17.148",
+          "endTime": "2026-06-02 16:31:17.148",
+          "occurrences": 1,
+          "isNoread": false
         },
         {
           "device": "SS4004",
           "faultType": "入货超时",
-          "time": "2026-06-02 16:47:32.560",
-          "date": "20260602",
-          "recovery": "2026-06-02 17:16:57.459"
+          "startTime": "2026-06-02 16:47:32.560",
+          "endTime": "2026-06-02 16:47:32.560",
+          "occurrences": 1,
+          "isNoread": false
         },
         {
           "device": "SS4003",
           "faultType": "出货超时",
-          "time": "2026-06-02 16:47:32.560",
-          "date": "20260602"
+          "startTime": "2026-06-02 16:47:32.560",
+          "endTime": "2026-06-02 16:47:32.560",
+          "occurrences": 1,
+          "isNoread": false
         },
         {
           "device": "SK0004",
           "faultType": "升降变频器故障",
-          "time": "2026-06-02 17:31:22.659",
-          "date": "20260602",
-          "recovery": "2026-06-02 17:41:22.314"
+          "startTime": "2026-06-02 17:31:22.659",
+          "endTime": "2026-06-02 17:31:22.659",
+          "occurrences": 1,
+          "isNoread": false
+        },
+        {
+          "device": "SS1010",
+          "faultType": "托盘超长",
+          "startTime": "2026-06-02 17:33:18.359",
+          "endTime": "2026-06-02 17:33:18.359",
+          "occurrences": 1,
+          "isNoread": false
+        },
+        {
+          "device": "SS3002",
+          "faultType": "条码识别失败(NOREAD)",
+          "startTime": "2026-06-02 17:44:41.705",
+          "endTime": "2026-06-02 17:46:03.547",
+          "occurrences": 158,
+          "isNoread": true
         },
         {
           "device": "SS3002",
           "faultType": "扫描故障",
-          "time": "2026-06-02 17:44:41.763",
-          "date": "20260602",
-          "recovery": "2026-06-02 17:46:04.274"
+          "startTime": "2026-06-02 17:44:41.763",
+          "endTime": "2026-06-02 17:44:41.763",
+          "occurrences": 1,
+          "isNoread": false
+        },
+        {
+          "device": "SS3002",
+          "faultType": "托盘超长",
+          "startTime": "2026-06-02 17:47:36.960",
+          "endTime": "2026-06-02 17:47:36.960",
+          "occurrences": 1,
+          "isNoread": false
         },
         {
           "device": "SK0003",
           "faultType": "电源缺相报警",
-          "time": "2026-06-02 18:07:39.280",
-          "date": "20260602",
-          "recovery": "2026-06-02 18:11:49.020"
+          "startTime": "2026-06-02 18:07:39.280",
+          "endTime": "2026-06-02 18:07:39.280",
+          "occurrences": 1,
+          "isNoread": false
         },
         {
           "device": "SS2004",
           "faultType": "扫描故障",
-          "time": "2026-06-02 18:10:36.970",
-          "date": "20260602",
-          "recovery": "2026-06-02 18:11:35.113"
+          "startTime": "2026-06-02 18:10:36.970",
+          "endTime": "2026-06-02 18:10:36.970",
+          "occurrences": 1,
+          "isNoread": false
+        },
+        {
+          "device": "SS2004",
+          "faultType": "条码识别失败(NOREAD)",
+          "startTime": "2026-06-02 18:10:37.051",
+          "endTime": "2026-06-02 18:11:34.447",
+          "occurrences": 111,
+          "isNoread": true
+        },
+        {
+          "device": "SS4006",
+          "faultType": "条码识别失败(NOREAD)",
+          "startTime": "2026-06-02 18:30:29.283",
+          "endTime": "2026-06-02 18:48:20.411",
+          "occurrences": 2062,
+          "isNoread": true
         },
         {
           "device": "SS4006",
           "faultType": "扫描故障",
-          "time": "2026-06-02 18:30:29.355",
-          "date": "20260602",
-          "recovery": "2026-06-02 18:48:21.089"
+          "startTime": "2026-06-02 18:30:29.355",
+          "endTime": "2026-06-02 18:30:29.355",
+          "occurrences": 1,
+          "isNoread": false
         },
         {
           "device": "SS4005",
           "faultType": "出货超时",
-          "time": "2026-06-02 18:55:49.862",
-          "date": "20260602",
-          "recovery": "2026-06-02 19:11:52.152"
+          "startTime": "2026-06-02 18:55:49.862",
+          "endTime": "2026-06-02 18:55:49.862",
+          "occurrences": 1,
+          "isNoread": false
         },
         {
           "device": "SS4006",
           "faultType": "入货超时",
-          "time": "2026-06-02 18:55:49.862",
-          "date": "20260602",
-          "recovery": "2026-06-02 19:05:15.488"
+          "startTime": "2026-06-02 18:55:49.862",
+          "endTime": "2026-06-02 18:55:49.862",
+          "occurrences": 1,
+          "isNoread": false
+        },
+        {
+          "device": "SS4004",
+          "faultType": "托盘超长",
+          "startTime": "2026-06-02 19:03:52.956",
+          "endTime": "2026-06-02 19:03:52.956",
+          "occurrences": 1,
+          "isNoread": false
+        },
+        {
+          "device": "SK0002",
+          "faultType": "托盘超宽",
+          "startTime": "2026-06-02 19:10:21.470",
+          "endTime": "2026-06-02 19:10:21.470",
+          "occurrences": 1,
+          "isNoread": false
+        },
+        {
+          "device": "SS1014",
+          "faultType": "托盘超高",
+          "startTime": "2026-06-02 19:11:06.460",
+          "endTime": "2026-06-02 19:11:06.460",
+          "occurrences": 1,
+          "isNoread": false
+        },
+        {
+          "device": "SS1014",
+          "faultType": "托盘超长",
+          "startTime": "2026-06-02 19:26:41.860",
+          "endTime": "2026-06-02 19:26:41.860",
+          "occurrences": 1,
+          "isNoread": false
+        },
+        {
+          "device": "SK0003",
+          "faultType": "获取任务列表异常(?)",
+          "startTime": "2026-06-02 20:22:03.692",
+          "endTime": "2026-06-02 21:50:55.659",
+          "occurrences": 5,
+          "isNoread": false
         },
         {
           "device": "SS3004",
           "faultType": "扫描故障",
-          "time": "2026-06-02 20:25:26.164",
-          "date": "20260602",
-          "recovery": "2026-06-02 20:31:01.374"
+          "startTime": "2026-06-02 20:25:26.164",
+          "endTime": "2026-06-02 20:25:26.164",
+          "occurrences": 1,
+          "isNoread": false
+        },
+        {
+          "device": "SS3004",
+          "faultType": "条码识别失败(NOREAD)",
+          "startTime": "2026-06-02 20:25:26.543",
+          "endTime": "2026-06-02 20:31:00.708",
+          "occurrences": 643,
+          "isNoread": true
+        },
+        {
+          "device": "SK0001",
+          "faultType": "获取任务列表异常(?)",
+          "startTime": "2026-06-02 20:28:49.990",
+          "endTime": "2026-06-02 21:15:07.397",
+          "occurrences": 2,
+          "isNoread": false
+        },
+        {
+          "device": "SK0002",
+          "faultType": "获取任务列表异常(?)",
+          "startTime": "2026-06-02 20:31:02.363",
+          "endTime": "2026-06-02 21:42:08.680",
+          "occurrences": 5,
+          "isNoread": false
+        },
+        {
+          "device": "SS4004",
+          "faultType": "条码识别失败(NOREAD)",
+          "startTime": "2026-06-02 21:14:19.749",
+          "endTime": "2026-06-02 21:18:44.781",
+          "occurrences": 511,
+          "isNoread": true
         },
         {
           "device": "SS4004",
           "faultType": "扫描故障",
-          "time": "2026-06-02 21:14:19.768",
-          "date": "20260602",
-          "recovery": "2026-06-02 21:18:45.449"
-        }
-      ],
-      "taskFails": [
-        {
-          "device": "SK0002",
-          "time": "2026-06-02 07:59:46.970",
-          "retries": 5,
-          "date": "20260602"
-        },
-        {
-          "device": "SK0002",
-          "time": "2026-06-02 08:02:12.971",
-          "retries": 5,
-          "date": "20260602"
-        },
-        {
-          "device": "SK0003",
-          "time": "2026-06-02 08:11:25.369",
-          "retries": 5,
-          "date": "20260602"
-        },
-        {
-          "device": "SK0002",
-          "time": "2026-06-02 09:05:10.980",
-          "retries": 5,
-          "date": "20260602"
-        },
-        {
-          "device": "SK0003",
-          "time": "2026-06-02 14:38:57.666",
-          "retries": 5,
-          "date": "20260602"
-        },
-        {
-          "device": "SK0002",
-          "time": "2026-06-02 14:50:42.070",
-          "retries": 5,
-          "date": "20260602"
-        },
-        {
-          "device": "SK0003",
-          "time": "2026-06-02 15:37:08.714",
-          "retries": 5,
-          "date": "20260602"
-        }
-      ],
-      "dbErrorCount": 1279,
-      "trayAnomalies": [
-        {
-          "device": "SK0001",
-          "time": "2026-06-02 08:05:08.633",
-          "type": "超宽",
-          "date": "20260602"
-        },
-        {
-          "device": "SS1014",
-          "time": "2026-06-02 09:38:10.956",
-          "type": "超长",
-          "date": "20260602"
-        },
-        {
-          "device": "SS3004",
-          "time": "2026-06-02 10:26:41.945",
-          "type": "超长",
-          "date": "20260602"
-        },
-        {
-          "device": "SS4002",
-          "time": "2026-06-02 11:17:37.450",
-          "type": "超长",
-          "date": "20260602"
-        },
-        {
-          "device": "SK0004",
-          "time": "2026-06-02 14:47:39.532",
-          "type": "超宽",
-          "date": "20260602"
-        },
-        {
-          "device": "SS1010",
-          "time": "2026-06-02 15:18:40.345",
-          "type": "超长",
-          "date": "20260602"
-        },
-        {
-          "device": "SS3006",
-          "time": "2026-06-02 15:56:36.363",
-          "type": "超长",
-          "date": "20260602"
-        },
-        {
-          "device": "SS3008",
-          "time": "2026-06-02 16:03:22.661",
-          "type": "超长",
-          "date": "20260602"
-        },
-        {
-          "device": "SS1010",
-          "time": "2026-06-02 17:33:18.359",
-          "type": "超长",
-          "date": "20260602"
-        },
-        {
-          "device": "SS3002",
-          "time": "2026-06-02 17:47:36.960",
-          "type": "超长",
-          "date": "20260602"
-        },
-        {
-          "device": "SS4004",
-          "time": "2026-06-02 19:03:52.956",
-          "type": "超长",
-          "date": "20260602"
-        },
-        {
-          "device": "SK0002",
-          "time": "2026-06-02 19:10:21.470",
-          "type": "超宽",
-          "date": "20260602"
-        },
-        {
-          "device": "SS1014",
-          "time": "2026-06-02 19:11:06.460",
-          "type": "超高",
-          "date": "20260602"
-        },
-        {
-          "device": "SS1014",
-          "time": "2026-06-02 19:26:41.860",
-          "type": "超长",
-          "date": "20260602"
-        }
-      ],
-      "wmsWaits": [
-        {
-          "device": "SK0004",
-          "time": "2026-06-02 07:52:03.289",
-          "date": "20260602"
-        },
-        {
-          "device": "SK0002",
-          "time": "2026-06-02 07:52:33.681",
-          "date": "20260602"
-        },
-        {
-          "device": "SK0001",
-          "time": "2026-06-02 07:54:04.068",
-          "date": "20260602"
-        },
-        {
-          "device": "SK0004",
-          "time": "2026-06-02 07:55:08.210",
-          "date": "20260602"
-        },
-        {
-          "device": "SK0003",
-          "time": "2026-06-02 07:55:21.430",
-          "date": "20260602"
-        },
-        {
-          "device": "SK0002",
-          "time": "2026-06-02 07:57:22.775",
-          "date": "20260602"
-        },
-        {
-          "device": "SK0002",
-          "time": "2026-06-02 07:59:43.817",
-          "date": "20260602"
-        },
-        {
-          "device": "SK0004",
-          "time": "2026-06-02 08:01:36.810",
-          "date": "20260602"
-        },
-        {
-          "device": "SK0001",
-          "time": "2026-06-02 08:04:21.493",
-          "date": "20260602"
-        },
-        {
-          "device": "SK0001",
-          "time": "2026-06-02 08:08:06.682",
-          "date": "20260602"
-        },
-        {
-          "device": "SK0003",
-          "time": "2026-06-02 08:08:30.314",
-          "date": "20260602"
-        },
-        {
-          "device": "SK0004",
-          "time": "2026-06-02 08:10:26.381",
-          "date": "20260602"
-        },
-        {
-          "device": "SK0003",
-          "time": "2026-06-02 08:11:22.208",
-          "date": "20260602"
-        },
-        {
-          "device": "SK0001",
-          "time": "2026-06-02 08:11:49.836",
-          "date": "20260602"
-        },
-        {
-          "device": "SK0004",
-          "time": "2026-06-02 08:12:21.370",
-          "date": "20260602"
-        },
-        {
-          "device": "SK0004",
-          "time": "2026-06-02 08:14:54.341",
-          "date": "20260602"
-        },
-        {
-          "device": "SK0001",
-          "time": "2026-06-02 08:16:15.706",
-          "date": "20260602"
-        },
-        {
-          "device": "SK0003",
-          "time": "2026-06-02 08:18:43.868",
-          "date": "20260602"
-        },
-        {
-          "device": "SK0001",
-          "time": "2026-06-02 08:21:16.640",
-          "date": "20260602"
-        },
-        {
-          "device": "SK0003",
-          "time": "2026-06-02 08:23:15.725",
-          "date": "20260602"
-        },
-        {
-          "device": "SK0002",
-          "time": "2026-06-02 08:25:12.889",
-          "date": "20260602"
-        },
-        {
-          "device": "SK0002",
-          "time": "2026-06-02 08:27:28.881",
-          "date": "20260602"
-        },
-        {
-          "device": "SK0001",
-          "time": "2026-06-02 08:35:49.363",
-          "date": "20260602"
-        },
-        {
-          "device": "SK0002",
-          "time": "2026-06-02 08:36:26.862",
-          "date": "20260602"
-        },
-        {
-          "device": "SK0002",
-          "time": "2026-06-02 08:39:11.106",
-          "date": "20260602"
-        },
-        {
-          "device": "SK0002",
-          "time": "2026-06-02 08:41:08.401",
-          "date": "20260602"
-        },
-        {
-          "device": "SK0004",
-          "time": "2026-06-02 08:43:34.693",
-          "date": "20260602"
-        },
-        {
-          "device": "SK0002",
-          "time": "2026-06-02 08:47:06.372",
-          "date": "20260602"
-        },
-        {
-          "device": "SK0001",
-          "time": "2026-06-02 08:50:53.606",
-          "date": "20260602"
-        },
-        {
-          "device": "SK0004",
-          "time": "2026-06-02 08:57:02.043",
-          "date": "20260602"
-        },
-        {
-          "device": "SK0003",
-          "time": "2026-06-02 08:57:25.761",
-          "date": "20260602"
-        },
-        {
-          "device": "SK0002",
-          "time": "2026-06-02 08:57:41.801",
-          "date": "20260602"
-        },
-        {
-          "device": "SK0002",
-          "time": "2026-06-02 08:59:46.218",
-          "date": "20260602"
-        },
-        {
-          "device": "SK0004",
-          "time": "2026-06-02 09:02:23.429",
-          "date": "20260602"
-        },
-        {
-          "device": "SK0001",
-          "time": "2026-06-02 09:04:27.070",
-          "date": "20260602"
-        },
-        {
-          "device": "SK0004",
-          "time": "2026-06-02 09:24:30.168",
-          "date": "20260602"
-        },
-        {
-          "device": "SK0002",
-          "time": "2026-06-02 09:24:55.643",
-          "date": "20260602"
-        },
-        {
-          "device": "SK0003",
-          "time": "2026-06-02 09:25:45.186",
-          "date": "20260602"
-        },
-        {
-          "device": "SK0004",
-          "time": "2026-06-02 09:30:35.213",
-          "date": "20260602"
-        },
-        {
-          "device": "SK0004",
-          "time": "2026-06-02 09:39:57.496",
-          "date": "20260602"
-        },
-        {
-          "device": "SK0001",
-          "time": "2026-06-02 09:54:31.145",
-          "date": "20260602"
-        },
-        {
-          "device": "SK0003",
-          "time": "2026-06-02 10:04:01.374",
-          "date": "20260602"
-        },
-        {
-          "device": "SK0003",
-          "time": "2026-06-02 10:13:35.016",
-          "date": "20260602"
-        },
-        {
-          "device": "SK0002",
-          "time": "2026-06-02 10:17:11.237",
-          "date": "20260602"
-        },
-        {
-          "device": "SK0003",
-          "time": "2026-06-02 10:18:19.402",
-          "date": "20260602"
-        },
-        {
-          "device": "SK0001",
-          "time": "2026-06-02 10:21:04.785",
-          "date": "20260602"
-        },
-        {
-          "device": "SK0004",
-          "time": "2026-06-02 10:28:31.958",
-          "date": "20260602"
-        },
-        {
-          "device": "SK0002",
-          "time": "2026-06-02 10:28:52.108",
-          "date": "20260602"
-        },
-        {
-          "device": "SK0001",
-          "time": "2026-06-02 10:30:17.495",
-          "date": "20260602"
-        },
-        {
-          "device": "SK0003",
-          "time": "2026-06-02 10:36:42.440",
-          "date": "20260602"
-        },
-        {
-          "device": "SK0001",
-          "time": "2026-06-02 10:43:04.328",
-          "date": "20260602"
-        },
-        {
-          "device": "SK0004",
-          "time": "2026-06-02 10:45:38.386",
-          "date": "20260602"
-        },
-        {
-          "device": "SK0002",
-          "time": "2026-06-02 10:46:41.599",
-          "date": "20260602"
-        },
-        {
-          "device": "SK0003",
-          "time": "2026-06-02 10:48:33.267",
-          "date": "20260602"
-        },
-        {
-          "device": "SK0001",
-          "time": "2026-06-02 10:50:48.915",
-          "date": "20260602"
-        },
-        {
-          "device": "SK0003",
-          "time": "2026-06-02 10:54:46.484",
-          "date": "20260602"
-        },
-        {
-          "device": "SK0002",
-          "time": "2026-06-02 10:57:20.093",
-          "date": "20260602"
-        },
-        {
-          "device": "SK0001",
-          "time": "2026-06-02 10:58:21.198",
-          "date": "20260602"
-        },
-        {
-          "device": "SK0004",
-          "time": "2026-06-02 11:02:02.897",
-          "date": "20260602"
-        },
-        {
-          "device": "SK0001",
-          "time": "2026-06-02 11:02:08.041",
-          "date": "20260602"
-        },
-        {
-          "device": "SK0003",
-          "time": "2026-06-02 11:06:22.608",
-          "date": "20260602"
-        },
-        {
-          "device": "SK0001",
-          "time": "2026-06-02 11:08:10.825",
-          "date": "20260602"
-        },
-        {
-          "device": "SK0004",
-          "time": "2026-06-02 11:09:32.847",
-          "date": "20260602"
-        },
-        {
-          "device": "SK0004",
-          "time": "2026-06-02 11:12:36.829",
-          "date": "20260602"
-        },
-        {
-          "device": "SK0003",
-          "time": "2026-06-02 11:15:22.451",
-          "date": "20260602"
-        },
-        {
-          "device": "SK0002",
-          "time": "2026-06-02 11:18:06.846",
-          "date": "20260602"
-        },
-        {
-          "device": "SK0001",
-          "time": "2026-06-02 11:18:51.218",
-          "date": "20260602"
-        },
-        {
-          "device": "SK0004",
-          "time": "2026-06-02 11:20:28.028",
-          "date": "20260602"
-        },
-        {
-          "device": "SK0001",
-          "time": "2026-06-02 11:20:49.967",
-          "date": "20260602"
-        },
-        {
-          "device": "SK0004",
-          "time": "2026-06-02 11:22:05.055",
-          "date": "20260602"
-        },
-        {
-          "device": "SK0002",
-          "time": "2026-06-02 11:23:05.253",
-          "date": "20260602"
-        },
-        {
-          "device": "SK0004",
-          "time": "2026-06-02 11:23:48.898",
-          "date": "20260602"
-        },
-        {
-          "device": "SK0002",
-          "time": "2026-06-02 11:24:48.824",
-          "date": "20260602"
-        },
-        {
-          "device": "SK0003",
-          "time": "2026-06-02 11:27:43.314",
-          "date": "20260602"
-        },
-        {
-          "device": "SK0004",
-          "time": "2026-06-02 11:30:53.445",
-          "date": "20260602"
-        },
-        {
-          "device": "SK0002",
-          "time": "2026-06-02 11:31:11.250",
-          "date": "20260602"
-        },
-        {
-          "device": "SK0004",
-          "time": "2026-06-02 11:33:01.014",
-          "date": "20260602"
-        },
-        {
-          "device": "SK0002",
-          "time": "2026-06-02 11:33:03.099",
-          "date": "20260602"
-        },
-        {
-          "device": "SK0003",
-          "time": "2026-06-02 11:33:11.498",
-          "date": "20260602"
-        },
-        {
-          "device": "SK0001",
-          "time": "2026-06-02 11:34:39.849",
-          "date": "20260602"
-        },
-        {
-          "device": "SK0002",
-          "time": "2026-06-02 11:36:20.247",
-          "date": "20260602"
-        },
-        {
-          "device": "SK0003",
-          "time": "2026-06-02 11:36:59.899",
-          "date": "20260602"
-        },
-        {
-          "device": "SK0001",
-          "time": "2026-06-02 11:40:01.470",
-          "date": "20260602"
-        },
-        {
-          "device": "SK0004",
-          "time": "2026-06-02 11:41:57.687",
-          "date": "20260602"
-        },
-        {
-          "device": "SK0002",
-          "time": "2026-06-02 11:44:23.700",
-          "date": "20260602"
-        },
-        {
-          "device": "SK0003",
-          "time": "2026-06-02 11:45:26.850",
-          "date": "20260602"
-        },
-        {
-          "device": "SK0001",
-          "time": "2026-06-02 11:46:59.830",
-          "date": "20260602"
-        },
-        {
-          "device": "SK0002",
-          "time": "2026-06-02 11:47:22.469",
-          "date": "20260602"
-        },
-        {
-          "device": "SK0001",
-          "time": "2026-06-02 11:50:18.438",
-          "date": "20260602"
-        },
-        {
-          "device": "SK0002",
-          "time": "2026-06-02 12:00:24.297",
-          "date": "20260602"
-        },
-        {
-          "device": "SK0002",
-          "time": "2026-06-02 13:50:24.777",
-          "date": "20260602"
-        },
-        {
-          "device": "SK0003",
-          "time": "2026-06-02 13:59:04.382",
-          "date": "20260602"
-        },
-        {
-          "device": "SK0001",
-          "time": "2026-06-02 14:07:21.045",
-          "date": "20260602"
-        },
-        {
-          "device": "SK0001",
-          "time": "2026-06-02 14:09:59.661",
-          "date": "20260602"
-        },
-        {
-          "device": "SK0002",
-          "time": "2026-06-02 14:12:14.220",
-          "date": "20260602"
-        },
-        {
-          "device": "SK0004",
-          "time": "2026-06-02 14:12:36.390",
-          "date": "20260602"
-        },
-        {
-          "device": "SK0001",
-          "time": "2026-06-02 14:13:18.108",
-          "date": "20260602"
-        },
-        {
-          "device": "SK0001",
-          "time": "2026-06-02 14:23:14.681",
-          "date": "20260602"
-        },
-        {
-          "device": "SK0001",
-          "time": "2026-06-02 14:32:24.174",
-          "date": "20260602"
-        },
-        {
-          "device": "SK0003",
-          "time": "2026-06-02 14:33:18.001",
-          "date": "20260602"
-        },
-        {
-          "device": "SK0004",
-          "time": "2026-06-02 14:36:24.052",
-          "date": "20260602"
-        },
-        {
-          "device": "SK0003",
-          "time": "2026-06-02 14:38:53.680",
-          "date": "20260602"
-        },
-        {
-          "device": "SK0001",
-          "time": "2026-06-02 14:43:25.851",
-          "date": "20260602"
-        },
-        {
-          "device": "SK0004",
-          "time": "2026-06-02 14:47:03.697",
-          "date": "20260602"
-        },
-        {
-          "device": "SK0003",
-          "time": "2026-06-02 14:48:29.799",
-          "date": "20260602"
-        },
-        {
-          "device": "SK0002",
-          "time": "2026-06-02 14:50:38.921",
-          "date": "20260602"
-        },
-        {
-          "device": "SK0002",
-          "time": "2026-06-02 14:52:05.150",
-          "date": "20260602"
-        },
-        {
-          "device": "SK0004",
-          "time": "2026-06-02 15:10:33.078",
-          "date": "20260602"
-        },
-        {
-          "device": "SK0002",
-          "time": "2026-06-02 15:11:00.190",
-          "date": "20260602"
-        },
-        {
-          "device": "SK0003",
-          "time": "2026-06-02 15:18:55.209",
-          "date": "20260602"
-        },
-        {
-          "device": "SK0004",
-          "time": "2026-06-02 15:19:43.110",
-          "date": "20260602"
-        },
-        {
-          "device": "SK0002",
-          "time": "2026-06-02 15:20:50.627",
-          "date": "20260602"
-        },
-        {
-          "device": "SK0004",
-          "time": "2026-06-02 15:25:18.622",
-          "date": "20260602"
-        },
-        {
-          "device": "SK0002",
-          "time": "2026-06-02 15:31:12.793",
-          "date": "20260602"
-        },
-        {
-          "device": "SK0002",
-          "time": "2026-06-02 15:37:34.810",
-          "date": "20260602"
-        },
-        {
-          "device": "SK0003",
-          "time": "2026-06-02 15:39:39.755",
-          "date": "20260602"
-        },
-        {
-          "device": "SK0004",
-          "time": "2026-06-02 15:41:26.600",
-          "date": "20260602"
-        },
-        {
-          "device": "SK0002",
-          "time": "2026-06-02 15:43:18.769",
-          "date": "20260602"
-        },
-        {
-          "device": "SK0004",
-          "time": "2026-06-02 15:50:12.144",
-          "date": "20260602"
-        },
-        {
-          "device": "SK0003",
-          "time": "2026-06-02 15:57:02.909",
-          "date": "20260602"
-        },
-        {
-          "device": "SK0002",
-          "time": "2026-06-02 16:00:33.967",
-          "date": "20260602"
-        },
-        {
-          "device": "SK0003",
-          "time": "2026-06-02 16:02:56.470",
-          "date": "20260602"
-        },
-        {
-          "device": "SK0004",
-          "time": "2026-06-02 16:05:08.662",
-          "date": "20260602"
-        },
-        {
-          "device": "SK0001",
-          "time": "2026-06-02 16:07:09.282",
-          "date": "20260602"
-        },
-        {
-          "device": "SK0002",
-          "time": "2026-06-02 16:12:07.910",
-          "date": "20260602"
-        },
-        {
-          "device": "SK0004",
-          "time": "2026-06-02 16:41:00.308",
-          "date": "20260602"
-        },
-        {
-          "device": "SK0003",
-          "time": "2026-06-02 16:45:16.305",
-          "date": "20260602"
-        },
-        {
-          "device": "SK0004",
-          "time": "2026-06-02 16:46:17.335",
-          "date": "20260602"
-        },
-        {
-          "device": "SK0002",
-          "time": "2026-06-02 16:46:31.087",
-          "date": "20260602"
-        },
-        {
-          "device": "SK0004",
-          "time": "2026-06-02 16:49:04.385",
-          "date": "20260602"
-        },
-        {
-          "device": "SK0001",
-          "time": "2026-06-02 16:49:42.842",
-          "date": "20260602"
-        },
-        {
-          "device": "SK0002",
-          "time": "2026-06-02 16:51:43.713",
-          "date": "20260602"
-        },
-        {
-          "device": "SK0003",
-          "time": "2026-06-02 16:59:22.093",
-          "date": "20260602"
-        },
-        {
-          "device": "SK0004",
-          "time": "2026-06-02 17:16:08.555",
-          "date": "20260602"
-        },
-        {
-          "device": "SK0002",
-          "time": "2026-06-02 17:16:58.175",
-          "date": "20260602"
-        },
-        {
-          "device": "SK0004",
-          "time": "2026-06-02 17:22:39.987",
-          "date": "20260602"
-        },
-        {
-          "device": "SK0002",
-          "time": "2026-06-02 17:26:08.024",
-          "date": "20260602"
-        },
-        {
-          "device": "SK0003",
-          "time": "2026-06-02 17:27:04.698",
-          "date": "20260602"
-        },
-        {
-          "device": "SK0001",
-          "time": "2026-06-02 17:28:51.199",
-          "date": "20260602"
-        },
-        {
-          "device": "SK0004",
-          "time": "2026-06-02 17:30:30.677",
-          "date": "20260602"
-        },
-        {
-          "device": "SK0003",
-          "time": "2026-06-02 17:34:32.908",
-          "date": "20260602"
-        },
-        {
-          "device": "SK0003",
-          "time": "2026-06-02 17:37:45.505",
-          "date": "20260602"
-        },
-        {
-          "device": "SK0002",
-          "time": "2026-06-02 17:40:55.091",
-          "date": "20260602"
-        },
-        {
-          "device": "SK0004",
-          "time": "2026-06-02 17:41:18.550",
-          "date": "20260602"
-        },
-        {
-          "device": "SK0001",
-          "time": "2026-06-02 17:46:05.172",
-          "date": "20260602"
-        },
-        {
-          "device": "SK0001",
-          "time": "2026-06-02 17:48:32.523",
-          "date": "20260602"
-        },
-        {
-          "device": "SK0003",
-          "time": "2026-06-02 17:51:10.577",
-          "date": "20260602"
-        },
-        {
-          "device": "SK0004",
-          "time": "2026-06-02 17:55:14.742",
-          "date": "20260602"
-        },
-        {
-          "device": "SK0002",
-          "time": "2026-06-02 17:57:14.393",
-          "date": "20260602"
-        },
-        {
-          "device": "SK0003",
-          "time": "2026-06-02 17:59:04.732",
-          "date": "20260602"
-        },
-        {
-          "device": "SK0004",
-          "time": "2026-06-02 18:00:33.404",
-          "date": "20260602"
-        },
-        {
-          "device": "SK0001",
-          "time": "2026-06-02 18:03:16.619",
-          "date": "20260602"
-        },
-        {
-          "device": "SK0002",
-          "time": "2026-06-02 18:05:34.596",
-          "date": "20260602"
-        },
-        {
-          "device": "SK0003",
-          "time": "2026-06-02 18:06:10.896",
-          "date": "20260602"
-        },
-        {
-          "device": "SK0002",
-          "time": "2026-06-02 18:11:36.034",
-          "date": "20260602"
-        },
-        {
-          "device": "SK0004",
-          "time": "2026-06-02 18:12:24.713",
-          "date": "20260602"
-        },
-        {
-          "device": "SK0003",
-          "time": "2026-06-02 18:13:44.033",
-          "date": "20260602"
-        },
-        {
-          "device": "SK0004",
-          "time": "2026-06-02 18:15:17.393",
-          "date": "20260602"
-        },
-        {
-          "device": "SK0001",
-          "time": "2026-06-02 18:21:47.106",
-          "date": "20260602"
-        },
-        {
-          "device": "SK0002",
-          "time": "2026-06-02 18:22:48.221",
-          "date": "20260602"
-        },
-        {
-          "device": "SK0001",
-          "time": "2026-06-02 18:23:28.158",
-          "date": "20260602"
-        },
-        {
-          "device": "SK0004",
-          "time": "2026-06-02 18:23:55.663",
-          "date": "20260602"
-        },
-        {
-          "device": "SK0002",
-          "time": "2026-06-02 18:24:38.952",
-          "date": "20260602"
-        },
-        {
-          "device": "SK0001",
-          "time": "2026-06-02 18:25:47.523",
-          "date": "20260602"
-        },
-        {
-          "device": "SK0004",
-          "time": "2026-06-02 18:37:21.973",
-          "date": "20260602"
-        },
-        {
-          "device": "SK0002",
-          "time": "2026-06-02 18:40:23.539",
-          "date": "20260602"
-        },
-        {
-          "device": "SK0001",
-          "time": "2026-06-02 18:41:10.821",
-          "date": "20260602"
-        },
-        {
-          "device": "SK0004",
-          "time": "2026-06-02 18:43:47.509",
-          "date": "20260602"
-        },
-        {
-          "device": "SK0002",
-          "time": "2026-06-02 18:44:16.222",
-          "date": "20260602"
-        },
-        {
-          "device": "SK0003",
-          "time": "2026-06-02 18:48:21.657",
-          "date": "20260602"
-        },
-        {
-          "device": "SK0001",
-          "time": "2026-06-02 18:50:11.676",
-          "date": "20260602"
-        },
-        {
-          "device": "SK0002",
-          "time": "2026-06-02 18:56:15.839",
-          "date": "20260602"
-        },
-        {
-          "device": "SK0004",
-          "time": "2026-06-02 18:59:44.710",
-          "date": "20260602"
-        },
-        {
-          "device": "SK0003",
-          "time": "2026-06-02 19:05:16.485",
-          "date": "20260602"
-        },
-        {
-          "device": "SK0002",
-          "time": "2026-06-02 19:08:48.205",
-          "date": "20260602"
-        },
-        {
-          "device": "SK0004",
-          "time": "2026-06-02 19:12:04.894",
-          "date": "20260602"
-        },
-        {
-          "device": "SK0003",
-          "time": "2026-06-02 19:17:15.121",
-          "date": "20260602"
-        },
-        {
-          "device": "SK0002",
-          "time": "2026-06-02 19:25:12.437",
-          "date": "20260602"
-        },
-        {
-          "device": "SK0004",
-          "time": "2026-06-02 19:27:19.613",
-          "date": "20260602"
-        },
-        {
-          "device": "SK0004",
-          "time": "2026-06-02 20:18:23.521",
-          "date": "20260602"
-        },
-        {
-          "device": "SK0003",
-          "time": "2026-06-02 20:22:03.692",
-          "date": "20260602"
-        },
-        {
-          "device": "SK0001",
-          "time": "2026-06-02 20:28:49.990",
-          "date": "20260602"
-        },
-        {
-          "device": "SK0002",
-          "time": "2026-06-02 20:31:02.363",
-          "date": "20260602"
-        },
-        {
-          "device": "SK0003",
-          "time": "2026-06-02 21:00:27.792",
-          "date": "20260602"
-        },
-        {
-          "device": "SK0002",
-          "time": "2026-06-02 21:07:34.682",
-          "date": "20260602"
-        },
-        {
-          "device": "SK0003",
-          "time": "2026-06-02 21:08:29.981",
-          "date": "20260602"
-        },
-        {
-          "device": "SK0004",
-          "time": "2026-06-02 21:11:19.620",
-          "date": "20260602"
-        },
-        {
-          "device": "SK0001",
-          "time": "2026-06-02 21:15:07.397",
-          "date": "20260602"
-        },
-        {
-          "device": "SK0004",
-          "time": "2026-06-02 21:17:11.287",
-          "date": "20260602"
-        },
-        {
-          "device": "SK0003",
-          "time": "2026-06-02 21:18:39.532",
-          "date": "20260602"
-        },
-        {
-          "device": "SK0002",
-          "time": "2026-06-02 21:18:46.283",
-          "date": "20260602"
-        },
-        {
-          "device": "SK0004",
-          "time": "2026-06-02 21:24:12.622",
-          "date": "20260602"
-        },
-        {
-          "device": "SK0002",
-          "time": "2026-06-02 21:28:02.504",
-          "date": "20260602"
-        },
-        {
-          "device": "SK0002",
-          "time": "2026-06-02 21:42:08.680",
-          "date": "20260602"
-        },
-        {
-          "device": "SK0004",
-          "time": "2026-06-02 21:47:01.693",
-          "date": "20260602"
-        },
-        {
-          "device": "SK0003",
-          "time": "2026-06-02 21:50:55.659",
-          "date": "20260602"
+          "startTime": "2026-06-02 21:14:19.768",
+          "endTime": "2026-06-02 21:14:19.768",
+          "occurrences": 1,
+          "isNoread": false
         }
       ],
       "errorTypes": {
-        "noread": 6245,
-        "deviceFault": 26,
-        "dbError": 1279,
-        "taskFail": 7,
-        "trayAnomaly": 14,
-        "wmsWait": 196
+        "数据库异常(Oracle)": 15,
+        "条码识别失败(NOREAD)": 13,
+        "扫描故障": 12,
+        "获取任务列表异常(?)": 12,
+        "数据库异常(ORA-12570:)": 10,
+        "托盘超长": 10,
+        "任务写入失败(5次)": 5,
+        "托盘超宽": 3,
+        "入货超时": 3,
+        "出货超时": 3,
+        "升降变频器故障": 2,
+        "任务超时": 2,
+        "提升向下软限位报警": 1,
+        "数据库异常(ORA-03135:)": 1,
+        "行走轴故障": 1,
+        "行走时货叉不居中": 1,
+        "电源缺相报警": 1,
+        "托盘超高": 1
       },
       "rawCount": 9579
     }
