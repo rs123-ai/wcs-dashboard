@@ -22,6 +22,10 @@ body{background:var(--bg);color:var(--text);font-family:'Segoe UI','Microsoft Ya
 .date-menu-item{padding:8px 14px;cursor:pointer;font-size:0.82rem;transition:.15s}
 .date-menu-item:hover{background:var(--bg-hover)}
 .date-menu-item.selected{color:var(--accent);font-weight:600}
+.date-menu-item{display:flex;justify-content:space-between;align-items:center}
+.date-menu-item .date-label{flex:1;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.date-menu-item .del-btn{display:none;margin-left:6px;padding:0 5px;color:var(--red);font-size:1rem;cursor:pointer;background:none;border:none;line-height:1}
+.date-menu-item:hover .del-btn{display:inline}
 .spacer{flex:1}
 .range-label{font-size:0.8rem;color:var(--text-dim);white-space:nowrap}
 .range-input{padding:4px 8px;background:var(--bg-card);border:1px solid var(--border);border-radius:4px;color:var(--text);font-size:0.8rem;width:125px}
@@ -256,7 +260,7 @@ document.getElementById('weekRange').style.display=currentView==='week'?'flex':'
 document.getElementById('dataDays').textContent=dates.length+' 天数据';
 // Date menu
 const menu=document.getElementById('dateMenu');menu.innerHTML='';
-dates.forEach(d=>{const div=document.createElement('div');div.className='date-menu-item'+(d===currentDate?' selected':'');div.textContent=formatDateLabel(d);div.onclick=()=>{currentDate=d;renderAll();menu.classList.remove('show')};menu.appendChild(div)});
+dates.forEach(d=>{const div=document.createElement('div');div.className='date-menu-item'+(d===currentDate?' selected':'');div.innerHTML=`<span class="date-label">${formatDateLabel(d)}</span><span class="del-btn" title="删除此日志" onclick="event.stopPropagation();deleteLog('${d}')">×</span>`;div.querySelector('.date-label').onclick=()=>{currentDate=d;renderAll();menu.classList.remove('show')};div.onclick=()=>{currentDate=d;renderAll();menu.classList.remove('show')};menu.appendChild(div)});
 // Stats
 if(stats){document.getElementById('statTotal').textContent=stats.deviceFaults||0;document.getElementById('statNoread').textContent=stats.noreadEvents||0;document.getElementById('statDevices').textContent=stats.deviceCount||0;const h=stats.healthScore||0;const hEl=document.getElementById('statHealth');hEl.textContent=h+'%';hEl.className='stat-value'+(h<60?' danger':h<80?' warn':'')}
 renderFaultTable(faults);renderPieChart(faults);renderBarChart(hourly,hMin,hMax);
@@ -266,6 +270,7 @@ document.getElementById('typeCount').textContent=types.length+' 种类型';
 document.getElementById('hourlyRange').textContent=hMin+':00 - '+hMax+':00';
 }
 
+function deleteLog(dk){if(!confirm('确认删除日志 '+formatDateLabel(dk)+' ？此操作不可恢复。'))return;delete allData[dk];saveData();const dates=Object.keys(allData).filter(k=>!k.startsWith('_')).sort();if(dk===currentDate){currentDate=dates.length?dates[dates.length-1]:''}renderAll()}
 function formatDateLabel(dk){const y=dk.substring(0,4),m=dk.substring(4,6),d=dk.substring(6,8);const info=allData[dk];const fn=info?.filename||(dk+'.log');return y+'年'+parseInt(m)+'月'+parseInt(d)+'日 ('+fn+')'}
 
 // ============ Fault Table ============
