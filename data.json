@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-06-03T17:57:35.705905",
+  "generatedAt": "2026-06-03T18:37:57.129843",
   "daily": {
     "20260602": {
       "date": "20260602",
@@ -25,7 +25,7 @@
         {
           "hour": 7,
           "errors": 9,
-          "normal": 42
+          "normal": 41
         },
         {
           "hour": 8,
@@ -45,7 +45,7 @@
         {
           "hour": 11,
           "errors": 332,
-          "normal": 224
+          "normal": 223
         },
         {
           "hour": 12,
@@ -254,48 +254,53 @@
           "endTime": "2026-06-02 07:40:29.855",
           "occurrences": 1,
           "isNoread": false,
-          "duration": "0秒",
-          "durationSec": 0.0
+          "recoveryBarcode": "",
+          "durationSec": 0.0,
+          "duration": "0秒"
         },
         {
           "device": "SK0004",
           "faultType": "获取任务列表异常(?)",
           "startTime": "2026-06-02 07:52:03.289",
-          "endTime": "2026-06-02 11:41:57.687",
+          "endTime": "2026-06-02 11:42:00.451",
           "occurrences": 23,
           "isNoread": false,
-          "duration": "229分54秒",
-          "durationSec": 13794.398
+          "recoveryBarcode": "",
+          "durationSec": 13797.162,
+          "duration": "229分57秒"
         },
         {
           "device": "SK0002",
           "faultType": "获取任务列表异常(?)",
           "startTime": "2026-06-02 07:52:33.681",
-          "endTime": "2026-06-02 12:00:24.297",
+          "endTime": "2026-06-02 12:00:27.237",
           "occurrences": 25,
           "isNoread": false,
-          "duration": "247分50秒",
-          "durationSec": 14870.616
+          "recoveryBarcode": "",
+          "durationSec": 14873.556,
+          "duration": "247分53秒"
         },
         {
           "device": "SK0001",
           "faultType": "获取任务列表异常(?)",
           "startTime": "2026-06-02 07:54:04.068",
-          "endTime": "2026-06-02 11:50:18.438",
+          "endTime": "2026-06-02 11:50:20.830",
           "occurrences": 23,
           "isNoread": false,
-          "duration": "236分14秒",
-          "durationSec": 14174.37
+          "recoveryBarcode": "",
+          "durationSec": 14176.762,
+          "duration": "236分16秒"
         },
         {
           "device": "SK0003",
           "faultType": "获取任务列表异常(?)",
           "startTime": "2026-06-02 07:55:21.430",
-          "endTime": "2026-06-02 11:45:26.850",
+          "endTime": "2026-06-02 11:45:28.623",
           "occurrences": 19,
           "isNoread": false,
-          "duration": "230分5秒",
-          "durationSec": 13805.42
+          "recoveryBarcode": "",
+          "durationSec": 13807.193,
+          "duration": "230分7秒"
         },
         {
           "device": "SK0002",
@@ -304,8 +309,9 @@
           "endTime": "2026-06-02 08:02:12.971",
           "occurrences": 2,
           "isNoread": false,
-          "duration": "2分26秒",
-          "durationSec": 146.001
+          "recoveryBarcode": "",
+          "durationSec": 146.001,
+          "duration": "2分26秒"
         },
         {
           "device": "SS3008",
@@ -314,49 +320,53 @@
           "endTime": "2026-06-02 08:03:51.156",
           "occurrences": 1,
           "isNoread": false,
-          "duration": "0秒",
-          "durationSec": 0.0
+          "recoveryBarcode": "",
+          "durationSec": 0.0,
+          "duration": "0秒"
         },
         {
           "device": "SS3008",
           "faultType": "条码识别失败(NOREAD)",
           "startTime": "2026-06-02 08:03:51.221",
-          "endTime": "2026-06-02 08:09:23.626",
+          "endTime": "2026-06-02 08:09:24.308",
           "occurrences": 641,
           "isNoread": true,
           "recoveryBarcode": "L02438",
-          "duration": "5分32秒",
-          "durationSec": 332.405
+          "durationSec": 333.087,
+          "duration": "5分33秒"
         },
         {
           "device": "SK0001",
           "faultType": "托盘超宽",
           "startTime": "2026-06-02 08:05:08.633",
-          "endTime": "2026-06-02 08:05:08.633",
+          "endTime": "2026-06-02 08:08:09.073",
           "occurrences": 1,
           "isNoread": false,
-          "duration": "0秒",
-          "durationSec": 0.0
+          "recoveryBarcode": "",
+          "durationSec": 180.44,
+          "duration": "3分0秒"
         },
         {
           "device": "SK0004",
           "faultType": "提升向下软限位报警",
           "startTime": "2026-06-02 08:09:28.380",
-          "endTime": "2026-06-02 08:09:28.380",
+          "endTime": "2026-06-02 08:10:29.148",
           "occurrences": 1,
           "isNoread": false,
-          "duration": "0秒",
-          "durationSec": 0.0
+          "recoveryBarcode": "",
+          "durationSec": 60.768,
+          "duration": "1分0秒"
         },
         {
           "device": "SK0004",
           "faultType": "升降变频器故障",
           "startTime": "2026-06-02 08:10:00.143",
-          "endTime": "2026-06-02 08:10:00.143",
+          "endTime": "2026-06-02 08:10:29.148",
           "occurrences": 1,
           "isNoread": false,
-          "duration": "0秒",
-          "durationSec": 0.0
+          "recoveryBarcode": "",
+          "durationSec": 29.005,
+          "duration": "29秒"
         },
         {
           "device": "SK0003",
@@ -365,8 +375,9 @@
           "endTime": "2026-06-02 08:11:25.369",
           "occurrences": 1,
           "isNoread": false,
-          "duration": "0秒",
-          "durationSec": 0.0
+          "recoveryBarcode": "",
+          "durationSec": 0.0,
+          "duration": "0秒"
         },
         {
           "device": "SS4002",
@@ -375,8 +386,9 @@
           "endTime": "2026-06-02 08:28:54.867",
           "occurrences": 1,
           "isNoread": false,
-          "duration": "0秒",
-          "durationSec": 0.0
+          "recoveryBarcode": "",
+          "durationSec": 0.0,
+          "duration": "0秒"
         },
         {
           "device": "Unknown",
@@ -385,8 +397,9 @@
           "endTime": "2026-06-02 09:13:56.086",
           "occurrences": 18,
           "isNoread": false,
-          "duration": "44分50秒",
-          "durationSec": 2690.435
+          "recoveryBarcode": "",
+          "durationSec": 2690.435,
+          "duration": "44分50秒"
         },
         {
           "device": "SS2005",
@@ -395,8 +408,9 @@
           "endTime": "2026-06-02 08:29:06.474",
           "occurrences": 1,
           "isNoread": false,
-          "duration": "0秒",
-          "durationSec": 0.0
+          "recoveryBarcode": "",
+          "durationSec": 0.0,
+          "duration": "0秒"
         },
         {
           "device": "SS4002",
@@ -405,18 +419,20 @@
           "endTime": "2026-06-02 08:29:09.215",
           "occurrences": 1,
           "isNoread": false,
-          "duration": "0秒",
-          "durationSec": 0.0
+          "recoveryBarcode": "",
+          "durationSec": 0.0,
+          "duration": "0秒"
         },
         {
           "device": "Unknown",
           "faultType": "数据库异常(Oracle)",
           "startTime": "2026-06-02 08:29:26.710",
-          "endTime": "2026-06-02 08:35:25.270",
+          "endTime": "2026-06-02 08:35:49.934",
           "occurrences": 62,
           "isNoread": false,
-          "duration": "5分58秒",
-          "durationSec": 358.56
+          "recoveryBarcode": "L02527",
+          "durationSec": 383.224,
+          "duration": "6分23秒"
         },
         {
           "device": "SS2005",
@@ -425,28 +441,31 @@
           "endTime": "2026-06-02 08:34:42.280",
           "occurrences": 6,
           "isNoread": false,
-          "duration": "4分53秒",
-          "durationSec": 293.737
+          "recoveryBarcode": "",
+          "durationSec": 293.737,
+          "duration": "4分53秒"
         },
         {
           "device": "SS4002",
           "faultType": "数据库异常(Oracle)",
           "startTime": "2026-06-02 08:29:48.575",
-          "endTime": "2026-06-02 08:35:25.130",
+          "endTime": "2026-06-02 08:35:48.263",
           "occurrences": 9,
           "isNoread": false,
-          "duration": "5分36秒",
-          "durationSec": 336.555
+          "recoveryBarcode": "L02854",
+          "durationSec": 359.688,
+          "duration": "5分59秒"
         },
         {
           "device": "SK0002",
           "faultType": "数据库异常(Oracle)",
           "startTime": "2026-06-02 08:30:29.819",
-          "endTime": "2026-06-02 08:35:24.476",
+          "endTime": "2026-06-02 08:36:30.123",
           "occurrences": 8,
           "isNoread": false,
-          "duration": "4分54秒",
-          "durationSec": 294.657
+          "recoveryBarcode": "",
+          "durationSec": 360.304,
+          "duration": "6分0秒"
         },
         {
           "device": "SK0003",
@@ -455,8 +474,9 @@
           "endTime": "2026-06-02 08:30:50.954",
           "occurrences": 1,
           "isNoread": false,
-          "duration": "0秒",
-          "durationSec": 0.0
+          "recoveryBarcode": "",
+          "durationSec": 0.0,
+          "duration": "0秒"
         },
         {
           "device": "SK0004",
@@ -465,79 +485,86 @@
           "endTime": "2026-06-02 08:31:33.028",
           "occurrences": 1,
           "isNoread": false,
-          "duration": "0秒",
-          "durationSec": 0.0
+          "recoveryBarcode": "",
+          "durationSec": 0.0,
+          "duration": "0秒"
         },
         {
           "device": "SK0001",
           "faultType": "数据库异常(Oracle)",
           "startTime": "2026-06-02 08:32:15.816",
-          "endTime": "2026-06-02 08:32:15.816",
+          "endTime": "2026-06-02 08:35:51.166",
           "occurrences": 1,
           "isNoread": false,
-          "duration": "0秒",
-          "durationSec": 0.0
+          "recoveryBarcode": "",
+          "durationSec": 215.35,
+          "duration": "3分35秒"
         },
         {
           "device": "SS3004",
           "faultType": "条码识别失败(NOREAD)",
           "startTime": "2026-06-02 08:54:02.777",
-          "endTime": "2026-06-02 08:57:40.287",
+          "endTime": "2026-06-02 08:57:41.212",
           "occurrences": 420,
           "isNoread": true,
           "recoveryBarcode": "L01735",
-          "duration": "3分37秒",
-          "durationSec": 217.51
+          "durationSec": 218.435,
+          "duration": "3分38秒"
         },
         {
           "device": "SS3004",
           "faultType": "扫描故障",
           "startTime": "2026-06-02 08:54:02.964",
-          "endTime": "2026-06-02 08:54:02.964",
+          "endTime": "2026-06-02 08:57:41.212",
           "occurrences": 1,
           "isNoread": false,
-          "duration": "0秒",
-          "durationSec": 0.0
+          "recoveryBarcode": "L01735",
+          "durationSec": 218.248,
+          "duration": "3分38秒"
         },
         {
           "device": "SS4004",
           "faultType": "任务超时",
           "startTime": "2026-06-02 08:59:35.068",
-          "endTime": "2026-06-02 08:59:35.068",
+          "endTime": "2026-06-02 08:59:40.104",
           "occurrences": 1,
           "isNoread": false,
-          "duration": "0秒",
-          "durationSec": 0.0
+          "recoveryBarcode": "L03646",
+          "durationSec": 5.036,
+          "duration": "5秒"
         },
         {
           "device": "Unknown",
           "faultType": "数据库异常(ORA-03135:)",
           "startTime": "2026-06-02 08:59:45.558",
-          "endTime": "2026-06-02 08:59:45.558",
+          "endTime": "2026-06-02 08:59:47.341",
           "occurrences": 1,
           "isNoread": false,
-          "duration": "0秒",
-          "durationSec": 0.0
+          "recoveryBarcode": "L03646",
+          "durationSec": 1.783,
+          "duration": "1秒"
         },
         {
           "device": "SK0002",
           "faultType": "任务写入失败(5次)",
           "startTime": "2026-06-02 09:05:10.980",
-          "endTime": "2026-06-02 09:05:10.980",
+          "endTime": "2026-06-02 09:07:30.322",
           "occurrences": 1,
           "isNoread": false,
-          "duration": "0秒",
-          "durationSec": 0.0
+          "recoveryBarcode": "",
+          "durationSec": 139.342,
+          "duration": "2分19秒"
         },
         {
           "device": "SS1014",
           "faultType": "托盘超长",
           "startTime": "2026-06-02 09:38:10.956",
-          "endTime": "2026-06-02 09:38:10.956",
+          "endTime": "2026-06-02 09:38:35.551",
           "occurrences": 1,
           "isNoread": false,
-          "duration": "0秒",
-          "durationSec": 0.0
+          "recoveryBarcode": "L02208",
+          "durationSec": 24.595,
+          "duration": "24秒"
         },
         {
           "device": "SK0004",
@@ -546,112 +573,119 @@
           "endTime": "2026-06-02 10:10:32.318",
           "occurrences": 1,
           "isNoread": false,
-          "duration": "0秒",
-          "durationSec": 0.0
+          "recoveryBarcode": "",
+          "durationSec": 0.0,
+          "duration": "0秒"
         },
         {
           "device": "SS3008",
           "faultType": "条码识别失败(NOREAD)",
           "startTime": "2026-06-02 10:23:10.037",
-          "endTime": "2026-06-02 10:28:30.276",
+          "endTime": "2026-06-02 10:28:30.992",
           "occurrences": 617,
           "isNoread": true,
           "recoveryBarcode": "L02359",
-          "duration": "5分20秒",
-          "durationSec": 320.239
+          "durationSec": 320.955,
+          "duration": "5分20秒"
         },
         {
           "device": "SS3004",
           "faultType": "托盘超长",
           "startTime": "2026-06-02 10:26:41.945",
-          "endTime": "2026-06-02 10:26:41.945",
+          "endTime": "2026-06-02 10:28:51.361",
           "occurrences": 1,
           "isNoread": false,
-          "duration": "0秒",
-          "durationSec": 0.0
+          "recoveryBarcode": "L02770",
+          "durationSec": 129.416,
+          "duration": "2分9秒"
         },
         {
           "device": "SS4004",
           "faultType": "条码识别失败(NOREAD)",
           "startTime": "2026-06-02 10:53:36.593",
-          "endTime": "2026-06-02 10:57:18.816",
+          "endTime": "2026-06-02 10:57:19.484",
           "occurrences": 428,
           "isNoread": true,
           "recoveryBarcode": "L01609",
-          "duration": "3分42秒",
-          "durationSec": 222.223
+          "durationSec": 222.891,
+          "duration": "3分42秒"
         },
         {
           "device": "SS4004",
           "faultType": "扫描故障",
           "startTime": "2026-06-02 10:53:36.760",
-          "endTime": "2026-06-02 10:53:36.760",
+          "endTime": "2026-06-02 10:57:19.484",
           "occurrences": 1,
           "isNoread": false,
-          "duration": "0秒",
-          "durationSec": 0.0
+          "recoveryBarcode": "L01609",
+          "durationSec": 222.724,
+          "duration": "3分42秒"
         },
         {
           "device": "SK0002",
           "faultType": "行走时货叉不居中",
           "startTime": "2026-06-02 10:58:15.043",
-          "endTime": "2026-06-02 10:58:15.043",
+          "endTime": "2026-06-02 11:03:00.189",
           "occurrences": 1,
           "isNoread": false,
-          "duration": "0秒",
-          "durationSec": 0.0
+          "recoveryBarcode": "",
+          "durationSec": 285.146,
+          "duration": "4分45秒"
         },
         {
           "device": "SS2008",
           "faultType": "扫描故障",
           "startTime": "2026-06-02 11:15:57.750",
-          "endTime": "2026-06-02 11:15:57.750",
+          "endTime": "2026-06-02 11:18:32.518",
           "occurrences": 1,
           "isNoread": false,
-          "duration": "0秒",
-          "durationSec": 0.0
+          "recoveryBarcode": "L02651",
+          "durationSec": 154.768,
+          "duration": "2分34秒"
         },
         {
           "device": "SS2008",
           "faultType": "条码识别失败(NOREAD)",
           "startTime": "2026-06-02 11:15:57.872",
-          "endTime": "2026-06-02 11:18:31.849",
+          "endTime": "2026-06-02 11:18:32.518",
           "occurrences": 297,
           "isNoread": true,
           "recoveryBarcode": "L02651",
-          "duration": "2分33秒",
-          "durationSec": 153.977
+          "durationSec": 154.646,
+          "duration": "2分34秒"
         },
         {
           "device": "SS4002",
           "faultType": "托盘超长",
           "startTime": "2026-06-02 11:17:37.450",
-          "endTime": "2026-06-02 11:17:37.450",
+          "endTime": "2026-06-02 11:20:10.926",
           "occurrences": 1,
           "isNoread": false,
-          "duration": "0秒",
-          "durationSec": 0.0
+          "recoveryBarcode": "L00756",
+          "durationSec": 153.476,
+          "duration": "2分33秒"
         },
         {
           "device": "SS1002",
           "faultType": "条码识别失败(NOREAD)",
           "startTime": "2026-06-02 11:46:08.557",
-          "endTime": "2026-06-02 11:46:08.557",
+          "endTime": "2026-06-02 11:46:59.273",
           "occurrences": 1,
           "isNoread": true,
-          "recoveryBarcode": "",
-          "duration": "0秒",
-          "durationSec": 0.0
+          "recoveryBarcode": "L02411",
+          "durationSec": 50.716,
+          "duration": "50秒"
         },
         {
           "device": "SS1002",
           "faultType": "扫描故障",
           "startTime": "2026-06-02 11:46:08.656",
-          "endTime": "2026-06-02 11:46:08.656",
+          "endTime": "2026-06-02 11:46:59.273",
           "occurrences": 1,
           "isNoread": false,
-          "duration": "0秒",
-          "durationSec": 0.0
+          "recoveryBarcode": "L02411",
+          "durationSec": 50.617,
+          "duration": "50秒"
         },
         {
           "device": "Unknown",
@@ -660,8 +694,9 @@
           "endTime": "2026-06-02 12:43:40.088",
           "occurrences": 40,
           "isNoread": false,
-          "duration": "26分23秒",
-          "durationSec": 1583.703
+          "recoveryBarcode": "",
+          "durationSec": 1583.703,
+          "duration": "26分23秒"
         },
         {
           "device": "SS1001",
@@ -670,8 +705,9 @@
           "endTime": "2026-06-02 12:43:20.469",
           "occurrences": 3,
           "isNoread": false,
-          "duration": "26分3秒",
-          "durationSec": 1563.237
+          "recoveryBarcode": "",
+          "durationSec": 1563.237,
+          "duration": "26分3秒"
         },
         {
           "device": "SS1009",
@@ -680,18 +716,20 @@
           "endTime": "2026-06-02 12:43:21.429",
           "occurrences": 3,
           "isNoread": false,
-          "duration": "26分3秒",
-          "durationSec": 1563.314
+          "recoveryBarcode": "",
+          "durationSec": 1563.314,
+          "duration": "26分3秒"
         },
         {
           "device": "Unknown",
           "faultType": "数据库异常(Oracle)",
           "startTime": "2026-06-02 12:17:37.748",
-          "endTime": "2026-06-02 14:26:50.540",
+          "endTime": "2026-06-02 14:31:17.359",
           "occurrences": 907,
           "isNoread": false,
-          "duration": "129分12秒",
-          "durationSec": 7752.792
+          "recoveryBarcode": "",
+          "durationSec": 8019.611,
+          "duration": "133分39秒"
         },
         {
           "device": "SS1001",
@@ -700,8 +738,9 @@
           "endTime": "2026-06-02 14:26:53.734",
           "occurrences": 100,
           "isNoread": false,
-          "duration": "128分54秒",
-          "durationSec": 7734.308
+          "recoveryBarcode": "",
+          "durationSec": 7734.308,
+          "duration": "128分54秒"
         },
         {
           "device": "SS1009",
@@ -710,8 +749,9 @@
           "endTime": "2026-06-02 14:26:11.646",
           "occurrences": 99,
           "isNoread": false,
-          "duration": "128分11秒",
-          "durationSec": 7691.959
+          "recoveryBarcode": "",
+          "durationSec": 7691.959,
+          "duration": "128分11秒"
         },
         {
           "device": "SK0002",
@@ -720,8 +760,9 @@
           "endTime": "2026-06-02 12:19:23.833",
           "occurrences": 1,
           "isNoread": false,
-          "duration": "0秒",
-          "durationSec": 0.0
+          "recoveryBarcode": "",
+          "durationSec": 0.0,
+          "duration": "0秒"
         },
         {
           "device": "SK0003",
@@ -730,8 +771,9 @@
           "endTime": "2026-06-02 12:19:44.019",
           "occurrences": 1,
           "isNoread": false,
-          "duration": "0秒",
-          "durationSec": 0.0
+          "recoveryBarcode": "",
+          "durationSec": 0.0,
+          "duration": "0秒"
         },
         {
           "device": "SK0004",
@@ -740,8 +782,9 @@
           "endTime": "2026-06-02 12:19:44.690",
           "occurrences": 1,
           "isNoread": false,
-          "duration": "0秒",
-          "durationSec": 0.0
+          "recoveryBarcode": "",
+          "durationSec": 0.0,
+          "duration": "0秒"
         },
         {
           "device": "SK0001",
@@ -750,8 +793,9 @@
           "endTime": "2026-06-02 12:20:26.779",
           "occurrences": 1,
           "isNoread": false,
-          "duration": "0秒",
-          "durationSec": 0.0
+          "recoveryBarcode": "",
+          "durationSec": 0.0,
+          "duration": "0秒"
         },
         {
           "device": "SS1005",
@@ -760,48 +804,53 @@
           "endTime": "2026-06-02 14:26:53.545",
           "occurrences": 4,
           "isNoread": false,
-          "duration": "39分43秒",
-          "durationSec": 2383.324
+          "recoveryBarcode": "",
+          "durationSec": 2383.324,
+          "duration": "39分43秒"
         },
         {
           "device": "SK0002",
           "faultType": "获取任务列表异常(?)",
           "startTime": "2026-06-02 13:50:24.777",
-          "endTime": "2026-06-02 19:25:12.437",
+          "endTime": "2026-06-02 19:25:15.178",
           "occurrences": 26,
           "isNoread": false,
-          "duration": "334分47秒",
-          "durationSec": 20087.66
+          "recoveryBarcode": "",
+          "durationSec": 20090.401,
+          "duration": "334分50秒"
         },
         {
           "device": "SK0003",
           "faultType": "获取任务列表异常(?)",
           "startTime": "2026-06-02 13:59:04.382",
-          "endTime": "2026-06-02 19:17:15.121",
+          "endTime": "2026-06-02 19:17:17.288",
           "occurrences": 20,
           "isNoread": false,
-          "duration": "318分10秒",
-          "durationSec": 19090.739
+          "recoveryBarcode": "",
+          "durationSec": 19092.906,
+          "duration": "318分12秒"
         },
         {
           "device": "SK0001",
           "faultType": "获取任务列表异常(?)",
           "startTime": "2026-06-02 14:07:21.045",
-          "endTime": "2026-06-02 14:43:25.851",
+          "endTime": "2026-06-02 14:43:28.822",
           "occurrences": 6,
           "isNoread": false,
-          "duration": "36分4秒",
-          "durationSec": 2164.806
+          "recoveryBarcode": "",
+          "durationSec": 2167.777,
+          "duration": "36分7秒"
         },
         {
           "device": "SK0004",
           "faultType": "获取任务列表异常(?)",
           "startTime": "2026-06-02 14:12:36.390",
-          "endTime": "2026-06-02 21:47:01.693",
+          "endTime": "2026-06-02 21:47:04.464",
           "occurrences": 31,
           "isNoread": false,
-          "duration": "454分25秒",
-          "durationSec": 27265.303
+          "recoveryBarcode": "",
+          "durationSec": 27268.074,
+          "duration": "454分28秒"
         },
         {
           "device": "SK0002",
@@ -810,8 +859,9 @@
           "endTime": "2026-06-02 14:26:08.318",
           "occurrences": 1,
           "isNoread": false,
-          "duration": "0秒",
-          "durationSec": 0.0
+          "recoveryBarcode": "",
+          "durationSec": 0.0,
+          "duration": "0秒"
         },
         {
           "device": "Unknown",
@@ -820,8 +870,9 @@
           "endTime": "2026-06-02 14:26:09.015",
           "occurrences": 7,
           "isNoread": false,
-          "duration": "0秒",
-          "durationSec": 0.652
+          "recoveryBarcode": "",
+          "durationSec": 0.652,
+          "duration": "0秒"
         },
         {
           "device": "SS1005",
@@ -830,8 +881,9 @@
           "endTime": "2026-06-02 14:26:08.712",
           "occurrences": 1,
           "isNoread": false,
-          "duration": "0秒",
-          "durationSec": 0.0
+          "recoveryBarcode": "",
+          "durationSec": 0.0,
+          "duration": "0秒"
         },
         {
           "device": "SS1001",
@@ -840,39 +892,42 @@
           "endTime": "2026-06-02 14:26:08.728",
           "occurrences": 1,
           "isNoread": false,
-          "duration": "0秒",
-          "durationSec": 0.0
+          "recoveryBarcode": "",
+          "durationSec": 0.0,
+          "duration": "0秒"
         },
         {
           "device": "SK0003",
           "faultType": "任务写入失败(5次)",
           "startTime": "2026-06-02 14:38:57.666",
-          "endTime": "2026-06-02 15:37:08.714",
+          "endTime": "2026-06-02 15:39:41.920",
           "occurrences": 2,
           "isNoread": false,
-          "duration": "58分11秒",
-          "durationSec": 3491.048
+          "recoveryBarcode": "",
+          "durationSec": 3644.254,
+          "duration": "60分44秒"
         },
         {
           "device": "SS3006",
           "faultType": "条码识别失败(NOREAD)",
           "startTime": "2026-06-02 14:46:31.203",
-          "endTime": "2026-06-02 14:48:28.240",
+          "endTime": "2026-06-02 14:48:28.909",
           "occurrences": 226,
           "isNoread": true,
           "recoveryBarcode": "L02650",
-          "duration": "1分57秒",
-          "durationSec": 117.037
+          "durationSec": 117.706,
+          "duration": "1分57秒"
         },
         {
           "device": "SS3006",
           "faultType": "扫描故障",
           "startTime": "2026-06-02 14:46:31.247",
-          "endTime": "2026-06-02 14:46:31.247",
+          "endTime": "2026-06-02 14:48:28.909",
           "occurrences": 1,
           "isNoread": false,
-          "duration": "0秒",
-          "durationSec": 0.0
+          "recoveryBarcode": "L02650",
+          "durationSec": 117.662,
+          "duration": "1分57秒"
         },
         {
           "device": "SK0004",
@@ -881,79 +936,86 @@
           "endTime": "2026-06-02 14:47:39.532",
           "occurrences": 1,
           "isNoread": false,
-          "duration": "0秒",
-          "durationSec": 0.0
+          "recoveryBarcode": "",
+          "durationSec": 0.0,
+          "duration": "0秒"
         },
         {
           "device": "SK0002",
           "faultType": "任务写入失败(5次)",
           "startTime": "2026-06-02 14:50:42.070",
-          "endTime": "2026-06-02 14:50:42.070",
+          "endTime": "2026-06-02 14:52:08.343",
           "occurrences": 1,
           "isNoread": false,
-          "duration": "0秒",
-          "durationSec": 0.0
+          "recoveryBarcode": "",
+          "durationSec": 86.273,
+          "duration": "1分26秒"
         },
         {
           "device": "SS1010",
           "faultType": "托盘超长",
           "startTime": "2026-06-02 15:18:40.345",
-          "endTime": "2026-06-02 15:18:40.345",
+          "endTime": "2026-06-02 15:18:54.455",
           "occurrences": 1,
           "isNoread": false,
-          "duration": "0秒",
-          "durationSec": 0.0
+          "recoveryBarcode": "L03622",
+          "durationSec": 14.11,
+          "duration": "14秒"
         },
         {
           "device": "SS4004",
           "faultType": "条码识别失败(NOREAD)",
           "startTime": "2026-06-02 15:36:26.138",
-          "endTime": "2026-06-02 15:37:33.180",
+          "endTime": "2026-06-02 15:37:33.854",
           "occurrences": 130,
           "isNoread": true,
           "recoveryBarcode": "L02650",
-          "duration": "1分7秒",
-          "durationSec": 67.042
+          "durationSec": 67.716,
+          "duration": "1分7秒"
         },
         {
           "device": "SS3006",
           "faultType": "托盘超长",
           "startTime": "2026-06-02 15:56:36.363",
-          "endTime": "2026-06-02 15:56:36.363",
+          "endTime": "2026-06-02 15:57:02.024",
           "occurrences": 1,
           "isNoread": false,
-          "duration": "0秒",
-          "durationSec": 0.0
+          "recoveryBarcode": "L01844",
+          "durationSec": 25.661,
+          "duration": "25秒"
         },
         {
           "device": "SS3008",
           "faultType": "托盘超长",
           "startTime": "2026-06-02 16:03:22.661",
-          "endTime": "2026-06-02 16:03:22.661",
+          "endTime": "2026-06-02 16:05:07.819",
           "occurrences": 1,
           "isNoread": false,
-          "duration": "0秒",
-          "durationSec": 0.0
+          "recoveryBarcode": "L01866",
+          "durationSec": 105.158,
+          "duration": "1分45秒"
         },
         {
           "device": "SK0001",
           "faultType": "获取任务列表异常(?)",
           "startTime": "2026-06-02 16:07:09.282",
-          "endTime": "2026-06-02 18:50:11.676",
+          "endTime": "2026-06-02 18:50:13.656",
           "occurrences": 11,
           "isNoread": false,
-          "duration": "163分2秒",
-          "durationSec": 9782.394
+          "recoveryBarcode": "",
+          "durationSec": 9784.374,
+          "duration": "163分4秒"
         },
         {
           "device": "SS2001",
           "faultType": "入货超时",
           "startTime": "2026-06-02 16:30:47.062",
-          "endTime": "2026-06-02 16:30:47.062",
+          "endTime": "2026-06-02 16:31:43.433",
           "occurrences": 1,
           "isNoread": false,
-          "duration": "0秒",
-          "durationSec": 0.0
+          "recoveryBarcode": "",
+          "durationSec": 56.371,
+          "duration": "56秒"
         },
         {
           "device": "SS2002",
@@ -962,8 +1024,9 @@
           "endTime": "2026-06-02 16:31:17.148",
           "occurrences": 1,
           "isNoread": false,
-          "duration": "0秒",
-          "durationSec": 0.0
+          "recoveryBarcode": "",
+          "durationSec": 0.0,
+          "duration": "0秒"
         },
         {
           "device": "SS4004",
@@ -972,8 +1035,9 @@
           "endTime": "2026-06-02 16:47:32.560",
           "occurrences": 1,
           "isNoread": false,
-          "duration": "0秒",
-          "durationSec": 0.0
+          "recoveryBarcode": "",
+          "durationSec": 0.0,
+          "duration": "0秒"
         },
         {
           "device": "SS4003",
@@ -982,8 +1046,9 @@
           "endTime": "2026-06-02 16:47:32.560",
           "occurrences": 1,
           "isNoread": false,
-          "duration": "0秒",
-          "durationSec": 0.0
+          "recoveryBarcode": "",
+          "durationSec": 0.0,
+          "duration": "0秒"
         },
         {
           "device": "SK0004",
@@ -992,91 +1057,97 @@
           "endTime": "2026-06-02 17:31:22.659",
           "occurrences": 1,
           "isNoread": false,
-          "duration": "0秒",
-          "durationSec": 0.0
+          "recoveryBarcode": "",
+          "durationSec": 0.0,
+          "duration": "0秒"
         },
         {
           "device": "SS1010",
           "faultType": "托盘超长",
           "startTime": "2026-06-02 17:33:18.359",
-          "endTime": "2026-06-02 17:33:18.359",
+          "endTime": "2026-06-02 17:34:32.188",
           "occurrences": 1,
           "isNoread": false,
-          "duration": "0秒",
-          "durationSec": 0.0
+          "recoveryBarcode": "L03711",
+          "durationSec": 73.829,
+          "duration": "1分13秒"
         },
         {
           "device": "SS3002",
           "faultType": "条码识别失败(NOREAD)",
           "startTime": "2026-06-02 17:44:41.705",
-          "endTime": "2026-06-02 17:46:03.547",
+          "endTime": "2026-06-02 17:46:04.274",
           "occurrences": 158,
           "isNoread": true,
           "recoveryBarcode": "L03599",
-          "duration": "1分21秒",
-          "durationSec": 81.842
+          "durationSec": 82.569,
+          "duration": "1分22秒"
         },
         {
           "device": "SS3002",
           "faultType": "扫描故障",
           "startTime": "2026-06-02 17:44:41.763",
-          "endTime": "2026-06-02 17:44:41.763",
+          "endTime": "2026-06-02 17:46:04.274",
           "occurrences": 1,
           "isNoread": false,
-          "duration": "0秒",
-          "durationSec": 0.0
+          "recoveryBarcode": "L03599",
+          "durationSec": 82.511,
+          "duration": "1分22秒"
         },
         {
           "device": "SS3002",
           "faultType": "托盘超长",
           "startTime": "2026-06-02 17:47:36.960",
-          "endTime": "2026-06-02 17:47:36.960",
+          "endTime": "2026-06-02 17:48:31.717",
           "occurrences": 1,
           "isNoread": false,
-          "duration": "0秒",
-          "durationSec": 0.0
+          "recoveryBarcode": "L02951",
+          "durationSec": 54.757,
+          "duration": "54秒"
         },
         {
           "device": "SK0003",
           "faultType": "电源缺相报警",
           "startTime": "2026-06-02 18:07:39.280",
-          "endTime": "2026-06-02 18:07:39.280",
+          "endTime": "2026-06-02 18:11:49.020",
           "occurrences": 1,
           "isNoread": false,
-          "duration": "0秒",
-          "durationSec": 0.0
+          "recoveryBarcode": "",
+          "durationSec": 249.74,
+          "duration": "4分9秒"
         },
         {
           "device": "SS2004",
           "faultType": "扫描故障",
           "startTime": "2026-06-02 18:10:36.970",
-          "endTime": "2026-06-02 18:10:36.970",
+          "endTime": "2026-06-02 18:11:35.113",
           "occurrences": 1,
           "isNoread": false,
-          "duration": "0秒",
-          "durationSec": 0.0
+          "recoveryBarcode": "L03569",
+          "durationSec": 58.143,
+          "duration": "58秒"
         },
         {
           "device": "SS2004",
           "faultType": "条码识别失败(NOREAD)",
           "startTime": "2026-06-02 18:10:37.051",
-          "endTime": "2026-06-02 18:11:34.447",
+          "endTime": "2026-06-02 18:11:35.113",
           "occurrences": 111,
           "isNoread": true,
           "recoveryBarcode": "L03569",
-          "duration": "57秒",
-          "durationSec": 57.396
+          "durationSec": 58.062,
+          "duration": "58秒"
         },
         {
           "device": "SS4006",
           "faultType": "条码识别失败(NOREAD)",
           "startTime": "2026-06-02 18:30:29.283",
-          "endTime": "2026-06-02 18:48:20.411",
+          "endTime": "2026-06-02 18:48:21.089",
           "occurrences": 2062,
           "isNoread": true,
           "recoveryBarcode": "L03253",
-          "duration": "17分51秒",
-          "durationSec": 1071.128
+          "durationSec": 1071.806,
+          "duration": "17分51秒"
         },
         {
           "device": "SS4006",
@@ -1085,8 +1156,9 @@
           "endTime": "2026-06-02 18:30:29.355",
           "occurrences": 1,
           "isNoread": false,
-          "duration": "0秒",
-          "durationSec": 0.0
+          "recoveryBarcode": "",
+          "durationSec": 0.0,
+          "duration": "0秒"
         },
         {
           "device": "SS4005",
@@ -1095,8 +1167,9 @@
           "endTime": "2026-06-02 18:55:49.862",
           "occurrences": 1,
           "isNoread": false,
-          "duration": "0秒",
-          "durationSec": 0.0
+          "recoveryBarcode": "",
+          "durationSec": 0.0,
+          "duration": "0秒"
         },
         {
           "device": "SS4006",
@@ -1105,18 +1178,20 @@
           "endTime": "2026-06-02 18:55:49.862",
           "occurrences": 1,
           "isNoread": false,
-          "duration": "0秒",
-          "durationSec": 0.0
+          "recoveryBarcode": "",
+          "durationSec": 0.0,
+          "duration": "0秒"
         },
         {
           "device": "SS4004",
           "faultType": "托盘超长",
           "startTime": "2026-06-02 19:03:52.956",
-          "endTime": "2026-06-02 19:03:52.956",
+          "endTime": "2026-06-02 19:08:47.537",
           "occurrences": 1,
           "isNoread": false,
-          "duration": "0秒",
-          "durationSec": 0.0
+          "recoveryBarcode": "L03563",
+          "durationSec": 294.581,
+          "duration": "4分54秒"
         },
         {
           "device": "SK0002",
@@ -1125,38 +1200,42 @@
           "endTime": "2026-06-02 19:10:21.470",
           "occurrences": 1,
           "isNoread": false,
-          "duration": "0秒",
-          "durationSec": 0.0
+          "recoveryBarcode": "",
+          "durationSec": 0.0,
+          "duration": "0秒"
         },
         {
           "device": "SS1014",
           "faultType": "托盘超高",
           "startTime": "2026-06-02 19:11:06.460",
-          "endTime": "2026-06-02 19:11:06.460",
+          "endTime": "2026-06-02 19:12:04.057",
           "occurrences": 1,
           "isNoread": false,
-          "duration": "0秒",
-          "durationSec": 0.0
+          "recoveryBarcode": "L00606",
+          "durationSec": 57.597,
+          "duration": "57秒"
         },
         {
           "device": "SS1014",
           "faultType": "托盘超长",
           "startTime": "2026-06-02 19:26:41.860",
-          "endTime": "2026-06-02 19:26:41.860",
+          "endTime": "2026-06-02 19:27:18.864",
           "occurrences": 1,
           "isNoread": false,
-          "duration": "0秒",
-          "durationSec": 0.0
+          "recoveryBarcode": "L02738",
+          "durationSec": 37.004,
+          "duration": "37秒"
         },
         {
           "device": "SK0003",
           "faultType": "获取任务列表异常(?)",
           "startTime": "2026-06-02 20:22:03.692",
-          "endTime": "2026-06-02 21:50:55.659",
+          "endTime": "2026-06-02 21:50:58.400",
           "occurrences": 5,
           "isNoread": false,
-          "duration": "88分51秒",
-          "durationSec": 5331.967
+          "recoveryBarcode": "",
+          "durationSec": 5334.708,
+          "duration": "88分54秒"
         },
         {
           "device": "SS3004",
@@ -1165,60 +1244,64 @@
           "endTime": "2026-06-02 20:25:26.164",
           "occurrences": 1,
           "isNoread": false,
-          "duration": "0秒",
-          "durationSec": 0.0
+          "recoveryBarcode": "",
+          "durationSec": 0.0,
+          "duration": "0秒"
         },
         {
           "device": "SS3004",
           "faultType": "条码识别失败(NOREAD)",
           "startTime": "2026-06-02 20:25:26.543",
-          "endTime": "2026-06-02 20:31:00.708",
+          "endTime": "2026-06-02 20:31:01.374",
           "occurrences": 643,
           "isNoread": true,
           "recoveryBarcode": "L01503",
-          "duration": "5分34秒",
-          "durationSec": 334.165
+          "durationSec": 334.831,
+          "duration": "5分34秒"
         },
         {
           "device": "SK0001",
           "faultType": "获取任务列表异常(?)",
           "startTime": "2026-06-02 20:28:49.990",
-          "endTime": "2026-06-02 21:15:07.397",
+          "endTime": "2026-06-02 21:15:10.361",
           "occurrences": 2,
           "isNoread": false,
-          "duration": "46分17秒",
-          "durationSec": 2777.407
+          "recoveryBarcode": "",
+          "durationSec": 2780.371,
+          "duration": "46分20秒"
         },
         {
           "device": "SK0002",
           "faultType": "获取任务列表异常(?)",
           "startTime": "2026-06-02 20:31:02.363",
-          "endTime": "2026-06-02 21:42:08.680",
+          "endTime": "2026-06-02 21:42:11.444",
           "occurrences": 5,
           "isNoread": false,
-          "duration": "71分6秒",
-          "durationSec": 4266.317
+          "recoveryBarcode": "",
+          "durationSec": 4269.081,
+          "duration": "71分9秒"
         },
         {
           "device": "SS4004",
           "faultType": "条码识别失败(NOREAD)",
           "startTime": "2026-06-02 21:14:19.749",
-          "endTime": "2026-06-02 21:18:44.781",
+          "endTime": "2026-06-02 21:18:45.449",
           "occurrences": 511,
           "isNoread": true,
           "recoveryBarcode": "L02403",
-          "duration": "4分25秒",
-          "durationSec": 265.032
+          "durationSec": 265.7,
+          "duration": "4分25秒"
         },
         {
           "device": "SS4004",
           "faultType": "扫描故障",
           "startTime": "2026-06-02 21:14:19.768",
-          "endTime": "2026-06-02 21:14:19.768",
+          "endTime": "2026-06-02 21:18:45.449",
           "occurrences": 1,
           "isNoread": false,
-          "duration": "0秒",
-          "durationSec": 0.0
+          "recoveryBarcode": "L02403",
+          "durationSec": 265.681,
+          "duration": "4分25秒"
         }
       ],
       "errorTypes": {
@@ -1243,1253 +1326,5 @@
       }
     }
   },
-  "weekly": {
-    "2026-W23": {
-      "week": "2026-W23",
-      "year": 2026,
-      "weekNum": 23,
-      "days": [
-        "20260602"
-      ],
-      "startDate": "20260602",
-      "endDate": "20260602",
-      "stats": {
-        "totalLines": 9579,
-        "errorCount": 7767,
-        "normalCount": 1810,
-        "noreadEvents": 13,
-        "deviceFaults": 96,
-        "deviceCount": 25,
-        "timeSpan": {
-          "start": "07:22:12",
-          "end": "22:18:08"
-        },
-        "healthScore": 18.9
-      },
-      "hourRange": [
-        7,
-        21
-      ],
-      "hourly": [
-        {
-          "hour": 7,
-          "errors": 9,
-          "normal": 42
-        },
-        {
-          "hour": 8,
-          "errors": 1196,
-          "normal": 179
-        },
-        {
-          "hour": 9,
-          "errors": 19,
-          "normal": 137
-        },
-        {
-          "hour": 10,
-          "errors": 1066,
-          "normal": 206
-        },
-        {
-          "hour": 11,
-          "errors": 332,
-          "normal": 224
-        },
-        {
-          "hour": 12,
-          "errors": 498,
-          "normal": 4
-        },
-        {
-          "hour": 13,
-          "errors": 653,
-          "normal": 38
-        },
-        {
-          "hour": 14,
-          "errors": 267,
-          "normal": 186
-        },
-        {
-          "hour": 15,
-          "errors": 146,
-          "normal": 102
-        },
-        {
-          "hour": 16,
-          "errors": 18,
-          "normal": 151
-        },
-        {
-          "hour": 17,
-          "errors": 179,
-          "normal": 153
-        },
-        {
-          "hour": 18,
-          "errors": 2201,
-          "normal": 199
-        },
-        {
-          "hour": 19,
-          "errors": 10,
-          "normal": 65
-        },
-        {
-          "hour": 20,
-          "errors": 648,
-          "normal": 43
-        },
-        {
-          "hour": 21,
-          "errors": 525,
-          "normal": 76
-        }
-      ],
-      "hourlyEvents": [
-        {
-          "hour": 7,
-          "total": 93,
-          "types": {
-            "扫描故障": 1,
-            "获取任务列表异常(?)": 90,
-            "任务写入失败(5次)": 2
-          }
-        },
-        {
-          "hour": 8,
-          "total": 1178,
-          "types": {
-            "扫描故障": 2,
-            "条码识别失败(NOREAD)": 1061,
-            "托盘超宽": 1,
-            "提升向下软限位报警": 1,
-            "升降变频器故障": 1,
-            "任务写入失败(5次)": 1,
-            "任务超时": 2,
-            "数据库异常(ORA-12570:)": 20,
-            "数据库异常(Oracle)": 88,
-            "数据库异常(ORA-03135:)": 1
-          }
-        },
-        {
-          "hour": 9,
-          "total": 2,
-          "types": {
-            "任务写入失败(5次)": 1,
-            "托盘超长": 1
-          }
-        },
-        {
-          "hour": 10,
-          "total": 1049,
-          "types": {
-            "行走轴故障": 1,
-            "条码识别失败(NOREAD)": 1045,
-            "托盘超长": 1,
-            "扫描故障": 1,
-            "行走时货叉不居中": 1
-          }
-        },
-        {
-          "hour": 11,
-          "total": 301,
-          "types": {
-            "扫描故障": 2,
-            "条码识别失败(NOREAD)": 298,
-            "托盘超长": 1
-          }
-        },
-        {
-          "hour": 12,
-          "total": 1156,
-          "types": {
-            "数据库异常(ORA-12570:)": 46,
-            "数据库异常(Oracle)": 1110
-          }
-        },
-        {
-          "hour": 13,
-          "total": 50,
-          "types": {
-            "数据库异常(Oracle)": 4,
-            "获取任务列表异常(?)": 46
-          }
-        },
-        {
-          "hour": 14,
-          "total": 278,
-          "types": {
-            "获取任务列表异常(?)": 37,
-            "数据库异常(ORA-12570:)": 10,
-            "任务写入失败(5次)": 3,
-            "条码识别失败(NOREAD)": 226,
-            "扫描故障": 1,
-            "托盘超宽": 1
-          }
-        },
-        {
-          "hour": 15,
-          "total": 132,
-          "types": {
-            "托盘超长": 2,
-            "条码识别失败(NOREAD)": 130
-          }
-        },
-        {
-          "hour": 16,
-          "total": 16,
-          "types": {
-            "托盘超长": 1,
-            "获取任务列表异常(?)": 11,
-            "入货超时": 2,
-            "出货超时": 2
-          }
-        },
-        {
-          "hour": 17,
-          "total": 162,
-          "types": {
-            "升降变频器故障": 1,
-            "托盘超长": 2,
-            "条码识别失败(NOREAD)": 158,
-            "扫描故障": 1
-          }
-        },
-        {
-          "hour": 18,
-          "total": 2178,
-          "types": {
-            "电源缺相报警": 1,
-            "扫描故障": 2,
-            "条码识别失败(NOREAD)": 2173,
-            "出货超时": 1,
-            "入货超时": 1
-          }
-        },
-        {
-          "hour": 19,
-          "total": 4,
-          "types": {
-            "托盘超长": 2,
-            "托盘超宽": 1,
-            "托盘超高": 1
-          }
-        },
-        {
-          "hour": 20,
-          "total": 656,
-          "types": {
-            "获取任务列表异常(?)": 12,
-            "扫描故障": 1,
-            "条码识别失败(NOREAD)": 643
-          }
-        },
-        {
-          "hour": 21,
-          "total": 512,
-          "types": {
-            "条码识别失败(NOREAD)": 511,
-            "扫描故障": 1
-          }
-        }
-      ],
-      "deviceFaults": [
-        {
-          "device": "SS1014",
-          "faultType": "扫描故障",
-          "startTime": "2026-06-02 07:40:29.855",
-          "endTime": "2026-06-02 07:40:29.855",
-          "occurrences": 1,
-          "isNoread": false,
-          "duration": "0秒",
-          "durationSec": 0.0
-        },
-        {
-          "device": "SK0004",
-          "faultType": "获取任务列表异常(?)",
-          "startTime": "2026-06-02 07:52:03.289",
-          "endTime": "2026-06-02 11:41:57.687",
-          "occurrences": 23,
-          "isNoread": false,
-          "duration": "229分54秒",
-          "durationSec": 13794.398
-        },
-        {
-          "device": "SK0002",
-          "faultType": "获取任务列表异常(?)",
-          "startTime": "2026-06-02 07:52:33.681",
-          "endTime": "2026-06-02 12:00:24.297",
-          "occurrences": 25,
-          "isNoread": false,
-          "duration": "247分50秒",
-          "durationSec": 14870.616
-        },
-        {
-          "device": "SK0001",
-          "faultType": "获取任务列表异常(?)",
-          "startTime": "2026-06-02 07:54:04.068",
-          "endTime": "2026-06-02 11:50:18.438",
-          "occurrences": 23,
-          "isNoread": false,
-          "duration": "236分14秒",
-          "durationSec": 14174.37
-        },
-        {
-          "device": "SK0003",
-          "faultType": "获取任务列表异常(?)",
-          "startTime": "2026-06-02 07:55:21.430",
-          "endTime": "2026-06-02 11:45:26.850",
-          "occurrences": 19,
-          "isNoread": false,
-          "duration": "230分5秒",
-          "durationSec": 13805.42
-        },
-        {
-          "device": "SK0002",
-          "faultType": "任务写入失败(5次)",
-          "startTime": "2026-06-02 07:59:46.970",
-          "endTime": "2026-06-02 08:02:12.971",
-          "occurrences": 2,
-          "isNoread": false,
-          "duration": "2分26秒",
-          "durationSec": 146.001
-        },
-        {
-          "device": "SS3008",
-          "faultType": "扫描故障",
-          "startTime": "2026-06-02 08:03:51.156",
-          "endTime": "2026-06-02 08:03:51.156",
-          "occurrences": 1,
-          "isNoread": false,
-          "duration": "0秒",
-          "durationSec": 0.0
-        },
-        {
-          "device": "SS3008",
-          "faultType": "条码识别失败(NOREAD)",
-          "startTime": "2026-06-02 08:03:51.221",
-          "endTime": "2026-06-02 08:09:23.626",
-          "occurrences": 641,
-          "isNoread": true,
-          "recoveryBarcode": "L02438",
-          "duration": "5分32秒",
-          "durationSec": 332.405
-        },
-        {
-          "device": "SK0001",
-          "faultType": "托盘超宽",
-          "startTime": "2026-06-02 08:05:08.633",
-          "endTime": "2026-06-02 08:05:08.633",
-          "occurrences": 1,
-          "isNoread": false,
-          "duration": "0秒",
-          "durationSec": 0.0
-        },
-        {
-          "device": "SK0004",
-          "faultType": "提升向下软限位报警",
-          "startTime": "2026-06-02 08:09:28.380",
-          "endTime": "2026-06-02 08:09:28.380",
-          "occurrences": 1,
-          "isNoread": false,
-          "duration": "0秒",
-          "durationSec": 0.0
-        },
-        {
-          "device": "SK0004",
-          "faultType": "升降变频器故障",
-          "startTime": "2026-06-02 08:10:00.143",
-          "endTime": "2026-06-02 08:10:00.143",
-          "occurrences": 1,
-          "isNoread": false,
-          "duration": "0秒",
-          "durationSec": 0.0
-        },
-        {
-          "device": "SK0003",
-          "faultType": "任务写入失败(5次)",
-          "startTime": "2026-06-02 08:11:25.369",
-          "endTime": "2026-06-02 08:11:25.369",
-          "occurrences": 1,
-          "isNoread": false,
-          "duration": "0秒",
-          "durationSec": 0.0
-        },
-        {
-          "device": "SS4002",
-          "faultType": "任务超时",
-          "startTime": "2026-06-02 08:28:54.867",
-          "endTime": "2026-06-02 08:28:54.867",
-          "occurrences": 1,
-          "isNoread": false,
-          "duration": "0秒",
-          "durationSec": 0.0
-        },
-        {
-          "device": "Unknown",
-          "faultType": "数据库异常(ORA-12570:)",
-          "startTime": "2026-06-02 08:29:05.651",
-          "endTime": "2026-06-02 09:13:56.086",
-          "occurrences": 18,
-          "isNoread": false,
-          "duration": "44分50秒",
-          "durationSec": 2690.435
-        },
-        {
-          "device": "SS2005",
-          "faultType": "数据库异常(ORA-12570:)",
-          "startTime": "2026-06-02 08:29:06.474",
-          "endTime": "2026-06-02 08:29:06.474",
-          "occurrences": 1,
-          "isNoread": false,
-          "duration": "0秒",
-          "durationSec": 0.0
-        },
-        {
-          "device": "SS4002",
-          "faultType": "数据库异常(ORA-12570:)",
-          "startTime": "2026-06-02 08:29:09.215",
-          "endTime": "2026-06-02 08:29:09.215",
-          "occurrences": 1,
-          "isNoread": false,
-          "duration": "0秒",
-          "durationSec": 0.0
-        },
-        {
-          "device": "Unknown",
-          "faultType": "数据库异常(Oracle)",
-          "startTime": "2026-06-02 08:29:26.710",
-          "endTime": "2026-06-02 08:35:25.270",
-          "occurrences": 62,
-          "isNoread": false,
-          "duration": "5分58秒",
-          "durationSec": 358.56
-        },
-        {
-          "device": "SS2005",
-          "faultType": "数据库异常(Oracle)",
-          "startTime": "2026-06-02 08:29:48.543",
-          "endTime": "2026-06-02 08:34:42.280",
-          "occurrences": 6,
-          "isNoread": false,
-          "duration": "4分53秒",
-          "durationSec": 293.737
-        },
-        {
-          "device": "SS4002",
-          "faultType": "数据库异常(Oracle)",
-          "startTime": "2026-06-02 08:29:48.575",
-          "endTime": "2026-06-02 08:35:25.130",
-          "occurrences": 9,
-          "isNoread": false,
-          "duration": "5分36秒",
-          "durationSec": 336.555
-        },
-        {
-          "device": "SK0002",
-          "faultType": "数据库异常(Oracle)",
-          "startTime": "2026-06-02 08:30:29.819",
-          "endTime": "2026-06-02 08:35:24.476",
-          "occurrences": 8,
-          "isNoread": false,
-          "duration": "4分54秒",
-          "durationSec": 294.657
-        },
-        {
-          "device": "SK0003",
-          "faultType": "数据库异常(Oracle)",
-          "startTime": "2026-06-02 08:30:50.954",
-          "endTime": "2026-06-02 08:30:50.954",
-          "occurrences": 1,
-          "isNoread": false,
-          "duration": "0秒",
-          "durationSec": 0.0
-        },
-        {
-          "device": "SK0004",
-          "faultType": "数据库异常(Oracle)",
-          "startTime": "2026-06-02 08:31:33.028",
-          "endTime": "2026-06-02 08:31:33.028",
-          "occurrences": 1,
-          "isNoread": false,
-          "duration": "0秒",
-          "durationSec": 0.0
-        },
-        {
-          "device": "SK0001",
-          "faultType": "数据库异常(Oracle)",
-          "startTime": "2026-06-02 08:32:15.816",
-          "endTime": "2026-06-02 08:32:15.816",
-          "occurrences": 1,
-          "isNoread": false,
-          "duration": "0秒",
-          "durationSec": 0.0
-        },
-        {
-          "device": "SS3004",
-          "faultType": "条码识别失败(NOREAD)",
-          "startTime": "2026-06-02 08:54:02.777",
-          "endTime": "2026-06-02 08:57:40.287",
-          "occurrences": 420,
-          "isNoread": true,
-          "recoveryBarcode": "L01735",
-          "duration": "3分37秒",
-          "durationSec": 217.51
-        },
-        {
-          "device": "SS3004",
-          "faultType": "扫描故障",
-          "startTime": "2026-06-02 08:54:02.964",
-          "endTime": "2026-06-02 08:54:02.964",
-          "occurrences": 1,
-          "isNoread": false,
-          "duration": "0秒",
-          "durationSec": 0.0
-        },
-        {
-          "device": "SS4004",
-          "faultType": "任务超时",
-          "startTime": "2026-06-02 08:59:35.068",
-          "endTime": "2026-06-02 08:59:35.068",
-          "occurrences": 1,
-          "isNoread": false,
-          "duration": "0秒",
-          "durationSec": 0.0
-        },
-        {
-          "device": "Unknown",
-          "faultType": "数据库异常(ORA-03135:)",
-          "startTime": "2026-06-02 08:59:45.558",
-          "endTime": "2026-06-02 08:59:45.558",
-          "occurrences": 1,
-          "isNoread": false,
-          "duration": "0秒",
-          "durationSec": 0.0
-        },
-        {
-          "device": "SK0002",
-          "faultType": "任务写入失败(5次)",
-          "startTime": "2026-06-02 09:05:10.980",
-          "endTime": "2026-06-02 09:05:10.980",
-          "occurrences": 1,
-          "isNoread": false,
-          "duration": "0秒",
-          "durationSec": 0.0
-        },
-        {
-          "device": "SS1014",
-          "faultType": "托盘超长",
-          "startTime": "2026-06-02 09:38:10.956",
-          "endTime": "2026-06-02 09:38:10.956",
-          "occurrences": 1,
-          "isNoread": false,
-          "duration": "0秒",
-          "durationSec": 0.0
-        },
-        {
-          "device": "SK0004",
-          "faultType": "行走轴故障",
-          "startTime": "2026-06-02 10:10:32.318",
-          "endTime": "2026-06-02 10:10:32.318",
-          "occurrences": 1,
-          "isNoread": false,
-          "duration": "0秒",
-          "durationSec": 0.0
-        },
-        {
-          "device": "SS3008",
-          "faultType": "条码识别失败(NOREAD)",
-          "startTime": "2026-06-02 10:23:10.037",
-          "endTime": "2026-06-02 10:28:30.276",
-          "occurrences": 617,
-          "isNoread": true,
-          "recoveryBarcode": "L02359",
-          "duration": "5分20秒",
-          "durationSec": 320.239
-        },
-        {
-          "device": "SS3004",
-          "faultType": "托盘超长",
-          "startTime": "2026-06-02 10:26:41.945",
-          "endTime": "2026-06-02 10:26:41.945",
-          "occurrences": 1,
-          "isNoread": false,
-          "duration": "0秒",
-          "durationSec": 0.0
-        },
-        {
-          "device": "SS4004",
-          "faultType": "条码识别失败(NOREAD)",
-          "startTime": "2026-06-02 10:53:36.593",
-          "endTime": "2026-06-02 10:57:18.816",
-          "occurrences": 428,
-          "isNoread": true,
-          "recoveryBarcode": "L01609",
-          "duration": "3分42秒",
-          "durationSec": 222.223
-        },
-        {
-          "device": "SS4004",
-          "faultType": "扫描故障",
-          "startTime": "2026-06-02 10:53:36.760",
-          "endTime": "2026-06-02 10:53:36.760",
-          "occurrences": 1,
-          "isNoread": false,
-          "duration": "0秒",
-          "durationSec": 0.0
-        },
-        {
-          "device": "SK0002",
-          "faultType": "行走时货叉不居中",
-          "startTime": "2026-06-02 10:58:15.043",
-          "endTime": "2026-06-02 10:58:15.043",
-          "occurrences": 1,
-          "isNoread": false,
-          "duration": "0秒",
-          "durationSec": 0.0
-        },
-        {
-          "device": "SS2008",
-          "faultType": "扫描故障",
-          "startTime": "2026-06-02 11:15:57.750",
-          "endTime": "2026-06-02 11:15:57.750",
-          "occurrences": 1,
-          "isNoread": false,
-          "duration": "0秒",
-          "durationSec": 0.0
-        },
-        {
-          "device": "SS2008",
-          "faultType": "条码识别失败(NOREAD)",
-          "startTime": "2026-06-02 11:15:57.872",
-          "endTime": "2026-06-02 11:18:31.849",
-          "occurrences": 297,
-          "isNoread": true,
-          "recoveryBarcode": "L02651",
-          "duration": "2分33秒",
-          "durationSec": 153.977
-        },
-        {
-          "device": "SS4002",
-          "faultType": "托盘超长",
-          "startTime": "2026-06-02 11:17:37.450",
-          "endTime": "2026-06-02 11:17:37.450",
-          "occurrences": 1,
-          "isNoread": false,
-          "duration": "0秒",
-          "durationSec": 0.0
-        },
-        {
-          "device": "SS1002",
-          "faultType": "条码识别失败(NOREAD)",
-          "startTime": "2026-06-02 11:46:08.557",
-          "endTime": "2026-06-02 11:46:08.557",
-          "occurrences": 1,
-          "isNoread": true,
-          "recoveryBarcode": "",
-          "duration": "0秒",
-          "durationSec": 0.0
-        },
-        {
-          "device": "SS1002",
-          "faultType": "扫描故障",
-          "startTime": "2026-06-02 11:46:08.656",
-          "endTime": "2026-06-02 11:46:08.656",
-          "occurrences": 1,
-          "isNoread": false,
-          "duration": "0秒",
-          "durationSec": 0.0
-        },
-        {
-          "device": "Unknown",
-          "faultType": "数据库异常(ORA-12570:)",
-          "startTime": "2026-06-02 12:17:16.385",
-          "endTime": "2026-06-02 12:43:40.088",
-          "occurrences": 40,
-          "isNoread": false,
-          "duration": "26分23秒",
-          "durationSec": 1583.703
-        },
-        {
-          "device": "SS1001",
-          "faultType": "数据库异常(ORA-12570:)",
-          "startTime": "2026-06-02 12:17:17.232",
-          "endTime": "2026-06-02 12:43:20.469",
-          "occurrences": 3,
-          "isNoread": false,
-          "duration": "26分3秒",
-          "durationSec": 1563.237
-        },
-        {
-          "device": "SS1009",
-          "faultType": "数据库异常(ORA-12570:)",
-          "startTime": "2026-06-02 12:17:18.115",
-          "endTime": "2026-06-02 12:43:21.429",
-          "occurrences": 3,
-          "isNoread": false,
-          "duration": "26分3秒",
-          "durationSec": 1563.314
-        },
-        {
-          "device": "Unknown",
-          "faultType": "数据库异常(Oracle)",
-          "startTime": "2026-06-02 12:17:37.748",
-          "endTime": "2026-06-02 14:26:50.540",
-          "occurrences": 907,
-          "isNoread": false,
-          "duration": "129分12秒",
-          "durationSec": 7752.792
-        },
-        {
-          "device": "SS1001",
-          "faultType": "数据库异常(Oracle)",
-          "startTime": "2026-06-02 12:17:59.426",
-          "endTime": "2026-06-02 14:26:53.734",
-          "occurrences": 100,
-          "isNoread": false,
-          "duration": "128分54秒",
-          "durationSec": 7734.308
-        },
-        {
-          "device": "SS1009",
-          "faultType": "数据库异常(Oracle)",
-          "startTime": "2026-06-02 12:17:59.687",
-          "endTime": "2026-06-02 14:26:11.646",
-          "occurrences": 99,
-          "isNoread": false,
-          "duration": "128分11秒",
-          "durationSec": 7691.959
-        },
-        {
-          "device": "SK0002",
-          "faultType": "数据库异常(Oracle)",
-          "startTime": "2026-06-02 12:19:23.833",
-          "endTime": "2026-06-02 12:19:23.833",
-          "occurrences": 1,
-          "isNoread": false,
-          "duration": "0秒",
-          "durationSec": 0.0
-        },
-        {
-          "device": "SK0003",
-          "faultType": "数据库异常(Oracle)",
-          "startTime": "2026-06-02 12:19:44.019",
-          "endTime": "2026-06-02 12:19:44.019",
-          "occurrences": 1,
-          "isNoread": false,
-          "duration": "0秒",
-          "durationSec": 0.0
-        },
-        {
-          "device": "SK0004",
-          "faultType": "数据库异常(Oracle)",
-          "startTime": "2026-06-02 12:19:44.690",
-          "endTime": "2026-06-02 12:19:44.690",
-          "occurrences": 1,
-          "isNoread": false,
-          "duration": "0秒",
-          "durationSec": 0.0
-        },
-        {
-          "device": "SK0001",
-          "faultType": "数据库异常(Oracle)",
-          "startTime": "2026-06-02 12:20:26.779",
-          "endTime": "2026-06-02 12:20:26.779",
-          "occurrences": 1,
-          "isNoread": false,
-          "duration": "0秒",
-          "durationSec": 0.0
-        },
-        {
-          "device": "SS1005",
-          "faultType": "数据库异常(Oracle)",
-          "startTime": "2026-06-02 13:47:10.221",
-          "endTime": "2026-06-02 14:26:53.545",
-          "occurrences": 4,
-          "isNoread": false,
-          "duration": "39分43秒",
-          "durationSec": 2383.324
-        },
-        {
-          "device": "SK0002",
-          "faultType": "获取任务列表异常(?)",
-          "startTime": "2026-06-02 13:50:24.777",
-          "endTime": "2026-06-02 19:25:12.437",
-          "occurrences": 26,
-          "isNoread": false,
-          "duration": "334分47秒",
-          "durationSec": 20087.66
-        },
-        {
-          "device": "SK0003",
-          "faultType": "获取任务列表异常(?)",
-          "startTime": "2026-06-02 13:59:04.382",
-          "endTime": "2026-06-02 19:17:15.121",
-          "occurrences": 20,
-          "isNoread": false,
-          "duration": "318分10秒",
-          "durationSec": 19090.739
-        },
-        {
-          "device": "SK0001",
-          "faultType": "获取任务列表异常(?)",
-          "startTime": "2026-06-02 14:07:21.045",
-          "endTime": "2026-06-02 14:43:25.851",
-          "occurrences": 6,
-          "isNoread": false,
-          "duration": "36分4秒",
-          "durationSec": 2164.806
-        },
-        {
-          "device": "SK0004",
-          "faultType": "获取任务列表异常(?)",
-          "startTime": "2026-06-02 14:12:36.390",
-          "endTime": "2026-06-02 21:47:01.693",
-          "occurrences": 31,
-          "isNoread": false,
-          "duration": "454分25秒",
-          "durationSec": 27265.303
-        },
-        {
-          "device": "SK0002",
-          "faultType": "数据库异常(ORA-12570:)",
-          "startTime": "2026-06-02 14:26:08.318",
-          "endTime": "2026-06-02 14:26:08.318",
-          "occurrences": 1,
-          "isNoread": false,
-          "duration": "0秒",
-          "durationSec": 0.0
-        },
-        {
-          "device": "Unknown",
-          "faultType": "数据库异常(ORA-12570:)",
-          "startTime": "2026-06-02 14:26:08.363",
-          "endTime": "2026-06-02 14:26:09.015",
-          "occurrences": 7,
-          "isNoread": false,
-          "duration": "0秒",
-          "durationSec": 0.652
-        },
-        {
-          "device": "SS1005",
-          "faultType": "数据库异常(ORA-12570:)",
-          "startTime": "2026-06-02 14:26:08.712",
-          "endTime": "2026-06-02 14:26:08.712",
-          "occurrences": 1,
-          "isNoread": false,
-          "duration": "0秒",
-          "durationSec": 0.0
-        },
-        {
-          "device": "SS1001",
-          "faultType": "数据库异常(ORA-12570:)",
-          "startTime": "2026-06-02 14:26:08.728",
-          "endTime": "2026-06-02 14:26:08.728",
-          "occurrences": 1,
-          "isNoread": false,
-          "duration": "0秒",
-          "durationSec": 0.0
-        },
-        {
-          "device": "SK0003",
-          "faultType": "任务写入失败(5次)",
-          "startTime": "2026-06-02 14:38:57.666",
-          "endTime": "2026-06-02 15:37:08.714",
-          "occurrences": 2,
-          "isNoread": false,
-          "duration": "58分11秒",
-          "durationSec": 3491.048
-        },
-        {
-          "device": "SS3006",
-          "faultType": "条码识别失败(NOREAD)",
-          "startTime": "2026-06-02 14:46:31.203",
-          "endTime": "2026-06-02 14:48:28.240",
-          "occurrences": 226,
-          "isNoread": true,
-          "recoveryBarcode": "L02650",
-          "duration": "1分57秒",
-          "durationSec": 117.037
-        },
-        {
-          "device": "SS3006",
-          "faultType": "扫描故障",
-          "startTime": "2026-06-02 14:46:31.247",
-          "endTime": "2026-06-02 14:46:31.247",
-          "occurrences": 1,
-          "isNoread": false,
-          "duration": "0秒",
-          "durationSec": 0.0
-        },
-        {
-          "device": "SK0004",
-          "faultType": "托盘超宽",
-          "startTime": "2026-06-02 14:47:39.532",
-          "endTime": "2026-06-02 14:47:39.532",
-          "occurrences": 1,
-          "isNoread": false,
-          "duration": "0秒",
-          "durationSec": 0.0
-        },
-        {
-          "device": "SK0002",
-          "faultType": "任务写入失败(5次)",
-          "startTime": "2026-06-02 14:50:42.070",
-          "endTime": "2026-06-02 14:50:42.070",
-          "occurrences": 1,
-          "isNoread": false,
-          "duration": "0秒",
-          "durationSec": 0.0
-        },
-        {
-          "device": "SS1010",
-          "faultType": "托盘超长",
-          "startTime": "2026-06-02 15:18:40.345",
-          "endTime": "2026-06-02 15:18:40.345",
-          "occurrences": 1,
-          "isNoread": false,
-          "duration": "0秒",
-          "durationSec": 0.0
-        },
-        {
-          "device": "SS4004",
-          "faultType": "条码识别失败(NOREAD)",
-          "startTime": "2026-06-02 15:36:26.138",
-          "endTime": "2026-06-02 15:37:33.180",
-          "occurrences": 130,
-          "isNoread": true,
-          "recoveryBarcode": "L02650",
-          "duration": "1分7秒",
-          "durationSec": 67.042
-        },
-        {
-          "device": "SS3006",
-          "faultType": "托盘超长",
-          "startTime": "2026-06-02 15:56:36.363",
-          "endTime": "2026-06-02 15:56:36.363",
-          "occurrences": 1,
-          "isNoread": false,
-          "duration": "0秒",
-          "durationSec": 0.0
-        },
-        {
-          "device": "SS3008",
-          "faultType": "托盘超长",
-          "startTime": "2026-06-02 16:03:22.661",
-          "endTime": "2026-06-02 16:03:22.661",
-          "occurrences": 1,
-          "isNoread": false,
-          "duration": "0秒",
-          "durationSec": 0.0
-        },
-        {
-          "device": "SK0001",
-          "faultType": "获取任务列表异常(?)",
-          "startTime": "2026-06-02 16:07:09.282",
-          "endTime": "2026-06-02 18:50:11.676",
-          "occurrences": 11,
-          "isNoread": false,
-          "duration": "163分2秒",
-          "durationSec": 9782.394
-        },
-        {
-          "device": "SS2001",
-          "faultType": "入货超时",
-          "startTime": "2026-06-02 16:30:47.062",
-          "endTime": "2026-06-02 16:30:47.062",
-          "occurrences": 1,
-          "isNoread": false,
-          "duration": "0秒",
-          "durationSec": 0.0
-        },
-        {
-          "device": "SS2002",
-          "faultType": "出货超时",
-          "startTime": "2026-06-02 16:31:17.148",
-          "endTime": "2026-06-02 16:31:17.148",
-          "occurrences": 1,
-          "isNoread": false,
-          "duration": "0秒",
-          "durationSec": 0.0
-        },
-        {
-          "device": "SS4004",
-          "faultType": "入货超时",
-          "startTime": "2026-06-02 16:47:32.560",
-          "endTime": "2026-06-02 16:47:32.560",
-          "occurrences": 1,
-          "isNoread": false,
-          "duration": "0秒",
-          "durationSec": 0.0
-        },
-        {
-          "device": "SS4003",
-          "faultType": "出货超时",
-          "startTime": "2026-06-02 16:47:32.560",
-          "endTime": "2026-06-02 16:47:32.560",
-          "occurrences": 1,
-          "isNoread": false,
-          "duration": "0秒",
-          "durationSec": 0.0
-        },
-        {
-          "device": "SK0004",
-          "faultType": "升降变频器故障",
-          "startTime": "2026-06-02 17:31:22.659",
-          "endTime": "2026-06-02 17:31:22.659",
-          "occurrences": 1,
-          "isNoread": false,
-          "duration": "0秒",
-          "durationSec": 0.0
-        },
-        {
-          "device": "SS1010",
-          "faultType": "托盘超长",
-          "startTime": "2026-06-02 17:33:18.359",
-          "endTime": "2026-06-02 17:33:18.359",
-          "occurrences": 1,
-          "isNoread": false,
-          "duration": "0秒",
-          "durationSec": 0.0
-        },
-        {
-          "device": "SS3002",
-          "faultType": "条码识别失败(NOREAD)",
-          "startTime": "2026-06-02 17:44:41.705",
-          "endTime": "2026-06-02 17:46:03.547",
-          "occurrences": 158,
-          "isNoread": true,
-          "recoveryBarcode": "L03599",
-          "duration": "1分21秒",
-          "durationSec": 81.842
-        },
-        {
-          "device": "SS3002",
-          "faultType": "扫描故障",
-          "startTime": "2026-06-02 17:44:41.763",
-          "endTime": "2026-06-02 17:44:41.763",
-          "occurrences": 1,
-          "isNoread": false,
-          "duration": "0秒",
-          "durationSec": 0.0
-        },
-        {
-          "device": "SS3002",
-          "faultType": "托盘超长",
-          "startTime": "2026-06-02 17:47:36.960",
-          "endTime": "2026-06-02 17:47:36.960",
-          "occurrences": 1,
-          "isNoread": false,
-          "duration": "0秒",
-          "durationSec": 0.0
-        },
-        {
-          "device": "SK0003",
-          "faultType": "电源缺相报警",
-          "startTime": "2026-06-02 18:07:39.280",
-          "endTime": "2026-06-02 18:07:39.280",
-          "occurrences": 1,
-          "isNoread": false,
-          "duration": "0秒",
-          "durationSec": 0.0
-        },
-        {
-          "device": "SS2004",
-          "faultType": "扫描故障",
-          "startTime": "2026-06-02 18:10:36.970",
-          "endTime": "2026-06-02 18:10:36.970",
-          "occurrences": 1,
-          "isNoread": false,
-          "duration": "0秒",
-          "durationSec": 0.0
-        },
-        {
-          "device": "SS2004",
-          "faultType": "条码识别失败(NOREAD)",
-          "startTime": "2026-06-02 18:10:37.051",
-          "endTime": "2026-06-02 18:11:34.447",
-          "occurrences": 111,
-          "isNoread": true,
-          "recoveryBarcode": "L03569",
-          "duration": "57秒",
-          "durationSec": 57.396
-        },
-        {
-          "device": "SS4006",
-          "faultType": "条码识别失败(NOREAD)",
-          "startTime": "2026-06-02 18:30:29.283",
-          "endTime": "2026-06-02 18:48:20.411",
-          "occurrences": 2062,
-          "isNoread": true,
-          "recoveryBarcode": "L03253",
-          "duration": "17分51秒",
-          "durationSec": 1071.128
-        },
-        {
-          "device": "SS4006",
-          "faultType": "扫描故障",
-          "startTime": "2026-06-02 18:30:29.355",
-          "endTime": "2026-06-02 18:30:29.355",
-          "occurrences": 1,
-          "isNoread": false,
-          "duration": "0秒",
-          "durationSec": 0.0
-        },
-        {
-          "device": "SS4005",
-          "faultType": "出货超时",
-          "startTime": "2026-06-02 18:55:49.862",
-          "endTime": "2026-06-02 18:55:49.862",
-          "occurrences": 1,
-          "isNoread": false,
-          "duration": "0秒",
-          "durationSec": 0.0
-        },
-        {
-          "device": "SS4006",
-          "faultType": "入货超时",
-          "startTime": "2026-06-02 18:55:49.862",
-          "endTime": "2026-06-02 18:55:49.862",
-          "occurrences": 1,
-          "isNoread": false,
-          "duration": "0秒",
-          "durationSec": 0.0
-        },
-        {
-          "device": "SS4004",
-          "faultType": "托盘超长",
-          "startTime": "2026-06-02 19:03:52.956",
-          "endTime": "2026-06-02 19:03:52.956",
-          "occurrences": 1,
-          "isNoread": false,
-          "duration": "0秒",
-          "durationSec": 0.0
-        },
-        {
-          "device": "SK0002",
-          "faultType": "托盘超宽",
-          "startTime": "2026-06-02 19:10:21.470",
-          "endTime": "2026-06-02 19:10:21.470",
-          "occurrences": 1,
-          "isNoread": false,
-          "duration": "0秒",
-          "durationSec": 0.0
-        },
-        {
-          "device": "SS1014",
-          "faultType": "托盘超高",
-          "startTime": "2026-06-02 19:11:06.460",
-          "endTime": "2026-06-02 19:11:06.460",
-          "occurrences": 1,
-          "isNoread": false,
-          "duration": "0秒",
-          "durationSec": 0.0
-        },
-        {
-          "device": "SS1014",
-          "faultType": "托盘超长",
-          "startTime": "2026-06-02 19:26:41.860",
-          "endTime": "2026-06-02 19:26:41.860",
-          "occurrences": 1,
-          "isNoread": false,
-          "duration": "0秒",
-          "durationSec": 0.0
-        },
-        {
-          "device": "SK0003",
-          "faultType": "获取任务列表异常(?)",
-          "startTime": "2026-06-02 20:22:03.692",
-          "endTime": "2026-06-02 21:50:55.659",
-          "occurrences": 5,
-          "isNoread": false,
-          "duration": "88分51秒",
-          "durationSec": 5331.967
-        },
-        {
-          "device": "SS3004",
-          "faultType": "扫描故障",
-          "startTime": "2026-06-02 20:25:26.164",
-          "endTime": "2026-06-02 20:25:26.164",
-          "occurrences": 1,
-          "isNoread": false,
-          "duration": "0秒",
-          "durationSec": 0.0
-        },
-        {
-          "device": "SS3004",
-          "faultType": "条码识别失败(NOREAD)",
-          "startTime": "2026-06-02 20:25:26.543",
-          "endTime": "2026-06-02 20:31:00.708",
-          "occurrences": 643,
-          "isNoread": true,
-          "recoveryBarcode": "L01503",
-          "duration": "5分34秒",
-          "durationSec": 334.165
-        },
-        {
-          "device": "SK0001",
-          "faultType": "获取任务列表异常(?)",
-          "startTime": "2026-06-02 20:28:49.990",
-          "endTime": "2026-06-02 21:15:07.397",
-          "occurrences": 2,
-          "isNoread": false,
-          "duration": "46分17秒",
-          "durationSec": 2777.407
-        },
-        {
-          "device": "SK0002",
-          "faultType": "获取任务列表异常(?)",
-          "startTime": "2026-06-02 20:31:02.363",
-          "endTime": "2026-06-02 21:42:08.680",
-          "occurrences": 5,
-          "isNoread": false,
-          "duration": "71分6秒",
-          "durationSec": 4266.317
-        },
-        {
-          "device": "SS4004",
-          "faultType": "条码识别失败(NOREAD)",
-          "startTime": "2026-06-02 21:14:19.749",
-          "endTime": "2026-06-02 21:18:44.781",
-          "occurrences": 511,
-          "isNoread": true,
-          "recoveryBarcode": "L02403",
-          "duration": "4分25秒",
-          "durationSec": 265.032
-        },
-        {
-          "device": "SS4004",
-          "faultType": "扫描故障",
-          "startTime": "2026-06-02 21:14:19.768",
-          "endTime": "2026-06-02 21:14:19.768",
-          "occurrences": 1,
-          "isNoread": false,
-          "duration": "0秒",
-          "durationSec": 0.0
-        }
-      ],
-      "errorTypes": {
-        "数据库异常(Oracle)": 15,
-        "条码识别失败(NOREAD)": 13,
-        "扫描故障": 12,
-        "获取任务列表异常(?)": 12,
-        "数据库异常(ORA-12570:)": 10,
-        "托盘超长": 10,
-        "任务写入失败(5次)": 5,
-        "托盘超宽": 3,
-        "入货超时": 3,
-        "出货超时": 3,
-        "升降变频器故障": 2,
-        "任务超时": 2,
-        "提升向下软限位报警": 1,
-        "数据库异常(ORA-03135:)": 1,
-        "行走轴故障": 1,
-        "行走时货叉不居中": 1,
-        "电源缺相报警": 1,
-        "托盘超高": 1
-      }
-    }
-  }
+  "weekly": {}
 }

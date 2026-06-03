@@ -6,704 +6,359 @@
 <title>WCS 监控仪表盘</title>
 <script src="https://cdn.bootcdn.net/ajax/libs/Chart.js/4.4.1/chart.umd.min.js"></script>
 <style>
-:root {
-  --bg: #0b1225;
-  --bg-card: #111b34;
-  --bg-hover: #182545;
-  --border: #1e3355;
-  --text: #c8d6e5;
-  --text-dim: #6b7d99;
-  --accent: #00b4ff;
-  --green: #00ffaa;
-  --orange: #ffa502;
-  --red: #ff4757;
-  --blue-fill: #2563eb;
-  --group-bg: #0f1a33;
-}
+:root{--bg:#0b1225;--bg-card:#111b34;--bg-hover:#182545;--border:#1e3355;--text:#c8d6e5;--text-dim:#6b7d99;--accent:#00b4ff;--green:#00ffaa;--orange:#ffa502;--red:#ff4757;--blue-fill:#2563eb;--group-bg:#0f1a33}
 *{margin:0;padding:0;box-sizing:border-box}
 body{background:var(--bg);color:var(--text);font-family:'Segoe UI','Microsoft YaHei',sans-serif;min-height:100vh;overflow-x:hidden}
-.container{max-width:100vw;padding:12px 16px}
-.header{display:flex;align-items:center;gap:12px;padding:8px 0 12px 0;flex-wrap:wrap}
-.logo{font-size:1.3rem;font-weight:700;background:linear-gradient(90deg,#ffa502,#ff6348);-webkit-background-clip:text;background-clip:text;color:transparent;white-space:nowrap}
+.container{max-width:100vw;padding:10px 14px}
+.header{display:flex;align-items:center;gap:10px;padding:6px 0 10px;flex-wrap:wrap}
+.logo{font-size:1.2rem;font-weight:700;background:linear-gradient(90deg,#ffa502,#ff6348);-webkit-background-clip:text;background-clip:text;color:transparent;white-space:nowrap}
 .view-tabs{display:flex;border:1px solid var(--border);border-radius:6px;overflow:hidden}
-.view-tab{padding:6px 14px;font-size:0.85rem;cursor:pointer;background:transparent;color:var(--text-dim);border:none;transition:.2s}
+.view-tab{padding:5px 12px;font-size:0.82rem;cursor:pointer;background:transparent;color:var(--text-dim);border:none;transition:.15s}
 .view-tab.active{background:var(--blue-fill);color:#fff}
-.view-tab:hover:not(.active){color:var(--text)}
 .date-dropdown{position:relative;flex-shrink:0}
-.date-btn{padding:6px 12px;background:var(--bg-card);border:1px solid var(--border);border-radius:6px;color:var(--text);font-size:0.85rem;cursor:pointer;display:flex;align-items:center;gap:6px}
-.date-btn .arrow{font-size:0.7rem;margin-left:4px}
+.date-btn{padding:5px 10px;background:var(--bg-card);border:1px solid var(--border);border-radius:6px;color:var(--text);font-size:0.82rem;cursor:pointer;display:flex;align-items:center;gap:4px}
 .date-menu{display:none;position:absolute;top:100%;left:0;margin-top:4px;background:var(--bg-card);border:1px solid var(--border);border-radius:6px;z-index:10;max-height:200px;overflow-y:auto;min-width:220px}
 .date-menu.show{display:block}
-.date-menu-item{padding:8px 14px;cursor:pointer;font-size:0.85rem;transition:.2s}
+.date-menu-item{padding:8px 14px;cursor:pointer;font-size:0.82rem;transition:.15s}
 .date-menu-item:hover{background:var(--bg-hover)}
 .date-menu-item.selected{color:var(--accent);font-weight:600}
-.data-days{font-size:0.8rem;color:var(--text-dim);margin-left:auto;white-space:nowrap}
-.stats-bar{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-bottom:12px}
-.stat-card{background:var(--bg-card);border:1px solid var(--border);border-radius:8px;padding:12px 16px;text-align:center}
-.stat-value{font-size:1.8rem;font-weight:700;color:var(--green)}
-.stat-value.warn{color:var(--orange)}
-.stat-value.danger{color:var(--red)}
-.stat-label{font-size:0.8rem;color:var(--text-dim);margin-top:4px}
-.main-grid{display:grid;grid-template-columns:1.4fr 1fr;gap:10px;min-height:0}
+.spacer{flex:1}
+.range-label{font-size:0.8rem;color:var(--text-dim);white-space:nowrap}
+.range-input{padding:4px 8px;background:var(--bg-card);border:1px solid var(--border);border-radius:4px;color:var(--text);font-size:0.8rem;width:125px}
+.stats-bar{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin-bottom:10px}
+.stat-card{background:var(--bg-card);border:1px solid var(--border);border-radius:8px;padding:10px 14px;text-align:center}
+.stat-value{font-size:1.6rem;font-weight:700;color:var(--green)}
+.stat-value.warn{color:var(--orange)}.stat-value.danger{color:var(--red)}
+.stat-label{font-size:0.78rem;color:var(--text-dim);margin-top:2px}
+.main-grid{display:grid;grid-template-columns:1.5fr 1fr;gap:8px}
 .card{background:var(--bg-card);border:1px solid var(--border);border-radius:10px;overflow:hidden}
-.card-header{display:flex;justify-content:space-between;align-items:center;padding:12px 16px;border-bottom:1px solid var(--border)}
-.card-title{font-size:1rem;font-weight:600;color:var(--accent)}
-.card-extra{font-size:0.8rem;color:var(--text-dim)}
-.card-body{overflow:hidden}
+.card-header{display:flex;justify-content:space-between;align-items:center;padding:10px 14px;border-bottom:1px solid var(--border)}
+.card-title{font-size:0.95rem;font-weight:600;color:var(--accent)}
+.card-extra{font-size:0.78rem;color:var(--text-dim)}
 .table-wrap{width:100%;overflow-x:auto}
-table{width:100%;border-collapse:collapse;font-size:0.82rem}
-th{background:rgba(0,180,255,0.1);color:var(--accent);padding:9px 8px;text-align:left;font-weight:600;border-bottom:2px solid var(--blue-fill);white-space:nowrap}
-td{padding:7px 8px;border-bottom:1px solid var(--border);white-space:nowrap}
+table{width:100%;border-collapse:collapse;font-size:0.8rem}
+th{background:rgba(0,180,255,0.1);color:var(--accent);padding:7px 6px;text-align:left;font-weight:600;border-bottom:2px solid var(--blue-fill);white-space:nowrap}
+td{padding:6px;border-bottom:1px solid var(--border);white-space:nowrap}
 tr:hover td{background:var(--bg-hover)}
 .group-header{cursor:pointer;user-select:none}
-.group-header td{padding:10px 8px;border-bottom:2px solid rgba(255,165,2,0.3)}
-.group-header:hover td{background:var(--bg-hover)}
-.group-toggle{display:inline-block;width:16px;text-align:center;font-size:0.7rem;transition:.2s;margin-right:4px}
+.group-header td{padding:8px 6px;border-bottom:2px solid rgba(255,165,2,0.3)}
+.group-toggle{display:inline-block;width:14px;font-size:0.65rem;transition:.15s;margin-right:4px}
 .group-toggle.open{transform:rotate(90deg)}
-.fault-type-badge{display:inline-block;padding:2px 7px;border-radius:4px;font-size:0.78rem}
+.fault-type-badge{display:inline-block;padding:2px 6px;border-radius:3px;font-size:0.76rem}
 .badge-noread{background:rgba(255,71,87,0.15);color:#ff6b81}
 .badge-db{background:rgba(255,165,2,0.15);color:var(--orange)}
 .badge-scan{background:rgba(0,180,255,0.15);color:var(--accent)}
 .badge-task{background:rgba(162,155,254,0.15);color:#a29bfe}
 .badge-tray{background:rgba(0,255,170,0.15);color:var(--green)}
 .badge-other{background:rgba(108,117,125,0.15);color:var(--text-dim)}
-.noread-tag{font-size:0.72rem;color:#ff6b81;margin-left:4px}
+.noread-tag{font-size:0.7rem;color:#ff6b81;margin-left:3px}
 .cell-device{color:var(--accent);font-weight:600}
-.cell-time{color:#a29bfe;font-size:0.8rem}
+.cell-time{color:#a29bfe;font-size:0.78rem}
 .cell-count{text-align:center;font-weight:700}
-.cell-count.high{color:var(--red)}
-.cell-count.mid{color:var(--orange)}
-.cell-count.low{color:var(--accent)}
-.cell-barcode{color:#7bed9f}
-.pagination{display:flex;justify-content:center;align-items:center;gap:6px;padding:10px;border-top:1px solid var(--border)}
-.page-btn{padding:4px 10px;background:var(--bg-hover);border:1px solid var(--border);border-radius:4px;color:var(--text);font-size:0.8rem;cursor:pointer}
-.page-btn:hover{background:var(--blue-fill);border-color:var(--blue-fill)}
-.page-btn.active{background:var(--blue-fill);color:#fff}
-.page-info{font-size:0.8rem;color:var(--text-dim)}
-.chart-wrap{position:relative;height:260px}
-.legend-wrap{display:flex;flex-wrap:wrap;gap:6px;padding:8px 12px;font-size:0.75rem}
-.legend-item{display:flex;align-items:center;gap:4px}
-.legend-dot{width:10px;height:10px;border-radius:2px;flex-shrink:0}
-.btn{background:var(--blue-fill);color:#fff;border:none;padding:6px 14px;border-radius:6px;font-size:0.85rem;cursor:pointer;transition:.2s}
-.btn:hover{opacity:0.85}
-.btn-sm{padding:4px 10px;font-size:0.78rem}
+.cell-count.high{color:var(--red)}.cell-count.mid{color:var(--orange)}.cell-count.low{color:var(--accent)}
+.cell-barcode{color:#7bed9f}.cell-dur{font-size:0.76rem;color:var(--text-dim)}
+.recovery-row{background:rgba(0,255,170,0.03)}
+.pagination{display:flex;justify-content:center;align-items:center;gap:5px;padding:8px;border-top:1px solid var(--border)}
+.page-btn{padding:4px 9px;background:var(--bg-hover);border:1px solid var(--border);border-radius:4px;color:var(--text);font-size:0.78rem;cursor:pointer}
+.page-btn.active{background:var(--blue-fill);color:#fff;border-color:var(--blue-fill)}
+.page-info{font-size:0.78rem;color:var(--text-dim);margin:0 6px}
+.chart-wrap{position:relative;height:240px}
+.legend-wrap{display:flex;flex-wrap:wrap;gap:5px;padding:6px 10px;font-size:0.73rem;max-height:200px;overflow-y:auto}
+.legend-item{display:flex;align-items:center;gap:3px}
+.legend-dot{width:9px;height:9px;border-radius:2px;flex-shrink:0}
+.btn{background:var(--blue-fill);color:#fff;border:none;padding:5px 12px;border-radius:5px;font-size:0.82rem;cursor:pointer;transition:.15s}
+.btn:hover{opacity:0.85}.btn-sm{padding:3px 8px;font-size:0.76rem}
 .btn-outline{background:transparent;border:1px solid var(--border);color:var(--text-dim)}
 .btn-orange{background:var(--orange);color:#000}
 .file-input{display:none}
-.right-col{display:flex;flex-direction:column;gap:10px}
+.right-col{display:flex;flex-direction:column;gap:8px}
 .right-col .card{flex:1}
-.right-col .card:last-child{flex:0 0 auto;max-height:50%}
-.type-list-wrap{max-height:200px;overflow-y:auto}
-.type-row{display:flex;justify-content:space-between;align-items:center;padding:5px 0;border-bottom:1px solid rgba(255,255,255,0.04);font-size:0.82rem}
-.type-row:hover{background:var(--bg-hover)}
 @media(max-width:1100px){.main-grid{grid-template-columns:1fr}.stats-bar{grid-template-columns:repeat(2,1fr)}}
 </style>
 </head>
 <body>
 <div class="container">
-  <div class="header">
-    <span class="logo">WCS Monitor</span>
-    <div class="view-tabs">
-      <button class="view-tab active" onclick="switchView('day')" id="tabDay">日视图</button>
-      <button class="view-tab" onclick="switchView('week')" id="tabWeek">周视图</button>
-    </div>
-    <div class="date-dropdown">
-      <button class="date-btn" onclick="toggleDateMenu()">
-        <span id="dateLabel">--</span>
-        <span class="arrow">&#9660;</span>
-      </button>
-      <div class="date-menu" id="dateMenu"></div>
-    </div>
-    <span class="data-days" id="dataDays">--</span>
-  </div>
+<div class="header">
+<span class="logo">WCS Monitor</span>
+<div class="view-tabs">
+<button class="view-tab active" onclick="switchView('day')" id="tabDay">日视图</button>
+<button class="view-tab" onclick="switchView('week')" id="tabWeek">周视图</button>
+</div>
+<div class="date-dropdown" id="dayDropdown" style="display:flex">
+<button class="date-btn" onclick="toggleDateMenu()"><span id="dateLabel">--</span><span style="font-size:0.6rem;margin-left:2px">▼</span></button>
+<div class="date-menu" id="dateMenu"></div>
+</div>
+<div id="weekRange" style="display:none;align-items:center;gap:6px">
+<span class="range-label">从</span><input type="date" class="range-input" id="weekStart">
+<span class="range-label">到</span><input type="date" class="range-input" id="weekEnd">
+<button class="btn btn-sm" onclick="applyWeekRange()">查询</button>
+</div>
+<span class="spacer"></span>
+<span class="range-label" id="dataDays">--</span>
+</div>
 
-  <div class="stats-bar">
-    <div class="stat-card"><div class="stat-value" id="statTotal">--</div><div class="stat-label">总故障事件</div></div>
-    <div class="stat-card"><div class="stat-value warn" id="statNoread">--</div><div class="stat-label">条码识别失败</div></div>
-    <div class="stat-card"><div class="stat-value" id="statDevices">--</div><div class="stat-label">影响设备数</div></div>
-    <div class="stat-card"><div class="stat-value" id="statHealth">--%</div><div class="stat-label">系统健康度</div></div>
-  </div>
+<div class="stats-bar">
+<div class="stat-card"><div class="stat-value" id="statTotal">--</div><div class="stat-label">总故障事件</div></div>
+<div class="stat-card"><div class="stat-value warn" id="statNoread">--</div><div class="stat-label">条码识别失败</div></div>
+<div class="stat-card"><div class="stat-value" id="statDevices">--</div><div class="stat-label">影响设备数</div></div>
+<div class="stat-card"><div class="stat-value" id="statHealth">--%</div><div class="stat-label">系统健康度</div></div>
+</div>
 
-  <div class="main-grid">
-    <!-- 左：故障分类表 -->
-    <div class="card" style="grid-row:1/3">
-      <div class="card-header">
-        <span class="card-title">设备故障分类</span>
-        <div style="display:flex;gap:6px;align-items:center">
-          <span class="card-extra" id="faultSummary">--</span>
-          <button class="btn btn-sm btn-orange" id="btnExpandAll" onclick="toggleExpandAll()">展开全部</button>
-          <input type="file" class="file-input" id="logFile" accept=".log,.txt">
-          <label for="logFile" class="btn btn-sm btn-outline" style="cursor:pointer">导入日志</label>
-        </div>
-      </div>
-      <div class="card-body" id="faultTableBody">
-        <div class="table-wrap">
-          <table id="faultTable">
-            <thead><tr>
-              <th style="width:80px">设备</th>
-              <th style="width:160px">故障类型</th>
-              <th style="width:100px">开始时间</th>
-              <th style="width:100px">结束时间</th>
-              <th style="width:70px">恢复条码</th>
-              <th style="width:60px">次数</th>
-              <th style="width:70px">持续</th>
-            </tr></thead>
-            <tbody></tbody>
-          </table>
-        </div>
-        <div class="pagination" id="pagination"></div>
-      </div>
-    </div>
+<div class="main-grid">
+<div class="card" style="grid-row:1/3">
+<div class="card-header">
+<span class="card-title">设备故障分类</span>
+<div style="display:flex;gap:6px;align-items:center">
+<span class="card-extra" id="faultSummary">--</span>
+<button class="btn btn-sm btn-orange" id="btnExpandAll" onclick="toggleExpandAll()">展开全部</button>
+<input type="file" class="file-input" id="logFile" accept=".log,.txt">
+<label for="logFile" class="btn btn-sm btn-outline" style="cursor:pointer">导入日志</label>
+</div>
+</div>
+<div class="card-body" id="faultTableBody">
+<div class="table-wrap"><table id="faultTable">
+<thead><tr><th style="width:75px">设备</th><th style="width:150px">故障类型</th><th style="width:95px">开始时间</th><th style="width:95px">恢复时间</th><th style="width:65px">条码</th><th style="width:55px">次数</th><th style="width:65px">持续</th></tr></thead>
+<tbody></tbody>
+</table></div>
+<div class="pagination" id="pagination"></div>
+</div>
+</div>
 
-    <!-- 右上：错误分布 -->
-    <div class="right-col">
-      <div class="card">
-        <div class="card-header">
-          <span class="card-title">错误类型分布</span>
-          <span class="card-extra" id="typeCount">--</span>
-        </div>
-        <div class="card-body" style="display:flex;padding:8px">
-          <div class="chart-wrap" style="flex:2"><canvas id="pieChart"></canvas></div>
-          <div class="legend-wrap" id="pieLegend" style="flex:1;flex-direction:column;max-height:240px;overflow-y:auto"></div>
-        </div>
-      </div>
-
-      <!-- 右下：按小时趋势 -->
-      <div class="card">
-        <div class="card-header">
-          <span class="card-title">故障按小时趋势</span>
-          <span class="card-extra" id="hourlyRange">--</span>
-        </div>
-        <div class="card-body" style="padding:8px">
-          <div class="chart-wrap"><canvas id="barChart"></canvas></div>
-        </div>
-      </div>
-    </div>
-  </div>
+<div class="right-col">
+<div class="card">
+<div class="card-header"><span class="card-title">错误类型分布</span><span class="card-extra" id="typeCount">--</span></div>
+<div class="card-body" style="display:flex;padding:6px">
+<div class="chart-wrap" style="flex:2"><canvas id="pieChart"></canvas></div>
+<div class="legend-wrap" id="pieLegend" style="flex:1;flex-direction:column"></div>
+</div>
+</div>
+<div class="card">
+<div class="card-header"><span class="card-title">故障按小时趋势</span><span class="card-extra" id="hourlyRange">--</span></div>
+<div class="card-body" style="padding:6px"><div class="chart-wrap"><canvas id="barChart"></canvas></div></div>
+</div>
+</div>
+</div>
 </div>
 
 <script>
-const PER_PAGE = 8;
-const HOUR_YMAX = 50;
-const COLORS = ['#FF6B81','#00B4FF','#00FFAA','#FFA502','#A29BFE','#FF4757','#2ED573','#1E90FF','#FF6348','#7BED9F','#70A1FF','#FF7F50','#9B59B6','#E74C3C','#2ECC71','#F1C40F','#E67E22','#95A5A6'];
+const PER_PAGE=8, Y_MAX=50, COLORS=['#FF6B81','#00B4FF','#00FFAA','#FFA502','#A29BFE','#FF4757','#2ED573','#1E90FF','#FF6348','#7BED9F','#70A1FF','#FF7F50','#9B59B6','#E74C3C','#2ECC71','#F1C40F','#E67E22','#95A5A6'];
+let allData={},currentView='day',currentDate='',expandAll=false,currentPage=1,weekStart='',weekEnd='',pieChart=null,barChart=null;
 
-let allData = {};        // { dateKey: daily }
-let currentView = 'day';
-let currentDate = '';
-let expandAll = false;
-let currentPage = 1;
-let pieChart = null, barChart = null;
-
-function badgeClass(ft) {
-  if (ft.includes('NOREAD')) return 'badge-noread';
-  if (ft.includes('数据库')) return 'badge-db';
-  if (ft.includes('扫描')) return 'badge-scan';
-  if (ft.includes('任务')||ft.includes('获取任务')) return 'badge-task';
-  if (ft.includes('托盘')||ft.includes('入货')||ft.includes('出货')) return 'badge-tray';
-  return 'badge-other';
-}
-
-function countStyle(n) {
-  if (n > 500) return 'cell-count high';
-  if (n > 100) return 'cell-count mid';
-  return 'cell-count low';
-}
+function badgeClass(ft){if(ft.includes('NOREAD'))return'badge-noread';if(ft.includes('数据库'))return'badge-db';if(ft.includes('扫描'))return'badge-scan';if(ft.includes('任务')||ft.includes('获取任务'))return'badge-task';if(ft.includes('托盘')||ft.includes('入货')||ft.includes('出货'))return'badge-tray';return'badge-other';}
+function cntStyle(n){return'cell-count'+(n>500?' high':n>100?' mid':' low');}
 
 // ============ Init ============
-window.addEventListener('DOMContentLoaded', async () => {
-  // Load from localStorage first
-  const saved = localStorage.getItem('wcsDashData');
-  if (saved) { try { allData = JSON.parse(saved); } catch(e){} }
-  // Merge preloaded data.json
-  try {
-    const resp = await fetch('data.json');
-    const pre = await resp.json();
-    if (pre.daily) {
-      for (const [k,v] of Object.entries(pre.daily)) {
-        if (!allData[k]) { allData[k] = v; allData[k].source = 'preload'; }
-        else { allData[k] = {...allData[k], ...v, source: 'preload'}; }
-      }
-    }
-    if (pre.weekly) { allData._weekly = pre.weekly; }
-  } catch(e) { console.log('No preloaded data.json'); }
-  
-  if (Object.keys(allData).filter(k=>!k.startsWith('_')).length === 0) {
-    document.getElementById('faultTableBody').innerHTML = '<div style="padding:40px;text-align:center;color:var(--text-dim)">暂无数据，请导入 .log 日志文件</div>';
-    return;
-  }
-  
-  const dates = Object.keys(allData).filter(k=>!k.startsWith('_')).sort();
-  currentDate = dates[dates.length-1];
-  saveData();
-  renderAll();
+window.addEventListener('DOMContentLoaded',async()=>{
+const saved=localStorage.getItem('wcsDashData');
+if(saved){try{allData=JSON.parse(saved)}catch(e){}}
+try{const r=await fetch('data.json');const p=await r.json();
+if(p.daily)for(const[k,v]of Object.entries(p.daily)){if(!allData[k]){allData[k]=v;allData[k].source='preload'}else allData[k]={...allData[k],...v,source:'preload'}}
+if(p.weekly)for(const[k,v]of Object.entries(p.weekly))allData['_w_'+k]=v;
+}catch(e){}
+const dates=Object.keys(allData).filter(k=>!k.startsWith('_')).sort();
+if(!dates.length){document.getElementById('faultTableBody').innerHTML='<div style="padding:40px;text-align:center;color:var(--text-dim)">暂无数据，请导入 .log 日志文件</div>';return}
+currentDate=dates[dates.length-1];
+const d=new Date(parseInt(currentDate.substring(0,4)),parseInt(currentDate.substring(4,6))-1,parseInt(currentDate.substring(6,8)));
+const e7=new Date(d);e7.setDate(d.getDate()-6);weekStart=fmtDate(e7);weekEnd=fmtDate(d);
+document.getElementById('weekStart').value=weekStart;document.getElementById('weekEnd').value=weekEnd;
+saveData();renderAll();
 });
 
-// ============ Data helpers ============
-function getActiveFaults() {
-  if (currentView === 'week' && allData._weekly) {
-    const wkKeys = Object.keys(allData._weekly);
-    if (wkKeys.length === 0) return [];
-    return allData._weekly[wkKeys[0]].deviceFaults || [];
-  }
-  if (!allData[currentDate]) return [];
-  return allData[currentDate].deviceFaults || [];
+function fmtDate(d){const y=d.getFullYear(),m=String(d.getMonth()+1).padStart(2,'0'),day=String(d.getDate()).padStart(2,'0');return y+'-'+m+'-'+day}
+function dateKeyFromFmt(f){return f.replace(/-/g,'')}
+function saveData(){const ts={};for(const[k,v]of Object.entries(allData))if(!k.startsWith('_'))ts[k]=v;localStorage.setItem('wcsDashData',JSON.stringify(ts))}
+
+// ============ Data ============
+function getFaults(){
+if(currentView==='week')return aggregateWeekEvents();
+if(!allData[currentDate])return[];
+return allData[currentDate].deviceFaults||[];
+}
+function getStats(){
+if(currentView==='week'){const evs=aggregateWeekEvents();return calcStats(evs)}
+const s=allData[currentDate]?.stats;return s||calcStats([])
+}
+function getHourlyEvents(){
+if(currentView==='week'){const evs=aggregateWeekEvents();return calcHourly(evs)}
+return allData[currentDate]?.hourlyEvents||[]
+}
+function getHourRange(){
+if(currentView==='week'){const evs=aggregateWeekEvents();const hs=evs.map(e=>new Date(e.startTime).getHours()).filter(h=>!isNaN(h));return hs.length?[Math.min(...hs),Math.max(...hs)]:[0,23]}
+return allData[currentDate]?.hourRange||[0,23]
 }
 
-function getActiveStats() {
-  if (currentView === 'week' && allData._weekly) {
-    const wkKeys = Object.keys(allData._weekly);
-    if (wkKeys.length === 0) return null;
-    return allData._weekly[wkKeys[0]].stats || null;
-  }
-  if (!allData[currentDate]) return null;
-  return allData[currentDate].stats || null;
+function aggregateWeekEvents(){
+if(!weekStart||!weekEnd)return[];
+const sd=dateKeyFromFmt(weekStart),ed=dateKeyFromFmt(weekEnd);
+const allDates=Object.keys(allData).filter(k=>!k.startsWith('_')&&k>=sd&&k<=ed).sort();
+// Collect all events
+const raw=[];
+allDates.forEach(dk=>{(allData[dk].deviceFaults||[]).forEach(ev=>raw.push({...ev,dateKey:dk}))});
+raw.sort((a,b)=>a.startTime.localeCompare(b.startTime));
+// Merge cross-day: same device+faultType, gap <= 1h
+const byKey={};
+raw.forEach(ev=>{const k=ev.device+'|'+ev.faultType;if(!byKey[k])byKey[k]=[];byKey[k].push(ev)});
+const merged=[];
+Object.values(byKey).forEach(items=>{
+items.sort((a,b)=>a.startTime.localeCompare(b.startTime));
+let cur=null;
+items.forEach(item=>{
+if(!cur)cur={...item};
+else{const gap=(new Date(item.startTime)-new Date(cur.endTime))/1000;
+if(gap<=3600){cur.endTime=item.endTime;cur.occurrences+=item.occurrences;if(item.recoveryBarcode)cur.recoveryBarcode=item.recoveryBarcode}
+else{merged.push(cur);cur={...item}}}
+});
+if(cur)merged.push(cur);
+});
+merged.sort((a,b)=>a.startTime.localeCompare(b.startTime));
+merged.forEach(ev=>{const ds=(new Date(ev.endTime)-new Date(ev.startTime))/1000;ev.duration=ds>=60?Math.floor(ds/60)+'分'+Math.floor(ds%60)+'秒':Math.floor(ds)+'秒';ev.durationSec=Math.round(ds*1000)/1000});
+return merged;
 }
 
-function getActiveHourlyEvents() {
-  if (currentView === 'week' && allData._weekly) {
-    const wkKeys = Object.keys(allData._weekly);
-    if (wkKeys.length === 0) return null;
-    return allData._weekly[wkKeys[0]].hourlyEvents || null;
-  }
-  if (!allData[currentDate]) return null;
-  return allData[currentDate].hourlyEvents || null;
+function calcStats(evs){
+const errs=evs.length,nrs=evs.filter(e=>e.isNoread).length,dvs=new Set(evs.map(e=>e.device)).size;
+// Health: estimate from total
+let totalLogLines=0,normLines=0;
+if(currentView==='week'){
+const sd=dateKeyFromFmt(weekStart),ed=dateKeyFromFmt(weekEnd);
+Object.keys(allData).filter(k=>!k.startsWith('_')&&k>=sd&&k<=ed).forEach(dk=>{
+const s=allData[dk]?.stats;if(s){totalLogLines+=s.totalLines||0;normLines+=s.normalCount||0}
+});
+}else{const s=allData[currentDate]?.stats;if(s){totalLogLines=s.totalLines;normLines=s.normalCount}}
+const health=totalLogLines?Math.round(normLines/totalLogLines*1000)/10:0;
+return{deviceFaults:errs,noreadEvents:nrs,deviceCount:dvs,
+timeSpan:{start:evs[0]?.startTime?.substring(11,19)||'--',end:evs[evs.length-1]?.endTime?.substring(11,19)||'--'},
+healthScore:health,totalLines:totalLogLines,errorCount:errs,normalCount:normLines}
 }
 
-function getHourRange() {
-  return allData[currentDate]?.hourRange || [0, 23];
+function calcHourly(evs){
+const hs=evs.map(e=>new Date(e.startTime).getHours()).filter(h=>!isNaN(h));
+const hMin=hs.length?Math.min(...hs):0,hMax=hs.length?Math.max(...hs):23;
+const res=[];
+for(let h=hMin;h<=hMax;h++){
+const types={};let total=0;
+evs.forEach(ev=>{if(new Date(ev.startTime).getHours()===h){types[ev.faultType]=(types[ev.faultType]||0)+ev.occurrences;total+=ev.occurrences}});
+res.push({hour:h,total,types});
 }
-
-function saveData() {
-  const toSave = {};
-  for (const [k,v] of Object.entries(allData)) {
-    if (!k.startsWith('_')) toSave[k] = v;
-  }
-  localStorage.setItem('wcsDashData', JSON.stringify(toSave));
+return res;
 }
 
 // ============ Render ============
-function renderAll() {
-  const faults = getActiveFaults();
-  const stats = getActiveStats();
-  const hourly = getActiveHourlyEvents();
-  const [hMin, hMax] = getHourRange();
-  
-  // Header
-  const dateLabel = formatDateLabel(currentDate);
-  document.getElementById('dateLabel').textContent = dateLabel;
-  document.getElementById('tabDay').classList.toggle('active', currentView==='day');
-  document.getElementById('tabWeek').classList.toggle('active', currentView==='week');
-  
-  const dates = Object.keys(allData).filter(k=>!k.startsWith('_')).sort();
-  document.getElementById('dataDays').textContent = dates.length + ' 天数据';
-  
-  // Date menu
-  const menu = document.getElementById('dateMenu');
-  menu.innerHTML = '';
-  dates.forEach(d => {
-    const div = document.createElement('div');
-    div.className = 'date-menu-item' + (d===currentDate?' selected':'');
-    div.textContent = formatDateLabel(d);
-    div.onclick = () => { currentDate=d; renderAll(); menu.classList.remove('show'); };
-    menu.appendChild(div);
-  });
-  
-  // Stats
-  if (stats) {
-    document.getElementById('statTotal').textContent = stats.deviceFaults || 0;
-    document.getElementById('statNoread').textContent = stats.noreadEvents || 0;
-    document.getElementById('statDevices').textContent = stats.deviceCount || 0;
-    const h = stats.healthScore || 0;
-    const hEl = document.getElementById('statHealth');
-    hEl.textContent = h + '%';
-    hEl.className = 'stat-value' + (h<60?' danger':h<80?' warn':'');
-  }
-  
-  // Fault classification table
-  renderFaultTable(faults);
-  
-  // Error distribution
-  renderPieChart(faults);
-  
-  // Hourly trend
-  renderBarChart(hourly, hMin, hMax);
-  
-  // Summary
-  const types = [...new Set(faults.map(f=>f.faultType))];
-  document.getElementById('faultSummary').textContent = faults.length + ' 个事件 · ' + types.length + ' 种类型';
-  document.getElementById('typeCount').textContent = types.length + ' 种类型';
-  document.getElementById('hourlyRange').textContent = hMin + ':00 - ' + hMax + ':00';
+function renderAll(){
+const faults=getFaults(),stats=getStats(),hourly=getHourlyEvents(),[hMin,hMax]=getHourRange();
+const dates=Object.keys(allData).filter(k=>!k.startsWith('_')).sort();
+const dLabel=currentDate?formatDateLabel(currentDate):'--';
+document.getElementById('dateLabel').textContent=dLabel;
+document.getElementById('tabDay').classList.toggle('active',currentView==='day');
+document.getElementById('tabWeek').classList.toggle('active',currentView==='week');
+document.getElementById('dayDropdown').style.display=currentView==='day'?'flex':'none';
+document.getElementById('weekRange').style.display=currentView==='week'?'flex':'none';
+document.getElementById('dataDays').textContent=dates.length+' 天数据';
+// Date menu
+const menu=document.getElementById('dateMenu');menu.innerHTML='';
+dates.forEach(d=>{const div=document.createElement('div');div.className='date-menu-item'+(d===currentDate?' selected':'');div.textContent=formatDateLabel(d);div.onclick=()=>{currentDate=d;renderAll();menu.classList.remove('show')};menu.appendChild(div)});
+// Stats
+if(stats){document.getElementById('statTotal').textContent=stats.deviceFaults||0;document.getElementById('statNoread').textContent=stats.noreadEvents||0;document.getElementById('statDevices').textContent=stats.deviceCount||0;const h=stats.healthScore||0;const hEl=document.getElementById('statHealth');hEl.textContent=h+'%';hEl.className='stat-value'+(h<60?' danger':h<80?' warn':'')}
+renderFaultTable(faults);renderPieChart(faults);renderBarChart(hourly,hMin,hMax);
+const types=[...new Set(faults.map(f=>f.faultType))];
+document.getElementById('faultSummary').textContent=faults.length+' 个事件 · '+types.length+' 种类型';
+document.getElementById('typeCount').textContent=types.length+' 种类型';
+document.getElementById('hourlyRange').textContent=hMin+':00 - '+hMax+':00';
 }
 
-function formatDateLabel(dateKey) {
-  const y = dateKey.substring(0,4), m = dateKey.substring(4,6), d = dateKey.substring(6,8);
-  const info = allData[dateKey];
-  const fname = info?.filename || (dateKey + '.log');
-  return `${y}年${parseInt(m)}月${parseInt(d)}日 (${fname})`;
-}
+function formatDateLabel(dk){const y=dk.substring(0,4),m=dk.substring(4,6),d=dk.substring(6,8);const info=allData[dk];const fn=info?.filename||(dk+'.log');return y+'年'+parseInt(m)+'月'+parseInt(d)+'日 ('+fn+')'}
 
 // ============ Fault Table ============
-function renderFaultTable(faults) {
-  const tbody = document.querySelector('#faultTable tbody');
-  tbody.innerHTML = '';
-  const pagination = document.getElementById('pagination');
-  
-  if (expandAll) {
-    // 全部展开：按时间排序
-    const sorted = [...faults].sort((a,b) => a.startTime.localeCompare(b.startTime));
-    const totalPages = Math.ceil(sorted.length / PER_PAGE);
-    if (currentPage > totalPages) currentPage = totalPages;
-    if (currentPage < 1) currentPage = 1;
-    
-    const start = (currentPage-1) * PER_PAGE;
-    const pageItems = sorted.slice(start, start + PER_PAGE);
-    
-    pageItems.forEach(f => {
-      const tr = document.createElement('tr');
-      const cntClass = countStyle(f.occurrences);
-      tr.innerHTML = `
-        <td class="cell-device">${f.device}</td>
-        <td><span class="fault-type-badge ${badgeClass(f.faultType)}">${f.faultType}</span>${f.isNoread?'<span class="noread-tag">NOREAD</span>':''}</td>
-        <td class="cell-time">${(f.startTime||'').substring(11,19)}</td>
-        <td class="cell-time">${(f.endTime||'').substring(11,19)}</td>
-        <td class="cell-barcode">${f.recoveryBarcode||'-'}</td>
-        <td class="${cntClass}">${f.occurrences}</td>
-        <td style="font-size:0.78rem">${f.duration||''}</td>`;
-      tbody.appendChild(tr);
-    });
-    
-    renderPagination(totalPages);
-    document.getElementById('btnExpandAll').textContent = '折叠';
-  } else {
-    // 按类型分组
-    const groups = {};
-    faults.forEach(f => {
-      if (!groups[f.faultType]) groups[f.faultType] = [];
-      groups[f.faultType].push(f);
-    });
-    
-    const sortedTypes = Object.entries(groups).sort((a,b) => b[1].length - a[1].length);
-    
-    sortedTypes.forEach(([ft, items]) => {
-      const totalOcc = items.reduce((s,i)=>s+i.occurrences,0);
-      // Group header
-      const trHead = document.createElement('tr');
-      trHead.className = 'group-header';
-      trHead.setAttribute('data-group', ft);
-      trHead.onclick = function(){ toggleGroup(ft); };
-      trHead.innerHTML = `
-        <td colspan="7" style="font-weight:600">
-          <span class="group-toggle open" id="toggle-${ft.replace(/[^a-zA-Z0-9\u4e00-\u9fa5]/g,'_')}">▶</span>
-          <span class="fault-type-badge ${badgeClass(ft)}">${ft}</span>
-          <span style="margin-left:8px;color:var(--text-dim);font-size:0.8rem">${items.length} 个事件 · ${totalOcc} 次</span>
-        </td>`;
-      tbody.appendChild(trHead);
-      
-      // Group items
-      items.sort((a,b) => a.startTime.localeCompare(b.startTime));
-      items.forEach(f => {
-        const tr = document.createElement('tr');
-        tr.className = 'group-row group-' + ft.replace(/[^a-zA-Z0-9\u4e00-\u9fa5]/g,'_');
-        const cntClass = countStyle(f.occurrences);
-        tr.innerHTML = `
-          <td class="cell-device">${f.device}</td>
-          <td>${f.isNoread?'<span class="noread-tag">NOREAD</span>':''}</td>
-          <td class="cell-time">${(f.startTime||'').substring(11,19)}</td>
-          <td class="cell-time">${(f.endTime||'').substring(11,19)}</td>
-          <td class="cell-barcode">${f.recoveryBarcode||'-'}</td>
-          <td class="${cntClass}">${f.occurrences}</td>
-          <td style="font-size:0.78rem">${f.duration||''}</td>`;
-        tbody.appendChild(tr);
-      });
-    });
-    
-    pagination.innerHTML = '';
-    document.getElementById('btnExpandAll').textContent = '展开全部';
-  }
+function renderFaultTable(faults){
+const tbody=document.querySelector('#faultTable tbody');tbody.innerHTML='';const pag=document.getElementById('pagination');
+if(expandAll){
+const sorted=[...faults].sort((a,b)=>a.startTime.localeCompare(b.startTime));
+const tp=Math.ceil(sorted.length/PER_PAGE);if(currentPage>tp)currentPage=tp;if(currentPage<1)currentPage=1;
+const start=(currentPage-1)*PER_PAGE;
+sorted.slice(start,start+PER_PAGE).forEach(f=>{const tr=document.createElement('tr');if(f.recoveryBarcode||(f.endTime!==f.startTime&&new Date(f.endTime)>new Date(f.startTime)))tr.className='recovery-row';tr.innerHTML=rowHTML(f);tbody.appendChild(tr)});
+pag.innerHTML=tp>1?paginationHTML(tp):'';
+document.getElementById('btnExpandAll').textContent='折叠';
+}else{
+const groups={};faults.forEach(f=>{if(!groups[f.faultType])groups[f.faultType]=[];groups[f.faultType].push(f)});
+Object.entries(groups).sort((a,b)=>b[1].length-a[1].length).forEach(([ft,items])=>{
+const tot=items.reduce((s,i)=>s+i.occurrences,0);
+const trH=document.createElement('tr');trH.className='group-header';trH.setAttribute('data-group',ft);trH.onclick=function(){toggleGroup(ft)};
+const safe=ft.replace(/[^a-zA-Z0-9\u4e00-\u9fa5]/g,'_');
+trH.innerHTML=`<td colspan="7"><span class="group-toggle open" id="toggle-${safe}">▶</span><span class="fault-type-badge ${badgeClass(ft)}">${ft}</span><span style="margin-left:6px;color:var(--text-dim);font-size:0.76rem">${items.length} 事件 · ${tot} 次</span></td>`;
+tbody.appendChild(trH);
+items.sort((a,b)=>a.startTime.localeCompare(b.startTime)).forEach(f=>{const tr=document.createElement('tr');tr.className='group-row group-'+safe;if(f.recoveryBarcode||(f.endTime!==f.startTime&&new Date(f.endTime)>new Date(f.startTime)))tr.className+=' recovery-row';tr.innerHTML=rowHTML(f);tbody.appendChild(tr)});
+});
+pag.innerHTML='';
+document.getElementById('btnExpandAll').textContent='展开全部';
+}
 }
 
-function toggleGroup(ft) {
-  const safe = ft.replace(/[^a-zA-Z0-9\u4e00-\u9fa5]/g,'_');
-  const toggle = document.getElementById('toggle-'+safe);
-  const rows = document.querySelectorAll('.group-row.group-'+safe);
-  const isOpen = toggle.classList.contains('open');
-  if (isOpen) {
-    toggle.classList.remove('open');
-    rows.forEach(r => r.style.display = 'none');
-  } else {
-    toggle.classList.add('open');
-    rows.forEach(r => r.style.display = '');
-  }
+function rowHTML(f){
+const rc=f.recoveryBarcode||'-';const endT=f.endTime?f.endTime.substring(11,19):(f.startTime?f.startTime.substring(11,19):'--');
+return`<td class="cell-device">${f.device}</td><td><span class="fault-type-badge ${badgeClass(f.faultType)}">${f.faultType}</span>${f.isNoread?'<span class="noread-tag">NOREAD</span>':''}</td><td class="cell-time">${(f.startTime||'').substring(11,19)}</td><td class="cell-time">${endT}</td><td class="cell-barcode">${rc}</td><td class="${cntStyle(f.occurrences)}">${f.occurrences}</td><td class="cell-dur">${f.duration||''}</td>`;
 }
 
-function toggleExpandAll() {
-  expandAll = !expandAll;
-  currentPage = 1;
-  renderAll();
+function toggleGroup(ft){const safe=ft.replace(/[^a-zA-Z0-9\u4e00-\u9fa5]/g,'_');const tg=document.getElementById('toggle-'+safe);const rs=document.querySelectorAll('.group-row.group-'+safe);if(tg.classList.contains('open')){tg.classList.remove('open');rs.forEach(r=>r.style.display='none')}else{tg.classList.add('open');rs.forEach(r=>r.style.display='')}}
+function toggleExpandAll(){expandAll=!expandAll;currentPage=1;renderAll()}
+function paginationHTML(tp){let h=`<span class="page-info">第${currentPage}页/共${tp}页</span>`;h+=`<button class="page-btn" onclick="goPage(1)" ${currentPage===1?'disabled':''}>首页</button><button class="page-btn" onclick="goPage(${currentPage-1})" ${currentPage===1?'disabled':''}>上页</button>`;for(let p=Math.max(1,currentPage-2);p<=Math.min(tp,currentPage+2);p++)h+=`<button class="page-btn ${p===currentPage?'active':''}" onclick="goPage(${p})">${p}</button>`;h+=`<button class="page-btn" onclick="goPage(${currentPage+1})" ${currentPage>=tp?'disabled':''}>下页</button><button class="page-btn" onclick="goPage(${tp})" ${currentPage>=tp?'disabled':''}>末页</button>`;return h}
+function goPage(p){currentPage=p;renderFaultTable(getFaults())}
+
+// ============ Charts ============
+function renderPieChart(faults){
+const ctx=document.getElementById('pieChart').getContext('2d');if(pieChart)pieChart.destroy();
+const cnts={};faults.forEach(f=>{cnts[f.faultType]=(cnts[f.faultType]||0)+f.occurrences});
+const ent=Object.entries(cnts).sort((a,b)=>b[1]-a[1]);const top=ent.slice(0,10);const other=ent.slice(10).reduce((s,e)=>s+e[1],0);
+const labs=top.map(e=>e[0]),data=top.map(e=>e[1]),cols=top.map((_,i)=>COLORS[i%COLORS.length]);
+if(other>0){labs.push('其他');data.push(other);cols.push('#95A5A6')}
+pieChart=new Chart(ctx,{type:'doughnut',data:{labels:labs,datasets:[{data,backgroundColor:cols,borderColor:'var(--bg-card)',borderWidth:2}]},options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{display:false}}}});
+const leg=document.getElementById('pieLegend');leg.innerHTML='';labs.forEach((l,i)=>{const d=document.createElement('div');d.className='legend-item';d.innerHTML=`<span class="legend-dot" style="background:${cols[i]}"></span><span>${l}:${data[i]}</span>`;leg.appendChild(d)});
 }
 
-function renderPagination(totalPages) {
-  const pag = document.getElementById('pagination');
-  if (totalPages <= 1) { pag.innerHTML = ''; return; }
-  let html = `<span class="page-info">第 ${currentPage} 页 / 共 ${totalPages} 页</span>`;
-  html += `<button class="page-btn" onclick="goPage(1)" ${currentPage===1?'disabled':''}>首页</button>`;
-  html += `<button class="page-btn" onclick="goPage(${currentPage-1})" ${currentPage===1?'disabled':''}>上页</button>`;
-  for (let p=Math.max(1,currentPage-2); p<=Math.min(totalPages,currentPage+2); p++) {
-    html += `<button class="page-btn ${p===currentPage?'active':''}" onclick="goPage(${p})">${p}</button>`;
-  }
-  html += `<button class="page-btn" onclick="goPage(${currentPage+1})" ${currentPage>=totalPages?'disabled':''}>下页</button>`;
-  html += `<button class="page-btn" onclick="goPage(${totalPages})" ${currentPage>=totalPages?'disabled':''}>末页</button>`;
-  pag.innerHTML = html;
-}
-
-function goPage(p) {
-  currentPage = p;
-  const faults = getActiveFaults();
-  renderFaultTable(faults);
-}
-
-// ============ Pie Chart ============
-function renderPieChart(faults) {
-  const ctx = document.getElementById('pieChart').getContext('2d');
-  if (pieChart) pieChart.destroy();
-  
-  const counts = {};
-  faults.forEach(f => { counts[f.faultType] = (counts[f.faultType]||0) + f.occurrences; });
-  const entries = Object.entries(counts).sort((a,b)=>b[1]-a[1]);
-  const top = entries.slice(0,10);
-  const other = entries.slice(10).reduce((s,e)=>s+e[1], 0);
-  
-  const labels = top.map(e=>e[0]);
-  const data = top.map(e=>e[1]);
-  const colors = top.map((_,i)=>COLORS[i%COLORS.length]);
-  if (other>0) { labels.push('其他'); data.push(other); colors.push('#95A5A6'); }
-  
-  pieChart = new Chart(ctx, {
-    type: 'doughnut',
-    data: { labels, datasets: [{ data, backgroundColor: colors, borderColor: 'var(--bg-card)', borderWidth: 2 }] },
-    options: {
-      responsive: true, maintainAspectRatio: false,
-      plugins: { legend: { display: false } }
-    }
-  });
-  
-  const legend = document.getElementById('pieLegend');
-  legend.innerHTML = '';
-  labels.forEach((l,i) => {
-    const div = document.createElement('div');
-    div.className = 'legend-item';
-    div.innerHTML = `<span class="legend-dot" style="background:${colors[i]}"></span><span>${l}: ${data[i]}</span>`;
-    legend.appendChild(div);
-  });
-}
-
-// ============ Bar Chart ============
-function renderBarChart(hourly, hMin, hMax) {
-  const ctx = document.getElementById('barChart').getContext('2d');
-  if (barChart) barChart.destroy();
-  
-  if (!hourly || hourly.length === 0) return;
-  
-  const hours = hourly.map(h => h.hour + '时');
-  
-  // Collect all fault types
-  const typeSet = new Set();
-  hourly.forEach(h => { Object.keys(h.types||{}).forEach(t => typeSet.add(t)); });
-  const types = [...typeSet].slice(0, 8);
-  
-  const datasets = types.map((ft, idx) => ({
-    label: ft.length > 15 ? ft.substring(0,14)+'…' : ft,
-    data: hourly.map(h => Math.min(h.types?.[ft]||0, HOUR_YMAX)),
-    backgroundColor: COLORS[idx%COLORS.length] + '90',
-    borderColor: COLORS[idx%COLORS.length],
-    borderWidth: 1
-  }));
-  
-  barChart = new Chart(ctx, {
-    type: 'bar',
-    data: { labels: hours, datasets },
-    options: {
-      responsive: true, maintainAspectRatio: false,
-      scales: {
-        x: { grid: { color: 'rgba(255,255,255,0.05)' }, ticks: { color: '#6b7d99', font: {size:10} } },
-        y: { beginAtZero: true, max: HOUR_YMAX, grid: { color: 'rgba(255,255,255,0.05)' }, ticks: { color: '#6b7d99', font: {size:10}, callback: v => v>=HOUR_YMAX?HOUR_YMAX+'+':v } }
-      },
-      plugins: { legend: { position: 'top', labels: { color: '#6b7d99', font: {size:10}, boxWidth:12 } } }
-    }
-  });
+function renderBarChart(hourly,hMin,hMax){
+const ctx=document.getElementById('barChart').getContext('2d');if(barChart)barChart.destroy();if(!hourly||!hourly.length)return;
+const hours=hourly.map(h=>h.hour+'时');
+const typeSet=new Set();hourly.forEach(h=>{Object.keys(h.types||{}).forEach(t=>typeSet.add(t))});const types=[...typeSet].slice(0,8);
+const datasets=types.map((ft,idx)=>({label:ft.length>12?ft.substring(0,11)+'…':ft,data:hourly.map(h=>Math.min(h.types?.[ft]||0,Y_MAX)),backgroundColor:COLORS[idx%COLORS.length]+'90',borderColor:COLORS[idx%COLORS.length],borderWidth:1}));
+barChart=new Chart(ctx,{type:'bar',data:{labels:hours,datasets},options:{responsive:true,maintainAspectRatio:false,scales:{x:{grid:{color:'rgba(255,255,255,0.05)'},ticks:{color:'#6b7d99',font:{size:10}}},y:{beginAtZero:true,max:Y_MAX,grid:{color:'rgba(255,255,255,0.05)'},ticks:{color:'#6b7d99',font:{size:10},callback:v=>v>=Y_MAX?Y_MAX+'+':v}}},plugins:{legend:{position:'top',labels:{color:'#6b7d99',font:{size:10},boxWidth:10}}}}});
 }
 
 // ============ View Switch ============
-function switchView(view) {
-  currentView = view;
-  currentPage = 1;
-  expandAll = false;
-  renderAll();
-}
-
-function toggleDateMenu() {
-  document.getElementById('dateMenu').classList.toggle('show');
-}
-
-document.addEventListener('click', function(e) {
-  if (!e.target.closest('.date-dropdown')) {
-    document.getElementById('dateMenu').classList.remove('show');
-  }
-});
+function switchView(view){currentView=view;currentPage=1;expandAll=false;renderAll()}
+function applyWeekRange(){weekStart=document.getElementById('weekStart').value;weekEnd=document.getElementById('weekEnd').value;currentPage=1;expandAll=false;renderAll()}
+function toggleDateMenu(){document.getElementById('dateMenu').classList.toggle('show')}
+document.addEventListener('click',e=>{if(!e.target.closest('.date-dropdown'))document.getElementById('dateMenu').classList.remove('show')});
 
 // ============ Log Import ============
-document.getElementById('logFile').addEventListener('change', async function(e) {
-  const file = e.target.files[0];
-  if (!file) return;
-  
-  const text = await file.text();
-  const lines = text.split(/\r?\n/);
-  
-  // Parse log entries
-  const pat = /^([ENT]):\s*(\d{2})\s+(\d{2}:\d{2}:\d{2}\.\d{3})-(.*)/;
-  const entries = [];
-  lines.forEach(line => {
-    line = line.trim();
-    if (!line) return;
-    const m = pat.exec(line);
-    if (!m) return;
-    entries.push({
-      level: m[1], day: m[2], time: m[3], msg: m[4],
-      fullTime: '2026-06-' + m[2] + ' ' + m[3]
-    });
-  });
-  
-  if (entries.length === 0) { alert('未识别到有效日志条目'); return; }
-  
-  // Determine date key from first entry
-  const firstDay = entries[0].day;
-  const dateKey = '202606' + firstDay;
-  
-  // Fault type condensing
-  function condFT(m) {
-    if (m.includes('NOREAD')) return '条码识别失败(NOREAD)';
-    if (m.includes('扫描故障')) return '扫描故障';
-    if (m.includes('任务写入')) { const mm=m.match(/任务写入(\d+)次失败/); return mm?'任务写入失败('+mm[1]+'次)':'任务写入失败'; }
-    if (m.includes('任务超时')) return '任务超时';
-    if (m.includes('入货超时')) return '入货超时';
-    if (m.includes('出货超时')) return '出货超时';
-    if (/超长|超高|超宽/.test(m)) { const t=m.includes('超长')?'超长':m.includes('超高')?'超高':'超宽'; return '托盘'+t; }
-    if (/ORA-|Oracle/.test(m)) { const mm=m.match(/(ORA-\d+[^,\s]*)/); return mm?'数据库异常('+mm[1]+')':'数据库异常(Oracle)'; }
-    if (/SP_DIST_SK_TSK|获取任务列表错误/.test(m)) { const mm=m.match(/设备:\[(SK\d+)\]/); return mm?'获取任务列表异常('+mm[1]+')':'获取任务列表异常(?)'; }
-    if (/SP_DIST_AR_TSK|AGV入库申请任务异常/.test(m)) { const mm=m.match(/设备:\[(SS\d+)\]/); return mm?'AGV入库申请异常('+mm[1]+')':'AGV入库申请异常(?)'; }
-    const fm=m.match(/设备:(S[SK]\d+).*报错:(.+)/);
-    if (fm) { const ft=fm[2].trim(); return ft.length>30?ft.substring(0,27)+'…':ft; }
-    const dm=m.match(/设备:(S[SK]\d+)/);
-    if (dm && /故障|报警|错误|异常|超时|停机|不适配|缺相/.test(m)) return m.substring(0,30);
-    return m.substring(0,30);
-  }
-  function extDev(m) { const mm=m.match(/设备:(S[SK]\d+)|设备:\[(S[SK]\d+)\]/); return mm?(mm[1]||mm[2]):'Unknown'; }
-  
-  // Extract faults
-  const rawFaults = [];
-  entries.forEach(e => {
-    if (e.level !== 'E') return;
-    rawFaults.push({ device: extDev(e.msg), faultType: condFT(e.msg), time: e.fullTime, isNoread: e.msg.includes('NOREAD') });
-  });
-  
-  // Group with 1h gap
-  const byKey = {};
-  rawFaults.forEach(f => {
-    const k = f.device+'|'+f.faultType;
-    if (!byKey[k]) byKey[k] = [];
-    byKey[k].push(f);
-  });
-  
-  const merged = [];
-  Object.values(byKey).forEach(items => {
-    items.sort((a,b) => a.time.localeCompare(b.time));
-    let cur = null;
-    items.forEach(item => {
-      if (!cur) {
-        cur = { device: item.device, faultType: item.faultType, startTime: item.time, endTime: item.time, occurrences: 1, isNoread: item.isNoread, recoveryBarcode: '' };
-      } else {
-        const gap = (new Date(item.time).getTime() - new Date(cur.endTime).getTime()) / 1000;
-        if (gap <= 3600) { cur.endTime = item.time; cur.occurrences++; }
-        else { merged.push(cur); cur = { device: item.device, faultType: item.faultType, startTime: item.time, endTime: item.time, occurrences: 1, isNoread: item.isNoread, recoveryBarcode: '' }; }
-      }
-    });
-    if (cur) merged.push(cur);
-  });
-  merged.sort((a,b) => a.startTime.localeCompare(b.startTime));
-  
-  // Recovery barcodes for NOREAD
-  merged.forEach(ev => {
-    if (!ev.isNoread) return;
-    const endT = new Date(ev.endTime).getTime();
-    for (const e2 of entries) {
-      const t2 = new Date(e2.fullTime).getTime();
-      if (t2 < endT) continue;
-      if ((t2-endT)/1000 > 5) break;
-      if (e2.msg.includes('写入库成功')||e2.msg.includes('入库成功')) {
-        const bm = e2.msg.match(/L\d{5,6}/);
-        if (bm) { ev.recoveryBarcode = bm[0]; break; }
-      }
-    }
-  });
-  
-  // Duration
-  merged.forEach(ev => {
-    const ds = (new Date(ev.endTime).getTime() - new Date(ev.startTime).getTime())/1000;
-    ev.duration = ds>=60?Math.floor(ds/60)+'分'+Math.floor(ds%60)+'秒':Math.floor(ds)+'秒';
-    ev.durationSec = Math.round(ds*1000)/1000;
-  });
-  
-  // Stats
-  const normCnt = entries.filter(e=>e.level==='N').length;
-  const errCnt = entries.filter(e=>e.level==='E').length;
-  const noreadEvents = merged.filter(e=>e.isNoread).length;
-  const devCnt = new Set(merged.map(e=>e.device)).size;
-  const hVals = merged.map(e=>parseInt(e.startTime.substring(11,13))).filter(h=>!isNaN(h));
-  const hMin = hVals.length?Math.min(...hVals):0;
-  const hMax = hVals.length?Math.max(...hVals):23;
-  
-  // Hourly
-  const hourlyRaw = [];
-  const hourlyEvents = [];
-  for (let h=hMin; h<=hMax; h++) {
-    const types = {};
-    let total = 0;
-    merged.forEach(ev => {
-      if (parseInt(ev.startTime.substring(11,13)) === h) {
-        types[ev.faultType] = (types[ev.faultType]||0) + ev.occurrences;
-        total += ev.occurrences;
-      }
-    });
-    hourlyEvents.push({ hour: h, total, types });
-    const err = entries.filter(e=>e.level==='E'&&parseInt(e.time.substring(0,2))===h).length;
-    const nor = entries.filter(e=>e.level==='N'&&parseInt(e.time.substring(0,2))===h).length;
-    hourlyRaw.push({ hour: h, errors: err, normal: nor });
-  }
-  const errorTypes = {};
-  merged.forEach(ev => { errorTypes[ev.faultType] = (errorTypes[ev.faultType]||0)+ev.occurrences; });
-  
-  const daily = {
-    date: dateKey, filename: file.name,
-    stats: {
-      totalLines: entries.length, errorCount: errCnt, normalCount: normCnt,
-      noreadEvents, deviceFaults: merged.length, deviceCount: devCnt,
-      timeSpan: { start: entries[0]?.fullTime?.substring(11,19)||'--', end: entries[entries.length-1]?.fullTime?.substring(11,19)||'--' },
-      healthScore: Math.round(normCnt/Math.max(entries.length,1)*1000)/10
-    },
-    hourRange: [hMin, hMax],
-    hourly: hourlyRaw,
-    hourlyEvents,
-    deviceFaults: merged,
-    errorTypes,
-    source: 'import'
-  };
-  
-  allData[dateKey] = daily;
-  currentDate = dateKey;
-  saveData();
-  renderAll();
-  
-  e.target.value = '';
+document.getElementById('logFile').addEventListener('change',async function(e){
+const file=e.target.files[0];if(!file)return;const text=await file.text();const lines=text.split(/\r?\n/);
+const pat=/^([ENT]):\s*(\d{2})\s+(\d{2}:\d{2}:\d{2}\.\d{3})-(.*)/;
+const ent=[];lines.forEach(l=>{l=l.trim();if(!l)return;const m=pat.exec(l);if(!m)return;ent.push({level:m[1],day:m[2],time:m[3],msg:m[4],fullTime:'2026-06-'+m[2]+' '+m[3]})});
+if(!ent.length){alert('未识别到有效日志条目');return}
+// Date key from filename
+let dk='';
+const fnm=file.name.match(/(\d{8})/);
+if(fnm)dk=fnm[1];
+else{const fd=ent[0].day;const ym='202606';dk=ym+fd}
+// Fault condense
+function cft(m){if(m.includes('NOREAD'))return'条码识别失败(NOREAD)';if(m.includes('扫描故障'))return'扫描故障';if(m.includes('任务写入')){const mm=m.match(/任务写入(\d+)次失败/);return mm?'任务写入失败('+mm[1]+'次)':'任务写入失败'}if(m.includes('任务超时'))return'任务超时';if(m.includes('入货超时'))return'入货超时';if(m.includes('出货超时'))return'出货超时';if(/超长|超高|超宽/.test(m)){const t=m.includes('超长')?'超长':m.includes('超高')?'超高':'超宽';return'托盘'+t}if(/ORA-|Oracle/.test(m)){const mm=m.match(/(ORA-\d+[^,\s]*)/);return mm?'数据库异常('+mm[1]+')':'数据库异常(Oracle)'}if(/SP_DIST_SK_TSK|获取任务列表错误/.test(m)){const mm=m.match(/设备:\[(SK\d+)\]/);return mm?'获取任务列表异常('+mm[1]+')':'获取任务列表异常(?)'}if(/SP_DIST_AR_TSK|AGV入库申请任务异常/.test(m)){const mm=m.match(/设备:\[(SS\d+)\]/);return mm?'AGV入库申请异常('+mm[1]+')':'AGV入库申请异常(?)'}const fm=m.match(/设备:(S[SK]\d+).*报错:(.+)/);if(fm){const ft=fm[2].trim();return ft.length>30?ft.substring(0,27)+'…':ft}const dm=m.match(/设备:(S[SK]\d+)/);if(dm&&/故障|报警|错误|异常|超时|停机|不适配|缺相/.test(m))return m.substring(0,30);return m.substring(0,30)}
+function edv(m){const mm=m.match(/设备:(S[SK]\d+)|设备:\[(S[SK]\d+)\]/);return mm?(mm[1]||mm[2]):'Unknown'}
+// Extract faults
+const raw=[];ent.forEach(e=>{if(e.level!=='E')return;raw.push({device:edv(e.msg),faultType:cft(e.msg),time:e.fullTime,isNoread:e.msg.includes('NOREAD')})});
+// Group 1h
+const bk={};raw.forEach(f=>{const k=f.device+'|'+f.faultType;if(!bk[k])bk[k]=[];bk[k].push(f)});
+const merged=[];Object.values(bk).forEach(items=>{items.sort((a,b)=>a.time.localeCompare(b.time));let cur=null;items.forEach(it=>{if(!cur)cur={device:it.device,faultType:it.faultType,startTime:it.time,endTime:it.time,occurrences:1,isNoread:it.isNoread,recoveryBarcode:''};else{const gap=(new Date(it.time)-new Date(cur.endTime))/1000;if(gap<=3600){cur.endTime=it.time;cur.occurrences++}else{merged.push(cur);cur={device:it.device,faultType:it.faultType,startTime:it.time,endTime:it.time,occurrences:1,isNoread:it.isNoread,recoveryBarcode:''}}});if(cur)merged.push(cur)});
+merged.sort((a,b)=>a.startTime.localeCompare(b.startTime));
+// Recovery time + barcode
+merged.forEach(ev=>{const dev=ev.device,let=ev.endTime?new Date(ev.endTime).getTime():0;for(const e2 of ent){const t2=new Date(e2.fullTime).getTime();if(t2<=let)continue;if((t2-let)/1000>300)break;if(edv(e2.msg)===dev&&e2.level==='N'){ev.endTime=e2.fullTime;const bm=e2.msg.match(/L\d{5,6}/);if(bm)ev.recoveryBarcode=bm[0];break}}});merged.forEach(ev=>{const ds=(new Date(ev.endTime)-new Date(ev.startTime))/1000;ev.duration=ds>=60?Math.floor(ds/60)+'分'+Math.floor(ds%60)+'秒':Math.floor(ds)+'秒';ev.durationSec=Math.round(ds*1000)/1000});
+// Stats
+const ncnt=ent.filter(e=>e.level==='N').length,ecnt=ent.filter(e=>e.level==='E').length;
+const nrs=merged.filter(e=>e.isNoread).length,dcnt=new Set(merged.map(e=>e.device)).size;
+const hs=merged.map(e=>parseInt(e.startTime.substring(11,13))).filter(h=>!isNaN(h));
+const hMin=hs.length?Math.min(...hs):0,hMax=hs.length?Math.max(...hs):23;
+const hraw=[],hevts=[];for(let h=hMin;h<=hMax;h++){const ts={};let tot=0;merged.forEach(ev=>{if(parseInt(ev.startTime.substring(11,13))===h){ts[ev.faultType]=(ts[ev.faultType]||0)+ev.occurrences;tot+=ev.occurrences}});hevts.push({hour:h,total:tot,types:ts});const er=ent.filter(e=>e.level==='E'&&parseInt(e.time.substring(0,2))===h).length;const nr=ent.filter(e=>e.level==='N'&&parseInt(e.time.substring(0,2))===h).length;hraw.push({hour:h,errors:er,normal:nr})}
+const errT={};merged.forEach(ev=>{errT[ev.faultType]=(errT[ev.faultType]||0)+ev.occurrences});
+const daily={date:dk,filename:file.name,stats:{totalLines:ent.length,errorCount:ecnt,normalCount:ncnt,noreadEvents:nrs,deviceFaults:merged.length,deviceCount:dcnt,timeSpan:{start:ent[0]?.fullTime?.substring(11,19)||'--',end:ent[ent.length-1]?.fullTime?.substring(11,19)||'--'},healthScore:Math.round(ncnt/Math.max(ent.length,1)*1000)/10},hourRange:[hMin,hMax],hourly:hraw,hourlyEvents:hevts,deviceFaults:merged,errorTypes:errT,source:'import'};
+allData[dk]=daily;currentDate=dk;saveData();renderAll();e.target.value='';
 });
 </script>
 </body>
