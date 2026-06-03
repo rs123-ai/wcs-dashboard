@@ -1,0 +1,712 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>WCS 设备运行监控仪表盘</title>
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:#0a0f1e;color:#c8d6e5;font-family:'Microsoft YaHei','PingFang SC',sans-serif;min-height:100vh}
+.header{background:linear-gradient(90deg,#0d1528,#111d3a);border-bottom:2px solid #1a2a4a;padding:12px 24px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px}
+.header-left{display:flex;align-items:center;gap:16px}
+.logo{font-size:22px;font-weight:700;color:#4da8da;letter-spacing:2px}
+.logo span{color:#ff6b3d}
+.date-selector{display:flex;align-items:center;gap:8px}
+.date-selector select{background:#111d3a;color:#c8d6e5;border:1px solid #2a3a5a;padding:6px 12px;border-radius:4px;font-size:13px;cursor:pointer}
+.date-selector select:focus{outline:none;border-color:#4da8da}
+.btn{padding:7px 16px;border-radius:4px;font-size:13px;cursor:pointer;border:none;font-weight:500;transition:all .2s}
+.btn-primary{background:#1a6fb5;color:#fff}
+.btn-primary:hover{background:#2080cc}
+.btn-outline{background:transparent;color:#4da8da;border:1px solid #2a3a5a}
+.btn-outline:hover{border-color:#4da8da;background:#0d1528}
+.btn-danger{background:#c0392b;color:#fff}
+.btn-danger:hover{background:#e74c3c}
+.btn-warning{background:#d35400;color:#fff}
+.btn-warning:hover{background:#e67e22}
+.btn-success{background:#27ae60;color:#fff}
+.btn-success:hover{background:#2ecc71}
+.stats-bar{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:12px;padding:16px 24px}
+.stat-card{background:linear-gradient(135deg,#0d1528,#111d3a);border:1px solid #1a2a4a;border-radius:8px;padding:16px;text-align:center}
+.stat-value{font-size:32px;font-weight:700;color:#fff}
+.stat-value.warn{color:#ff6b3d}
+.stat-value.ok{color:#2ecc71}
+.stat-value.info{color:#4da8da}
+.stat-label{font-size:12px;color:#7788aa;margin-top:4px}
+.main-grid{display:grid;grid-template-columns:1fr 1fr;grid-template-rows:1fr 1fr;gap:12px;padding:0 24px 16px;min-height:70vh}
+.panel{background:linear-gradient(135deg,#0d1528,#111d3a);border:1px solid #1a2a4a;border-radius:8px;overflow:hidden;display:flex;flex-direction:column}
+.panel-header{display:flex;align-items:center;justify-content:space-between;padding:10px 16px;background:rgba(26,42,74,.5);border-bottom:1px solid #1a2a4a}
+.panel-title{font-size:14px;font-weight:600;color:#4da8da}
+.panel-body{flex:1;overflow:auto;padding:8px}
+.panel-body.chart-body{display:flex;align-items:center;justify-content:center}
+table{width:100%;border-collapse:collapse;font-size:12px}
+thead th{background:rgba(26,42,74,.8);color:#7788aa;padding:8px 10px;text-align:left;font-weight:500;position:sticky;top:0;border-bottom:1px solid #1a2a4a}
+tbody td{padding:7px 10px;border-bottom:1px solid #0d1528;color:#c8d6e5}
+tbody tr:hover{background:rgba(26,42,74,.3)}
+.badge{padding:2px 8px;border-radius:3px;font-size:11px;font-weight:500}
+.badge-danger{background:rgba(192,57,43,.3);color:#e74c3c}
+.badge-warn{background:rgba(211,84,0,.3);color:#f39c12}
+.badge-info{background:rgba(26,111,181,.3);color:#4da8da}
+.badge-ok{background:rgba(39,174,96,.3);color:#2ecc71}
+.pagination{display:flex;align-items:center;justify-content:center;gap:8px;padding:8px 24px 16px}
+.page-btn{width:32px;height:32px;border-radius:4px;background:#111d3a;border:1px solid #1a2a4a;color:#7788aa;cursor:pointer;font-size:12px;display:flex;align-items:center;justify-content:center}
+.page-btn.active{background:#1a6fb5;color:#fff;border-color:#1a6fb5}
+.page-btn:hover:not(.active){border-color:#4da8da;color:#c8d6e5}
+.file-drop{position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(10,15,30,.9);z-index:999;display:flex;align-items:center;justify-content:center;flex-direction:column;gap:16px}
+.file-drop.hidden{display:none}
+.file-drop-zone{border:2px dashed #2a3a5a;border-radius:12px;padding:60px 80px;text-align:center;cursor:pointer;transition:all .3s}
+.file-drop-zone:hover,.file-drop-zone.dragover{border-color:#4da8da;background:rgba(77,168,218,.05)}
+.file-drop-icon{font-size:48px;color:#2a3a5a;margin-bottom:12px}
+.file-drop-text{color:#7788aa;font-size:14px}
+.modal-overlay{position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,.7);z-index:1000;display:flex;align-items:center;justify-content:center}
+.modal-overlay.hidden{display:none}
+.modal{background:#0d1528;border:1px solid #1a2a4a;border-radius:12px;padding:24px;max-width:900px;width:90%;max-height:80vh;overflow:auto}
+.modal h3{color:#4da8da;margin-bottom:16px;font-size:16px}
+.modal table{font-size:11px}
+.filter-bar{display:flex;gap:8px;flex-wrap:wrap;padding:4px 0}
+.filter-bar input,.filter-bar select{background:#111d3a;color:#c8d6e5;border:1px solid #2a3a5a;padding:4px 8px;border-radius:4px;font-size:11px}
+.filter-bar input:focus,.filter-bar select:focus{outline:none;border-color:#4da8da}
+.empty-state{display:flex;flex-direction:column;align-items:center;justify-content:center;height:100%;color:#3a4a6a;gap:12px}
+.empty-state-icon{font-size:48px}
+.health-ring{text-align:center}
+.health-ring canvas{max-width:200px;max-height:200px}
+.toast{position:fixed;bottom:24px;right:24px;background:#111d3a;border:1px solid #2a3a5a;color:#c8d6e5;padding:12px 24px;border-radius:8px;z-index:2000;animation:slideIn .3s;font-size:13px}
+@keyframes slideIn{from{transform:translateX(100%);opacity:0}to{transform:translateX(0);opacity:1}}
+::-webkit-scrollbar{width:6px;height:6px}
+::-webkit-scrollbar-track{background:#0d1528}
+::-webkit-scrollbar-thumb{background:#1a2a4a;border-radius:3px}
+::-webkit-scrollbar-thumb:hover{background:#2a3a5a}
+</style>
+</head>
+<body>
+
+<div class="header">
+  <div class="header-left">
+    <div class="logo">WCS<span>Monitor</span></div>
+    <div class="date-selector">
+      <select id="dateSelect" onchange="switchDate()">
+        <option value="">选择日期...</option>
+      </select>
+    </div>
+  </div>
+  <div style="display:flex;gap:8px;flex-wrap:wrap">
+    <button class="btn btn-success" onclick="document.getElementById('fileInput').click()">📂 导入日志</button>
+    <input type="file" id="fileInput" accept=".log,.txt" multiple style="display:none" onchange="handleFiles(this.files)">
+    <button class="btn btn-outline" onclick="clearAll()">清空数据</button>
+    <button class="btn btn-warning" onclick="exportPDF()">导出PDF</button>
+  </div>
+</div>
+
+<div id="statsBar" class="stats-bar"></div>
+
+<div id="mainGrid" class="main-grid">
+  <div class="panel"><div class="panel-header"><span class="panel-title">NOREAD 条码识别事件</span></div><div class="panel-body" id="noreadPanel"><div class="empty-state"><div class="empty-state-icon">📋</div><div>请导入日志文件</div></div></div></div>
+  <div class="panel"><div class="panel-header"><span class="panel-title">设备故障分类</span></div><div class="panel-body" id="deviceFaultPanel"><div class="empty-state"><div class="empty-state-icon">🔧</div><div>请导入日志文件</div></div></div></div>
+  <div class="panel"><div class="panel-header"><span class="panel-title">错误分布统计</span></div><div class="panel-body chart-body" id="chartPanel"><canvas id="errorChart"></canvas></div></div>
+  <div class="panel"><div class="panel-header"><span class="panel-title">按小时错误趋势</span></div><div class="panel-body chart-body" id="hourlyPanel"><canvas id="hourlyChart"></canvas></div></div>
+</div>
+
+<div class="pagination" id="pagination"></div>
+
+<script>
+// ===================== DATA STORE =====================
+const DB_KEY = 'wcs_logs_db';
+let allLogs = {}; // { '2026-06-02': { raw:[], parsed:{noreadEvents:[], deviceFaults:[], taskFails:[], dbErrors:[], trayAnomalies:[], allErrors:[]} } }
+let currentDate = null;
+let currentPage = 0;
+const PANELS_PER_PAGE = 4;
+
+// ===================== PARSER =====================
+function parseLogLines(lines, datePrefix) {
+  const raw = [];
+  const errors = [];
+  
+  for (let line of lines) {
+    line = line.trim();
+    if (!line) continue;
+    
+    const m = line.match(/^([ENT]):\s*(\d{2})\s+(\d{2}:\d{2}:\d{2}\.\d{3})-(.*)/);
+    if (!m) continue;
+    
+    const level = m[1];
+    const day = m[2];
+    const time = m[3];
+    const msg = m[4];
+    const fullTime = datePrefix ? `${datePrefix} ${time}` : `2026-06-${day} ${time}`;
+    
+    const entry = { level, day, time, msg, fullTime, raw: line };
+    raw.push(entry);
+    if (level === 'E') errors.push(entry);
+  }
+  
+  return { raw, errors };
+}
+
+function classifyErrors(errors) {
+  const noreadEvents = [];
+  const deviceFaults = [];
+  const taskFails = [];
+  const dbErrors = [];
+  const trayAnomalies = [];
+  const wmsWaits = [];
+  
+  // Group NOREAD by device
+  const noreadGroups = {};
+  for (let e of errors) {
+    let nm = e.msg.match(/设备:(SS\d+).*NOREAD/);
+    if (!nm) nm = e.msg.match(/错误条码NOREAD/);
+    if (nm) {
+      const devMatch = e.msg.match(/设备:(SS\d+)/);
+      if (!devMatch) continue;
+      const dev = devMatch[1];
+      if (!noreadGroups[dev]) noreadGroups[dev] = [];
+      noreadGroups[dev].push(e);
+    }
+  }
+  
+  // Merge continuous NOREAD into events (gap <= 5 sec)
+  for (let [dev, entries] of Object.entries(noreadGroups)) {
+    entries.sort((a,b) => a.fullTime.localeCompare(b.fullTime));
+    let event = null;
+    for (let entry of entries) {
+      if (!event) {
+        event = { device: dev, start: entry.fullTime, end: entry.fullTime, count: 1, entries: [entry] };
+      } else {
+        const lastTime = new Date(event.end);
+        const curTime = new Date(entry.fullTime);
+        if ((curTime - lastTime) <= 5000) {
+          event.end = entry.fullTime;
+          event.count++;
+          event.entries.push(entry);
+        } else {
+          noreadEvents.push(event);
+          event = { device: dev, start: entry.fullTime, end: entry.fullTime, count: 1, entries: [entry] };
+        }
+      }
+    }
+    if (event) noreadEvents.push(event);
+  }
+  
+  // Classify other errors
+  for (let e of errors) {
+    const msg = e.msg;
+    
+    // Skip NOREAD (already handled)
+    if (msg.includes('NOREAD')) continue;
+    
+    // Oracle/DB
+    if (msg.includes('ORA-') || msg.includes('Oracle') || msg.includes('数据库')) {
+      dbErrors.push(e);
+      continue;
+    }
+    
+    // Task write fail
+    if (msg.match(/任务写入\d+次失败/)) {
+      const devMatch = msg.match(/设备:(SK\d+)/);
+      taskFails.push({ ...e, device: devMatch ? devMatch[1] : 'Unknown' });
+      continue;
+    }
+    
+    // Tray anomaly
+    if (msg.includes('超长') || msg.includes('超高') || msg.includes('超宽') || msg.includes('超时')) {
+      const devMatch = msg.match(/设备:(S[SK]\d+)/);
+      trayAnomalies.push({ ...e, device: devMatch ? devMatch[1] : 'Unknown', type: msg.includes('超长')?'超长':msg.includes('超高')?'超高':msg.includes('超宽')?'超宽':'超时' });
+      continue;
+    }
+    
+    // Device hardware fault (SK/SS hardware errors)
+    const faultMatch = msg.match(/设备:(S[SK]\d+).*报错:(.+)/);
+    if (faultMatch) {
+      deviceFaults.push({ ...e, device: faultMatch[1], faultType: faultMatch[2].trim() });
+      continue;
+    }
+    
+    // WMS wait
+    if (msg.includes('等待WMS回复入库货位')) {
+      const devMatch = msg.match(/设备:(SK\d+)/);
+      wmsWaits.push({ ...e, device: devMatch ? devMatch[1] : 'Unknown' });
+      continue;
+    }
+    
+    // Other errors with device info
+    const devMatch2 = msg.match(/设备:(S[SK]\d+)/);
+    if (devMatch2) {
+      deviceFaults.push({ ...e, device: devMatch2[1], faultType: msg.substring(0, 80) });
+    }
+  }
+  
+  // Group device faults into events (with recovery)
+  const faultEvents = [];
+  const allRaw = errors[0] ? errors[0].raw ? null : null; // placeholder
+  for (let fault of deviceFaults) {
+    faultEvents.push({
+      device: fault.device,
+      faultType: fault.faultType,
+      start: fault.fullTime,
+      end: fault.fullTime,
+      count: 1,
+      entries: [fault]
+    });
+  }
+  
+  // Merge device faults by device + faultType (close in time)
+  const mergedFaults = [];
+  const faultMap = {};
+  for (let fe of faultEvents) {
+    const key = fe.device + '|' + fe.faultType;
+    if (!faultMap[key]) {
+      faultMap[key] = fe;
+      mergedFaults.push(fe);
+    } else {
+      const last = faultMap[key];
+      const diff = new Date(fe.start) - new Date(last.end);
+      if (diff < 60000) {
+        last.end = fe.end;
+        last.count += fe.count;
+        last.entries.push(...fe.entries);
+      } else {
+        faultMap[key] = fe;
+        mergedFaults.push(fe);
+      }
+    }
+  }
+  
+  return { noreadEvents, deviceFaults: mergedFaults, taskFails, dbErrors, trayAnomalies, wmsWaits };
+}
+
+function findRecoveryTime(rawEntries, device, errorEndTime) {
+  const endDate = new Date(errorEndTime);
+  // Look for "写入库成功" or "写出库成功" for same device within 30 min after error end
+  for (let entry of rawEntries) {
+    if (entry.level !== 'N') continue;
+    const et = new Date(entry.fullTime);
+    if (et < endDate) continue;
+    if ((et - endDate) > 30 * 60 * 1000) break;
+    
+    const msg = entry.msg;
+    const devMatch = msg.match(/设备:(SS\d+)/);
+    if (!devMatch || devMatch[1] !== device) continue;
+    
+    if (msg.includes('写入库成功') || msg.includes('写出库成功')) {
+      const barcodeMatch = msg.match(/条码:(L\d+)/);
+      return { time: entry.fullTime, barcode: barcodeMatch ? barcodeMatch[1] : '', type: msg.includes('写入库成功') ? '入库' : '出库' };
+    }
+    
+    // Also check for manual barcode
+    if (msg.includes('人工补码')) {
+      const bcMatch = msg.match(/人工补码:(L\d+)/);
+      return { time: entry.fullTime, barcode: bcMatch ? bcMatch[1] : '', type: '人工补码' };
+    }
+  }
+  return null;
+}
+
+// Also search Trace level entries
+function findManualBarcode(rawEntries, device, errorEndTime) {
+  const endDate = new Date(errorEndTime);
+  for (let entry of rawEntries) {
+    if (entry.level !== 'T') continue;
+    const et = new Date(entry.fullTime);
+    if (et < endDate) continue;
+    if ((et - endDate) > 30 * 60 * 1000) break;
+    const msg = entry.msg;
+    const devMatch = msg.match(/设备:(SS\d+)/);
+    if (devMatch && devMatch[1] === device && msg.includes('人工补码')) {
+      const bcMatch = msg.match(/人工补码:(L\d+)/);
+      return { time: entry.fullTime, barcode: bcMatch ? bcMatch[1] : '' };
+    }
+  }
+  return null;
+}
+
+// ===================== RENDER =====================
+function processLogData(rawEntries) {
+  const parsed = classifyErrors(rawEntries.filter(e => e.level === 'E'));
+  
+  // Find recovery for each NOREAD event
+  for (let ev of parsed.noreadEvents) {
+    const manual = findManualBarcode(rawEntries, ev.device, ev.end);
+    const recovery = findRecoveryTime(rawEntries, ev.device, ev.end);
+    ev.recovery = recovery;
+    ev.manualBarcode = manual;
+  }
+  
+  // Find recovery for device faults
+  for (let ev of parsed.deviceFaults) {
+    const recovery = findRecoveryTime(rawEntries, ev.device, ev.end);
+    ev.recovery = recovery;
+  }
+  
+  return parsed;
+}
+
+function getDateFromRaw(rawEntries) {
+  if (rawEntries.length === 0) return '未知';
+  const t = rawEntries[0].fullTime;
+  return t.substring(0, 10);
+}
+
+function formatDate(dateStr) {
+  if (!dateStr) return '';
+  const parts = dateStr.split('-');
+  return `${parts[0]}年${parseInt(parts[1])}月${parseInt(parts[2])}日`;
+}
+
+// ===================== UI RENDER =====================
+let errorChartInst = null;
+let hourlyChartInst = null;
+
+function renderStats(parsed, raw) {
+  const errors = raw.filter(e => e.level === 'E');
+  const totalNOREAD = parsed.noreadEvents.reduce((s,e) => s + e.count, 0);
+  const devices = new Set();
+  parsed.noreadEvents.forEach(e => devices.add(e.device));
+  parsed.deviceFaults.forEach(e => devices.add(e.device));
+  
+  const timeSpan = raw.length > 0 ? 
+    raw[0].time + ' ~ ' + raw[raw.length-1].time : '--';
+  
+  const healthScore = raw.length > 0 ? 
+    Math.round((raw.filter(e=>e.level==='N').length / raw.length) * 100) : 0;
+  
+  const statsBar = document.getElementById('statsBar');
+  statsBar.innerHTML = `
+    <div class="stat-card"><div class="stat-value info">${raw.length.toLocaleString()}</div><div class="stat-label">总日志行数</div></div>
+    <div class="stat-card"><div class="stat-value warn">${errors.length.toLocaleString()}</div><div class="stat-label">错误日志数</div></div>
+    <div class="stat-card"><div class="stat-value warn">${totalNOREAD.toLocaleString()}</div><div class="stat-label">NOREAD 条数</div></div>
+    <div class="stat-card"><div class="stat-value">${parsed.noreadEvents.length}</div><div class="stat-label">NOREAD 事件数</div></div>
+    <div class="stat-card"><div class="stat-value">${parsed.deviceFaults.length}</div><div class="stat-label">设备故障事件</div></div>
+    <div class="stat-card"><div class="stat-value">${devices.size}</div><div class="stat-label">涉及设备数</div></div>
+    <div class="stat-card"><div class="stat-value">${timeSpan}</div><div class="stat-label">时间跨度</div></div>
+    <div class="stat-card"><div class="stat-value ok">${healthScore}%</div><div class="stat-label">正常日志占比</div></div>
+  `;
+}
+
+function renderNOREADPanel(parsed) {
+  const events = parsed.noreadEvents.sort((a,b) => b.count - a.count);
+  if (events.length === 0) {
+    document.getElementById('noreadPanel').innerHTML = '<div class="empty-state"><div class="empty-state-icon">✅</div><div>无 NOREAD 事件</div></div>';
+    return;
+  }
+  
+  let html = '<table><thead><tr><th>设备</th><th>开始时间</th><th>恢复时间</th><th>恢复条码</th><th>持续时长</th><th>NOREAD数</th></tr></thead><tbody>';
+  for (let ev of events) {
+    const startTime = ev.start.substring(11);
+    let endTime = ev.end.substring(11);
+    let barcode = '--';
+    let recoveryType = '';
+    
+    if (ev.manualBarcode) {
+      endTime = ev.manualBarcode.time.substring(11);
+      barcode = ev.manualBarcode.barcode;
+      recoveryType = ' (人工补码)';
+    } else if (ev.recovery) {
+      endTime = ev.recovery.time.substring(11);
+      barcode = ev.recovery.barcode;
+    }
+    
+    const duration = Math.round((new Date(ev.end) - new Date(ev.start)) / 1000);
+    let durStr;
+    if (duration < 60) durStr = duration + '秒';
+    else if (duration < 3600) durStr = Math.floor(duration/60) + '分' + (duration%60) + '秒';
+    else durStr = Math.floor(duration/3600) + '时' + Math.floor((duration%3600)/60) + '分';
+    
+    const badgeClass = ev.count > 1000 ? 'badge-danger' : ev.count > 300 ? 'badge-warn' : 'badge-info';
+    
+    html += `<tr>
+      <td><span class="badge badge-info">${ev.device}</span></td>
+      <td>${startTime}</td>
+      <td>${endTime}${recoveryType}</td>
+      <td>${barcode}</td>
+      <td>${durStr}</td>
+      <td><span class="badge ${badgeClass}">${ev.count}</span></td>
+    </tr>`;
+  }
+  html += '</tbody></table>';
+  document.getElementById('noreadPanel').innerHTML = html;
+}
+
+function renderDeviceFaultPanel(parsed) {
+  const faults = parsed.deviceFaults;
+  if (faults.length === 0) {
+    document.getElementById('deviceFaultPanel').innerHTML = '<div class="empty-state"><div class="empty-state-icon">✅</div><div>无设备故障事件</div></div>';
+    return;
+  }
+  
+  let html = '<table><thead><tr><th>设备</th><th>故障类型</th><th>开始时间</th><th>恢复时间</th><th>持续时长</th></tr></thead><tbody>';
+  for (let fv of faults.sort((a,b) => a.start.localeCompare(b.start))) {
+    const startTime = fv.start.substring(11);
+    let endTime = fv.end.substring(11);
+    let recoveryNote = '';
+    
+    if (fv.recovery) {
+      endTime = fv.recovery.time.substring(11);
+      const dur = Math.round((new Date(fv.recovery.time) - new Date(fv.start)) / 1000);
+      recoveryNote = dur < 60 ? ` (${dur}秒恢复)` : ` (${Math.floor(dur/60)}分恢复)`;
+    }
+    
+    html += `<tr>
+      <td><span class="badge badge-warn">${fv.device}</span></td>
+      <td>${fv.faultType}</td>
+      <td>${startTime}</td>
+      <td>${endTime}${recoveryNote}</td>
+      <td>${fv.count > 1 ? fv.count+'次' : '1次'}</td>
+    </tr>`;
+  }
+  html += '</tbody></table>';
+  document.getElementById('deviceFaultPanel').innerHTML = html;
+}
+
+function renderErrorChart(parsed, raw) {
+  const ctx = document.getElementById('errorChart').getContext('2d');
+  if (errorChartInst) errorChartInst.destroy();
+  
+  const noreadCount = parsed.noreadEvents.reduce((s,e) => s + e.count, 0);
+  const faultCount = parsed.deviceFaults.length;
+  const dbCount = parsed.dbErrors.length;
+  const taskFailCount = parsed.taskFails.length;
+  const trayCount = parsed.trayAnomalies.length;
+  const wmsCount = parsed.wmsWaits.length;
+  
+  errorChartInst = new Chart(ctx, {
+    type: 'doughnut',
+    data: {
+      labels: ['NOREAD条码', '设备故障', '数据库', '任务写入失败', '托盘异常', 'WMS等待'],
+      datasets: [{
+        data: [noreadCount, faultCount, dbCount, taskFailCount, trayCount, wmsCount],
+        backgroundColor: ['#e74c3c','#f39c12','#e67e22','#9b59b6','#3498db','#1abc9c'],
+        borderColor: '#0d1528',
+        borderWidth: 2
+      }]
+    },
+    options: {
+      responsive: true,
+      maintainAspectRatio: false,
+      plugins: {
+        legend: { position: 'bottom', labels: { color: '#7788aa', padding: 12, font: { size: 10 } } }
+      }
+    }
+  });
+}
+
+function renderHourlyChart(raw) {
+  const ctx = document.getElementById('hourlyChart').getContext('2d');
+  if (hourlyChartInst) hourlyChartInst.destroy();
+  
+  const hourlyErrors = new Array(24).fill(0);
+  const hourlyNormal = new Array(24).fill(0);
+  
+  for (let entry of raw) {
+    const h = parseInt(entry.time.substring(0, 2));
+    if (entry.level === 'E') hourlyErrors[h]++;
+    else hourlyNormal[h]++;
+  }
+  
+  hourlyChartInst = new Chart(ctx, {
+    type: 'bar',
+    data: {
+      labels: Array.from({length:24}, (_,i) => i+'时'),
+      datasets: [
+        { label: '错误', data: hourlyErrors, backgroundColor: '#e74c3c', borderRadius: 2 },
+        { label: '正常', data: hourlyNormal, backgroundColor: '#2ecc71', borderRadius: 2 }
+      ]
+    },
+    options: {
+      responsive: true,
+      maintainAspectRatio: false,
+      scales: {
+        x: { ticks: { color: '#7788aa', font: { size: 9 } }, grid: { color: '#1a2a4a' } },
+        y: { ticks: { color: '#7788aa' }, grid: { color: '#1a2a4a' } }
+      },
+      plugins: {
+        legend: { labels: { color: '#7788aa', font: { size: 10 } } }
+      }
+    }
+  });
+}
+
+function renderAll(dateKey) {
+  if (!allLogs[dateKey]) return;
+  
+  const data = allLogs[dateKey];
+  const raw = data.raw;
+  const parsed = data.parsed;
+  
+  renderStats(parsed, raw);
+  renderNOREADPanel(parsed);
+  renderDeviceFaultPanel(parsed);
+  renderErrorChart(parsed, raw);
+  renderHourlyChart(raw);
+}
+
+// ===================== IMPORT =====================
+function handleFiles(files) {
+  if (!files || files.length === 0) return;
+  
+  const promises = [];
+  for (let file of files) {
+    promises.push(new Promise((resolve, reject) => {
+      const reader = new FileReader();
+      reader.onload = function(e) {
+        const text = e.target.result;
+        const lines = text.split('\n');
+        
+        // Detect date from filename like "20260602.log"
+        let datePrefix = file.name.replace(/\.(log|txt)$/i, '');
+        let displayDate = '';
+        if (/^\d{8}$/.test(datePrefix)) {
+          displayDate = datePrefix.substring(0,4) + '-' + datePrefix.substring(4,6) + '-' + datePrefix.substring(6,8);
+        } else {
+          displayDate = datePrefix;
+        }
+        
+        const { raw, errors } = parseLogLines(lines, displayDate);
+        const dateKey = getDateFromRaw(raw) || displayDate;
+        const parsed = processLogData(raw);
+        
+        resolve({ dateKey, raw, parsed, filename: file.name });
+      };
+      reader.readAsText(file, 'UTF-8');
+    }));
+  }
+  
+  Promise.all(promises).then(results => {
+    for (let r of results) {
+      allLogs[r.dateKey] = { raw: r.raw, parsed: r.parsed, filename: r.filename };
+    }
+    saveToStorage();
+    updateDateSelector();
+    
+    // Auto-select the first date
+    const dates = Object.keys(allLogs).sort();
+    if (dates.length > 0) {
+      currentDate = dates[0];
+      document.getElementById('dateSelect').value = currentDate;
+      renderAll(currentDate);
+    }
+    
+    showToast(`成功导入 ${results.length} 个日志文件`);
+  });
+  
+  document.getElementById('fileInput').value = '';
+}
+
+function switchDate() {
+  const sel = document.getElementById('dateSelect');
+  currentDate = sel.value;
+  if (currentDate) {
+    renderAll(currentDate);
+  }
+}
+
+function updateDateSelector() {
+  const sel = document.getElementById('dateSelect');
+  const dates = Object.keys(allLogs).sort();
+  sel.innerHTML = '<option value="">选择日期...</option>' + 
+    dates.map(d => `<option value="${d}" ${d===currentDate?'selected':''}>${formatDate(d)} (${allLogs[d].filename})</option>`).join('');
+}
+
+// ===================== STORAGE =====================
+function saveToStorage() {
+  try {
+    // Serialize only essential data to avoid storage limits
+    const compact = {};
+    for (let [key, val] of Object.entries(allLogs)) {
+      compact[key] = {
+        raw: val.raw.map(e => ({ level: e.level, time: e.time, msg: e.msg, fullTime: e.fullTime })),
+        filename: val.filename
+      };
+    }
+    localStorage.setItem(DB_KEY, JSON.stringify(compact));
+  } catch(e) {
+    console.error('Storage save failed:', e);
+  }
+}
+
+function loadFromStorage() {
+  try {
+    const data = localStorage.getItem(DB_KEY);
+    if (data) {
+      const compact = JSON.parse(data);
+      for (let [key, val] of Object.entries(compact)) {
+        const parsed = processLogData(val.raw);
+        allLogs[key] = { raw: val.raw, parsed, filename: val.filename };
+      }
+      updateDateSelector();
+      const dates = Object.keys(allLogs).sort();
+      if (dates.length > 0) {
+        currentDate = dates[0];
+        document.getElementById('dateSelect').value = currentDate;
+        renderAll(currentDate);
+      }
+    }
+  } catch(e) {
+    console.error('Storage load failed:', e);
+  }
+}
+
+function clearAll() {
+  if (!confirm('确定要清空所有导入的日志数据吗？此操作不可恢复。')) return;
+  allLogs = {};
+  currentDate = null;
+  localStorage.removeItem(DB_KEY);
+  document.getElementById('dateSelect').innerHTML = '<option value="">选择日期...</option>';
+  document.getElementById('statsBar').innerHTML = '<div class="stat-card"><div class="stat-value">--</div><div class="stat-label">请导入日志文件</div></div>';
+  document.getElementById('noreadPanel').innerHTML = '<div class="empty-state"><div class="empty-state-icon">📋</div><div>请导入日志文件</div></div>';
+  document.getElementById('deviceFaultPanel').innerHTML = '<div class="empty-state"><div class="empty-state-icon">🔧</div><div>请导入日志文件</div></div>';
+  if (errorChartInst) { errorChartInst.destroy(); errorChartInst = null; }
+  if (hourlyChartInst) { hourlyChartInst.destroy(); hourlyChartInst = null; }
+  document.getElementById('chartPanel').innerHTML = '<canvas id="errorChart"></canvas>';
+  document.getElementById('hourlyPanel').innerHTML = '<canvas id="hourlyChart"></canvas>';
+}
+
+// ===================== EXPORT PDF =====================
+function exportPDF() {
+  if (!currentDate || !allLogs[currentDate]) {
+    showToast('请先导入并选择日志日期');
+    return;
+  }
+  
+  const element = document.body;
+  html2canvas(element, { backgroundColor: '#0a0f1e', scale: 1.5 }).then(canvas => {
+    const imgData = canvas.toDataURL('image/png');
+    const { jsPDF } = window.jspdf;
+    const pdf = new jsPDF('landscape', 'mm', 'a4');
+    const imgWidth = 297;
+    const imgHeight = (canvas.height * imgWidth) / canvas.width;
+    pdf.addImage(imgData, 'PNG', 0, 0, imgWidth, imgHeight);
+    pdf.save(`WCS_Report_${currentDate}.pdf`);
+    showToast('PDF 报告已导出');
+  });
+}
+
+// ===================== UTILS =====================
+function showToast(msg) {
+  const toast = document.createElement('div');
+  toast.className = 'toast';
+  toast.textContent = msg;
+  document.body.appendChild(toast);
+  setTimeout(() => toast.remove(), 3000);
+}
+
+// Drag and drop support
+document.addEventListener('dragover', e => { e.preventDefault(); });
+document.addEventListener('drop', e => {
+  e.preventDefault();
+  if (e.dataTransfer.files.length > 0) {
+    handleFiles(e.dataTransfer.files);
+  }
+});
+
+// ===================== INIT =====================
+loadFromStorage();
+
+// If no data loaded, show empty state
+if (Object.keys(allLogs).length === 0) {
+  document.getElementById('statsBar').innerHTML = '<div class="stat-card"><div class="stat-value">--</div><div class="stat-label">请导入日志文件开始分析</div></div>';
+}
+</script>
+</body>
+</html>
