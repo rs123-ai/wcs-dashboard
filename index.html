@@ -4,34 +4,27 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>WCS 设备运行监控仪表盘</title>
-<!-- 使用国内可访问的 CDN -->
-<script src="https://cdn.bootcdn.net/ajax/libs/Chart.js/4.4.0/chart.umd.min.js">
-</script>
-<script src="https://cdn.bootcdn.net/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js">
-</script>
-<script src="https://cdn.bootcdn.net/ajax/libs/html2canvas/1.4.1/html2canvas.min.js">
-</script>
+<script src="https://cdn.bootcdn.net/ajax/libs/Chart.js/4.4.0/chart.umd.min.js"></script>
+<script src="https://cdn.bootcdn.net/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+<script src="https://cdn.bootcdn.net/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
 body{background:#0a0f1e;color:#c8d6e5;font-family:'Microsoft YaHei','PingFang SC',sans-serif;min-height:100vh}
 .header{background:linear-gradient(90deg,#0d1528,#111d3a);border-bottom:2px solid #1a2a4a;padding:12px 24px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px}
-.header-left{display:flex;align-items:center;gap:16px}
+.header-left{display:flex;align-items:center;gap:12px}
 .logo{font-size:22px;font-weight:700;color:#4da8da;letter-spacing:2px}
 .logo span{color:#ff6b3d}
-.date-selector{display:flex;align-items:center;gap:8px}
-.date-selector select{background:#111d3a;color:#c8d6e5;border:1px solid #2a3a5a;padding:6px 12px;border-radius:4px;font-size:13px;cursor:pointer;min-width:250px}
-.date-selector select:focus{outline:none;border-color:#4da8da}
+.view-toggle{display:flex;background:#111d3a;border-radius:6px;overflow:hidden;border:1px solid #2a3a5a}
+.view-btn{padding:6px 16px;font-size:13px;cursor:pointer;border:none;background:transparent;color:#7788aa;transition:all .2s}
+.view-btn.active{background:#1a6fb5;color:#fff}
+.view-btn:hover:not(.active){color:#c8d6e5}
+.select-wrapper select{background:#111d3a;color:#c8d6e5;border:1px solid #2a3a5a;padding:6px 12px;border-radius:4px;font-size:13px;cursor:pointer;min-width:220px}
+.select-wrapper select:focus{outline:none;border-color:#4da8da}
 .btn{padding:7px 16px;border-radius:4px;font-size:13px;cursor:pointer;border:none;font-weight:500;transition:all .2s}
-.btn-primary{background:#1a6fb5;color:#fff}
-.btn-primary:hover{background:#2080cc}
-.btn-outline{background:transparent;color:#4da8da;border:1px solid #2a3a5a}
-.btn-outline:hover{border-color:#4da8da;background:#0d1528}
 .btn-warning{background:#d35400;color:#fff}
 .btn-warning:hover{background:#e67e22}
-.btn-success{background:#27ae60;color:#fff}
-.btn-success:hover{background:#2ecc71}
-.btn-danger{background:#c0392b;color:#fff}
-.btn-danger:hover{background:#e74c3c}
+.btn-outline{background:transparent;color:#4da8da;border:1px solid #2a3a5a}
+.btn-outline:hover{border-color:#4da8da;background:#0d1528}
 
 .stats-bar{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:12px;padding:16px 24px}
 .stat-card{background:linear-gradient(135deg,#0d1528,#111d3a);border:1px solid #1a2a4a;border-radius:8px;padding:14px;text-align:center}
@@ -45,6 +38,7 @@ body{background:#0a0f1e;color:#c8d6e5;font-family:'Microsoft YaHei','PingFang SC
 .panel{background:linear-gradient(135deg,#0d1528,#111d3a);border:1px solid #1a2a4a;border-radius:8px;overflow:hidden;display:flex;flex-direction:column}
 .panel-header{display:flex;align-items:center;justify-content:space-between;padding:10px 16px;background:rgba(26,42,74,.5);border-bottom:1px solid #1a2a4a;min-height:40px}
 .panel-title{font-size:14px;font-weight:600;color:#4da8da}
+.panel-badge{font-size:11px;color:#7788aa}
 .panel-body{flex:1;overflow:auto;padding:8px;min-height:200px}
 .panel-body.chart-body{display:flex;align-items:center;justify-content:center}
 
@@ -59,10 +53,8 @@ tbody tr:hover{background:rgba(26,42,74,.3)}
 .badge-info{background:rgba(26,111,181,.3);color:#4da8da}
 .badge-ok{background:rgba(39,174,96,.3);color:#2ecc71}
 
-.pagination{display:flex;align-items:center;justify-content:center;gap:8px;padding:8px 24px 16px}
-.page-btn{width:32px;height:32px;border-radius:4px;background:#111d3a;border:1px solid #1a2a4a;color:#7788aa;cursor:pointer;font-size:12px;display:flex;align-items:center;justify-content:center}
-.page-btn.active{background:#1a6fb5;color:#fff;border-color:#1a6fb5}
-.page-btn:hover:not(.active){border-color:#4da8da;color:#c8d6e5}
+.empty-state{display:flex;flex-direction:column;align-items:center;justify-content:center;height:100%;min-height:150px;color:#3a4a6a;gap:12px}
+.empty-state-icon{font-size:40px}
 
 .loading-overlay{position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(10,15,30,.85);z-index:999;display:flex;align-items:center;justify-content:center;flex-direction:column;gap:16px}
 .loading-overlay.hidden{display:none}
@@ -70,10 +62,7 @@ tbody tr:hover{background:rgba(26,42,74,.3)}
 @keyframes spin{to{transform:rotate(360deg)}}
 .loading-text{color:#7788aa;font-size:14px}
 
-.empty-state{display:flex;flex-direction:column;align-items:center;justify-content:center;height:100%;min-height:150px;color:#3a4a6a;gap:12px}
-.empty-state-icon{font-size:40px}
-
-.toast{position:fixed;bottom:24px;right:24px;background:#111d3a;border:1px solid #2a3a5a;color:#c8d6e5;padding:12px 24px;border-radius:8px;z-index:2000;animation:slideIn .3s;font-size:13px;max-width:400px}
+.toast{position:fixed;bottom:24px;right:24px;background:#111d3a;border:1px solid #2a3a5a;color:#c8d6e5;padding:12px 24px;border-radius:8px;z-index:2000;animation:slideIn .3s;font-size:13px;max-width:500px}
 @keyframes slideIn{from{transform:translateX(100%);opacity:0}to{transform:translateX(0);opacity:1}}
 .toast.error{border-color:#c0392b;color:#e74c3c}
 
@@ -86,266 +75,161 @@ tbody tr:hover{background:rgba(26,42,74,.3)}
 </head>
 <body>
 
-<div class="loading-overlay hidden" id="loadingOverlay">
+<div class="loading-overlay" id="loadingOverlay">
   <div class="spinner"></div>
-  <div class="loading-text">正在解析日志文件...</div>
+  <div class="loading-text">正在加载数据...</div>
 </div>
 
 <div class="header">
   <div class="header-left">
     <div class="logo">WCS<span>Monitor</span></div>
-    <div class="date-selector">
-      <select id="dateSelect" onchange="switchDate()">
-        <option value="">请先导入日志文件...</option>
-      </select>
+    <div class="view-toggle" id="viewToggle">
+      <button class="view-btn active" onclick="switchView('daily')">日视图</button>
+      <button class="view-btn" onclick="switchView('weekly')">周视图</button>
     </div>
+    <div class="select-wrapper">
+      <select id="dateSelect" onchange="onDateChange()"></select>
+    </div>
+    <span style="font-size:11px;color:#7788aa" id="viewHint"></span>
   </div>
-  <div style="display:flex;gap:8px;flex-wrap:wrap">
-    <button class="btn btn-success" onclick="document.getElementById('fileInput').click()">导入日志</button>
-    <input type="file" id="fileInput" accept=".log,.txt" multiple style="display:none" onchange="handleFiles(this.files)">
-    <button class="btn btn-outline" onclick="clearAll()">清空数据</button>
-    <button class="btn btn-warning" onclick="exportPDF()">导出PDF</button>
+  <div style="display:flex;gap:8px">
+    <button class="btn btn-outline" onclick="exportPDF()">导出PDF</button>
   </div>
 </div>
 
 <div id="statsBar" class="stats-bar">
-  <div class="stat-card"><div class="stat-value" style="color:#4da8da">--</div><div class="stat-label">请导入 .log 文件开始分析</div></div>
+  <div class="stat-card"><div class="stat-value" style="color:#4da8aa">--</div><div class="stat-label">正在加载...</div></div>
 </div>
 
 <div id="mainGrid" class="main-grid">
   <div class="panel">
-    <div class="panel-header"><span class="panel-title">NOREAD 条码识别事件</span><span id="noreadCount" style="font-size:11px;color:#7788aa"></span></div>
-    <div class="panel-body" id="noreadPanel"><div class="empty-state"><div class="empty-state-icon">&#128203;</div><div>请导入日志文件</div></div></div>
+    <div class="panel-header"><span class="panel-title">NOREAD 条码识别事件</span><span class="panel-badge" id="noreadBadge"></span></div>
+    <div class="panel-body" id="noreadPanel"><div class="empty-state"><div class="empty-state-icon">&#128203;</div><div>加载中...</div></div></div>
   </div>
   <div class="panel">
-    <div class="panel-header"><span class="panel-title">设备故障分类</span><span id="faultCount" style="font-size:11px;color:#7788aa"></span></div>
-    <div class="panel-body" id="deviceFaultPanel"><div class="empty-state"><div class="empty-state-icon">&#128295;</div><div>请导入日志文件</div></div></div>
+    <div class="panel-header"><span class="panel-title">设备故障分类</span><span class="panel-badge" id="faultBadge"></span></div>
+    <div class="panel-body" id="deviceFaultPanel"><div class="empty-state"><div class="empty-state-icon">&#128295;</div><div>加载中...</div></div></div>
   </div>
   <div class="panel">
-    <div class="panel-header"><span class="panel-title">错误分布统计</span></div>
+    <div class="panel-header"><span class="panel-title">错误分布统计（事件维度）</span></div>
     <div class="panel-body chart-body" id="chartPanel"><canvas id="errorChart"></canvas></div>
   </div>
   <div class="panel">
-    <div class="panel-header"><span class="panel-title">按小时错误趋势</span></div>
+    <div class="panel-header"><span class="panel-title" id="trendTitle">按小时错误趋势</span></div>
     <div class="panel-body chart-body" id="hourlyPanel"><canvas id="hourlyChart"></canvas></div>
   </div>
 </div>
 
 <script>
-console.log('[WCS Dashboard] Initializing...');
-console.log('[WCS Dashboard] Chart.js loaded:', typeof Chart !== 'undefined');
-console.log('[WCS Dashboard] jsPDF loaded:', typeof window.jspdf !== 'undefined');
-console.log('[WCS Dashboard] html2canvas loaded:', typeof html2canvas !== 'undefined');
-
-// ===================== STORAGE =====================
-var DB_KEY = 'wcs_dashboard_data';
-var allLogs = {};
-var currentDate = null;
+// ===================== GLOBALS =====================
+var DATA = null;
+var currentView = 'daily'; // 'daily' | 'weekly'
+var currentKey = null;     // date string or week string
 var errorChartInst = null;
 var hourlyChartInst = null;
 
-// ===================== PARSER =====================
-function parseLogLines(lines, datePrefix) {
-  console.log('[Parser] Parsing ' + lines.length + ' lines, datePrefix=' + datePrefix);
-  var raw = [];
-  var errors = [];
-  var re = /^([ENT]):\s*(\d{2})\s+(\d{2}:\d{2}:\d{2}\.\d{3})-(.*)/;
-  var matched = 0;
-
-  for (var i = 0; i < lines.length; i++) {
-    var line = lines[i].trim();
-    if (!line) continue;
-    var m = line.match(re);
-    if (!m) continue;
-    matched++;
-    var level = m[1];
-    var day = m[2];
-    var time = m[3];
-    var msg = m[4];
-    var fullTime = datePrefix ? datePrefix + ' ' + time : '2026-06-' + day + ' ' + time;
-    var entry = { level: level, day: day, time: time, msg: msg, fullTime: fullTime };
-    raw.push(entry);
-    if (level === 'E') errors.push(entry);
-  }
-
-  console.log('[Parser] Matched: ' + matched + ', Errors: ' + errors.length);
-  return { raw: raw, errors: errors };
+// ===================== INIT =====================
+function init() {
+  console.log('[WCS] Loading data.json...');
+  fetch('data.json?' + Date.now())
+    .then(function(r) { return r.json(); })
+    .then(function(data) {
+      DATA = data;
+      console.log('[WCS] Loaded:', Object.keys(data.daily).length, 'days,', Object.keys(data.weekly).length, 'weeks');
+      switchView('daily');
+      document.getElementById('loadingOverlay').classList.add('hidden');
+    })
+    .catch(function(e) {
+      console.error('[WCS] Failed to load data.json:', e);
+      document.getElementById('loadingOverlay').classList.add('hidden');
+      document.getElementById('statsBar').innerHTML = '<div class="stat-card" style="grid-column:1/-1"><div class="stat-value warn">加载失败</div><div class="stat-label">无法加载 data.json，请检查文件是否存在</div></div>';
+    });
 }
 
-function classifyErrors(errorEntries, allRaw) {
-  console.log('[Classify] Processing ' + errorEntries.length + ' errors');
-  var noreadEvents = [];
-  var deviceFaults = [];
-  var taskFails = [];
-  var dbErrors = [];
-  var trayAnomalies = [];
-  var wmsWaits = [];
+// ===================== VIEW SWITCH =====================
+function switchView(view) {
+  currentView = view;
+  document.querySelectorAll('.view-btn').forEach(function(b) { b.classList.remove('active'); });
+  document.querySelector('.view-btn[onclick*="' + view + '"]').classList.add('active');
 
-  // Group NOREAD by device
-  var noreadGroups = {};
-  for (var i = 0; i < errorEntries.length; i++) {
-    var e = errorEntries[i];
-    var msg = e.msg;
-    if (msg.indexOf('NOREAD') === -1) continue;
-    var devMatch = msg.match(/设备:(SS\d+)/);
-    if (!devMatch) continue;
-    var dev = devMatch[1];
-    if (!noreadGroups[dev]) noreadGroups[dev] = [];
-    noreadGroups[dev].push(e);
+  var sel = document.getElementById('dateSelect');
+  var hint = document.getElementById('viewHint');
+
+  if (view === 'daily') {
+    var dates = Object.keys(DATA.daily).sort();
+    sel.innerHTML = dates.map(function(d) {
+      var label = formatDate(d) + ' (' + DATA.daily[d].filename + ')';
+      return '<option value="' + d + '">' + label + '</option>';
+    }).join('');
+    if (dates.length > 0) {
+      currentKey = dates[dates.length - 1];
+      sel.value = currentKey;
+    }
+    hint.textContent = dates.length + ' 天数据';
+    document.getElementById('trendTitle').textContent = '按小时错误趋势';
+  } else {
+    var weeks = Object.keys(DATA.weekly).sort();
+    sel.innerHTML = weeks.map(function(w) {
+      var wk = DATA.weekly[w];
+      return '<option value="' + w + '">' + w + ' (' + formatDate(wk.startDate) + ' ~ ' + formatDate(wk.endDate) + ', ' + wk.days.length + '天)</option>';
+    }).join('');
+    if (weeks.length > 0) {
+      currentKey = weeks[weeks.length - 1];
+      sel.value = currentKey;
+    }
+    hint.textContent = weeks.length + ' 周数据';
+    document.getElementById('trendTitle').textContent = '按天错误趋势';
   }
 
-  // Merge into events (gap <= 5s)
-  for (var dev in noreadGroups) {
-    var entries = noreadGroups[dev];
-    entries.sort(function(a,b) { return a.fullTime.localeCompare(b.fullTime); });
-    var event = null;
-    for (var j = 0; j < entries.length; j++) {
-      var entry = entries[j];
-      if (!event) {
-        event = { device: dev, start: entry.fullTime, end: entry.fullTime, count: 1 };
-      } else {
-        var lastTime = new Date(event.end).getTime();
-        var curTime = new Date(entry.fullTime).getTime();
-        if (curTime - lastTime <= 5000) {
-          event.end = entry.fullTime;
-          event.count++;
-        } else {
-          noreadEvents.push(event);
-          event = { device: dev, start: entry.fullTime, end: entry.fullTime, count: 1 };
-        }
-      }
-    }
-    if (event) noreadEvents.push(event);
-  }
-
-  console.log('[Classify] NOREAD events: ' + noreadEvents.length);
-
-  // Classify other errors
-  for (var i = 0; i < errorEntries.length; i++) {
-    var e = errorEntries[i];
-    var msg = e.msg;
-    if (msg.indexOf('NOREAD') !== -1) continue;
-
-    if (msg.indexOf('ORA-') !== -1 || msg.indexOf('Oracle') !== -1) {
-      dbErrors.push(e);
-      continue;
-    }
-
-    var taskFailMatch = msg.match(/任务写入(\d+)次失败/);
-    if (taskFailMatch) {
-      var dm = msg.match(/设备:(SK\d+)/);
-      taskFails.push({ device: dm ? dm[1] : 'Unknown', time: e.fullTime, retries: taskFailMatch[1] });
-      continue;
-    }
-
-    if (msg.indexOf('超长') !== -1 || msg.indexOf('超高') !== -1 || msg.indexOf('超宽') !== -1 || msg.indexOf('超时') !== -1) {
-      var dm2 = msg.match(/设备:(S[SK]\d+)/);
-      var tt = msg.indexOf('超长') !== -1 ? '超长' : msg.indexOf('超高') !== -1 ? '超高' : msg.indexOf('超宽') !== -1 ? '超宽' : '超时';
-      trayAnomalies.push({ device: dm2 ? dm2[1] : 'Unknown', time: e.fullTime, type: tt });
-      continue;
-    }
-
-    var fm = msg.match(/设备:(S[SK]\d+).*报错:(.+)/);
-    if (fm) {
-      deviceFaults.push({ device: fm[1], faultType: fm[2].trim(), time: e.fullTime });
-      continue;
-    }
-
-    if (msg.indexOf('等待WMS回复入库货位') !== -1) {
-      var dm3 = msg.match(/设备:(SK\d+)/);
-      wmsWaits.push({ device: dm3 ? dm3[1] : 'Unknown', time: e.fullTime });
-      continue;
-    }
-
-    var dm4 = msg.match(/设备:(S[SK]\d+)/);
-    if (dm4 && (msg.indexOf('故障') !== -1 || msg.indexOf('报警') !== -1 || msg.indexOf('错误') !== -1)) {
-      deviceFaults.push({ device: dm4[1], faultType: msg.substring(0, 80), time: e.fullTime });
-    }
-  }
-
-  console.log('[Classify] Device faults: ' + deviceFaults.length + ', Task fails: ' + taskFails.length + ', DB: ' + dbErrors.length);
-
-  // Find recovery for each NOREAD event
-  for (var i = 0; i < noreadEvents.length; i++) {
-    var ev = noreadEvents[i];
-    ev.recovery = findRecovery(allRaw, ev.device, ev.end);
-    ev.manualBarcode = findManualBarcode(allRaw, ev.device, ev.end);
-  }
-
-  // Find recovery for device faults
-  for (var i = 0; i < deviceFaults.length; i++) {
-    deviceFaults[i].recovery = findRecovery(allRaw, deviceFaults[i].device, deviceFaults[i].time);
-  }
-
-  return { noreadEvents: noreadEvents, deviceFaults: deviceFaults, taskFails: taskFails, dbErrors: dbErrors, trayAnomalies: trayAnomalies, wmsWaits: wmsWaits };
+  renderAll();
 }
 
-function findRecovery(rawEntries, device, errorEndTime) {
-  var endDate = new Date(errorEndTime).getTime();
-  var found = null;
-  for (var i = 0; i < rawEntries.length; i++) {
-    var entry = rawEntries[i];
-    if (entry.level !== 'N') continue;
-    var et = new Date(entry.fullTime).getTime();
-    if (et < endDate) continue;
-    if (et - endDate > 30 * 60 * 1000) break;
-    var msg = entry.msg;
-    var devMatch = msg.match(/设备:(SS\d+)/);
-    if (!devMatch || devMatch[1] !== device) continue;
-    if (msg.indexOf('写入库成功') !== -1 || msg.indexOf('写出库成功') !== -1) {
-      var bc = msg.match(/条码:(L\d+)/);
-      found = { time: entry.fullTime, barcode: bc ? bc[1] : '', type: msg.indexOf('写入库成功') !== -1 ? '入库' : '出库' };
-      break;
-    }
-    if (msg.indexOf('人工补码') !== -1) {
-      var bc2 = msg.match(/人工补码:(L\d+)/);
-      found = { time: entry.fullTime, barcode: bc2 ? bc2[1] : '', type: '人工补码' };
-      break;
-    }
-  }
-  return found;
+function onDateChange() {
+  currentKey = document.getElementById('dateSelect').value;
+  renderAll();
 }
 
-function findManualBarcode(rawEntries, device, errorEndTime) {
-  var endDate = new Date(errorEndTime).getTime();
-  for (var i = 0; i < rawEntries.length; i++) {
-    var entry = rawEntries[i];
-    if (entry.level !== 'T') continue;
-    var et = new Date(entry.fullTime).getTime();
-    if (et < endDate) continue;
-    if (et - endDate > 30 * 60 * 1000) break;
-    var msg = entry.msg;
-    var devMatch = msg.match(/设备:(SS\d+)/);
-    if (devMatch && devMatch[1] === device && msg.indexOf('人工补码') !== -1) {
-      var bc = msg.match(/人工补码:(L\d+)/);
-      return { time: entry.fullTime, barcode: bc ? bc[1] : '' };
-    }
-  }
-  return null;
+// ===================== DATA ACCESS =====================
+function getCurrentData() {
+  if (!DATA) return null;
+  if (currentView === 'daily') return DATA.daily[currentKey];
+  return DATA.weekly[currentKey];
 }
 
 // ===================== RENDER =====================
-function renderStats(parsed, raw) {
-  var errors = raw.filter(function(e) { return e.level === 'E'; });
-  var totalNOREAD = 0;
-  for (var i = 0; i < parsed.noreadEvents.length; i++) totalNOREAD += parsed.noreadEvents[i].count;
-  var devices = new Set();
-  for (var i = 0; i < parsed.noreadEvents.length; i++) devices.add(parsed.noreadEvents[i].device);
-  for (var i = 0; i < parsed.deviceFaults.length; i++) devices.add(parsed.deviceFaults[i].device);
+function renderAll() {
+  var data = getCurrentData();
+  if (!data) return;
 
-  var timeSpan = raw.length > 0 ? raw[0].time + ' ~ ' + raw[raw.length-1].time : '--';
-  var normalCount = raw.filter(function(e) { return e.level === 'N'; }).length;
-  var healthScore = raw.length > 0 ? Math.round((normalCount / raw.length) * 100) : 0;
+  renderStats(data);
+  renderNOREADPanel(data);
+  renderDeviceFaultPanel(data);
+
+  setTimeout(function() {
+    renderErrorChart(data);
+    if (currentView === 'daily') {
+      renderHourlyChart(data);
+    } else {
+      renderWeeklyBarChart(data);
+    }
+  }, 100);
+}
+
+function renderStats(data) {
+  var s = data.stats;
+  var timeLabel = currentView === 'daily'
+    ? (s.timeSpan ? s.timeSpan.start + ' ~ ' + s.timeSpan.end : '--')
+    : (data.startDate ? formatDateShort(data.startDate) + ' ~ ' + formatDateShort(data.endDate) : '--');
 
   document.getElementById('statsBar').innerHTML =
-    '<div class="stat-card"><div class="stat-value info">' + raw.length.toLocaleString() + '</div><div class="stat-label">总日志行数</div></div>' +
-    '<div class="stat-card"><div class="stat-value warn">' + errors.length.toLocaleString() + '</div><div class="stat-label">错误日志数</div></div>' +
-    '<div class="stat-card"><div class="stat-value warn">' + totalNOREAD.toLocaleString() + '</div><div class="stat-label">NOREAD 条数</div></div>' +
-    '<div class="stat-card"><div class="stat-value">' + parsed.noreadEvents.length + '</div><div class="stat-label">NOREAD 事件数</div></div>' +
-    '<div class="stat-card"><div class="stat-value">' + parsed.deviceFaults.length + '</div><div class="stat-label">设备故障事件</div></div>' +
-    '<div class="stat-card"><div class="stat-value">' + devices.size + '</div><div class="stat-label">涉及设备数</div></div>' +
-    '<div class="stat-card"><div class="stat-value" style="font-size:14px">' + timeSpan + '</div><div class="stat-label">时间跨度</div></div>' +
-    '<div class="stat-card"><div class="stat-value ok">' + healthScore + '%</div><div class="stat-label">正常日志占比</div></div>';
+    '<div class="stat-card"><div class="stat-value info">' + s.totalLines.toLocaleString() + '</div><div class="stat-label">总日志行数</div></div>' +
+    '<div class="stat-card"><div class="stat-value warn">' + s.errorCount.toLocaleString() + '</div><div class="stat-label">错误日志数</div></div>' +
+    '<div class="stat-card"><div class="stat-value warn">' + s.noreadCount.toLocaleString() + '</div><div class="stat-label">NOREAD 条数</div></div>' +
+    '<div class="stat-card"><div class="stat-value">' + s.noreadEvents + '</div><div class="stat-label">NOREAD 事件数</div></div>' +
+    '<div class="stat-card"><div class="stat-value">' + s.deviceFaults + '</div><div class="stat-label">设备故障事件</div></div>' +
+    '<div class="stat-card"><div class="stat-value">' + s.deviceCount + '</div><div class="stat-label">涉及设备数</div></div>' +
+    '<div class="stat-card"><div class="stat-value" style="font-size:12px">' + timeLabel + '</div><div class="stat-label">时间跨度</div></div>' +
+    '<div class="stat-card"><div class="stat-value ok">' + s.healthScore + '%</div><div class="stat-label">正常日志占比</div></div>';
 }
 
 function formatDuration(seconds) {
@@ -354,31 +238,35 @@ function formatDuration(seconds) {
   return Math.floor(seconds/3600) + '时' + Math.floor((seconds%3600)/60) + '分';
 }
 
-function renderNOREADPanel(parsed) {
-  var events = parsed.noreadEvents.slice().sort(function(a,b) { return b.count - a.count; });
-  var panel = document.getElementById('noreadPanel');
-  var countEl = document.getElementById('noreadCount');
-  countEl.textContent = events.length + ' 起事件';
+function renderNOREADPanel(data) {
+  var events = (data.noreadEvents || []).slice();
+  if (currentView === 'weekly') {
+    events.sort(function(a,b) { return b.count - a.count; });
+  }
+  document.getElementById('noreadBadge').textContent = events.length + ' 起';
 
   if (events.length === 0) {
-    panel.innerHTML = '<div class="empty-state"><div class="empty-state-icon">&#10004;</div><div>无 NOREAD 事件</div></div>';
+    document.getElementById('noreadPanel').innerHTML = '<div class="empty-state"><div class="empty-state-icon">&#10004;</div><div>无 NOREAD 事件</div></div>';
     return;
   }
 
-  var html = '<table><thead><tr><th>设备</th><th>开始时间</th><th>恢复时间</th><th>恢复条码</th><th>持续时长</th><th>NOREAD数</th></tr></thead><tbody>';
+  var html = '<table><thead><tr>';
+  if (currentView === 'weekly') html += '<th>日期</th>';
+  html += '<th>设备</th><th>故障开始</th><th>问题解决</th><th>恢复条码</th><th>持续时长</th><th>扫描失败次数</th></tr></thead><tbody>';
+
   for (var i = 0; i < events.length; i++) {
     var ev = events[i];
     var startTime = ev.start.substring(11);
-    var endTime = ev.end.substring(11);
+    var endTimeLabel = ev.end.substring(11);
     var barcode = '--';
     var recoveryNote = '';
 
     if (ev.manualBarcode) {
-      endTime = ev.manualBarcode.time.substring(11);
+      endTimeLabel = ev.manualBarcode.time.substring(11);
       barcode = ev.manualBarcode.barcode;
       recoveryNote = ' (人工补码)';
     } else if (ev.recovery) {
-      endTime = ev.recovery.time.substring(11);
+      endTimeLabel = ev.recovery.time.substring(11);
       barcode = ev.recovery.barcode;
     }
 
@@ -386,41 +274,50 @@ function renderNOREADPanel(parsed) {
     var durStr = formatDuration(duration);
     var badgeClass = ev.count > 1000 ? 'badge-danger' : ev.count > 300 ? 'badge-warn' : 'badge-info';
 
-    html += '<tr>' +
+    html += '<tr>';
+    if (currentView === 'weekly') html += '<td>' + formatDateShort(ev.date) + '</td>';
+    html +=
       '<td><span class="badge badge-info">' + ev.device + '</span></td>' +
       '<td>' + startTime + '</td>' +
-      '<td>' + endTime + recoveryNote + '</td>' +
+      '<td>' + endTimeLabel + recoveryNote + '</td>' +
       '<td>' + barcode + '</td>' +
       '<td>' + durStr + '</td>' +
       '<td><span class="badge ' + badgeClass + '">' + ev.count + '</span></td>' +
       '</tr>';
   }
   html += '</tbody></table>';
-  panel.innerHTML = html;
+  document.getElementById('noreadPanel').innerHTML = html;
 }
 
-function renderDeviceFaultPanel(parsed) {
-  var faults = parsed.deviceFaults.slice().sort(function(a,b) { return a.time.localeCompare(b.time); });
-  var panel = document.getElementById('deviceFaultPanel');
-  var countEl = document.getElementById('faultCount');
-  countEl.textContent = faults.length + ' 起';
+function renderDeviceFaultPanel(data) {
+  var faults = (data.deviceFaults || []).slice();
+  if (currentView === 'weekly') {
+    faults.sort(function(a,b) { return a.time.localeCompare(b.time); });
+  }
+  document.getElementById('faultBadge').textContent = faults.length + ' 起';
 
   if (faults.length === 0) {
-    panel.innerHTML = '<div class="empty-state"><div class="empty-state-icon">&#10004;</div><div>无设备故障事件</div></div>';
+    document.getElementById('deviceFaultPanel').innerHTML = '<div class="empty-state"><div class="empty-state-icon">&#10004;</div><div>无设备故障事件</div></div>';
     return;
   }
 
-  var html = '<table><thead><tr><th>设备</th><th>故障类型</th><th>故障时间</th><th>恢复时间</th></tr></thead><tbody>';
+  var html = '<table><thead><tr>';
+  if (currentView === 'weekly') html += '<th>日期</th>';
+  html += '<th>设备</th><th>故障类型</th><th>故障开始</th><th>问题解决</th></tr></thead><tbody>';
+
   for (var i = 0; i < faults.length; i++) {
     var fv = faults[i];
     var startTime = fv.time.substring(11);
     var endTime = '--';
     if (fv.recovery) {
-      endTime = fv.recovery.time.substring(11);
-      var dur = Math.round((new Date(fv.recovery.time).getTime() - new Date(fv.time).getTime()) / 1000);
+      endTime = fv.recovery.substring(11);
+      var dur = Math.round((new Date(fv.recovery).getTime() - new Date(fv.time).getTime()) / 1000);
       endTime += ' (' + formatDuration(dur) + ')';
     }
-    html += '<tr>' +
+
+    html += '<tr>';
+    if (currentView === 'weekly') html += '<td>' + formatDateShort(fv.date) + '</td>';
+    html +=
       '<td><span class="badge badge-warn">' + fv.device + '</span></td>' +
       '<td>' + fv.faultType + '</td>' +
       '<td>' + startTime + '</td>' +
@@ -428,37 +325,42 @@ function renderDeviceFaultPanel(parsed) {
       '</tr>';
   }
   html += '</tbody></table>';
-  panel.innerHTML = html;
+  document.getElementById('deviceFaultPanel').innerHTML = html;
 }
 
-function renderErrorChart(parsed) {
-  var ctx;
+function renderErrorChart(data) {
+  var panel = document.getElementById('chartPanel');
   try {
-    ctx = document.getElementById('errorChart').getContext('2d');
+    var ctx = document.getElementById('errorChart').getContext('2d');
   } catch(e) {
-    console.error('[Chart] Cannot get canvas context:', e);
-    document.getElementById('chartPanel').innerHTML = '<div class="chart-fallback">图表渲染失败</div>';
+    panel.innerHTML = '<div class="chart-fallback">图表渲染失败</div>';
     return;
   }
-
   if (typeof Chart === 'undefined') {
-    console.error('[Chart] Chart.js not loaded');
-    document.getElementById('chartPanel').innerHTML = '<div class="chart-fallback">Chart.js 未加载，无法渲染图表</div>';
+    panel.innerHTML = '<div class="chart-fallback">Chart.js 未加载</div>';
     return;
   }
-
   if (errorChartInst) { errorChartInst.destroy(); errorChartInst = null; }
 
-  var noreadCount = 0;
-  for (var i = 0; i < parsed.noreadEvents.length; i++) noreadCount += parsed.noreadEvents[i].count;
+  var et = data.errorTypes || {};
+  var noreadEvents = (data.noreadEvents || []).length;
+  var labels = ['NOREAD事件', '设备故障', '数据库异常', '任务写入失败', '托盘异常', 'WMS等待'];
+  var values = [
+    noreadEvents,
+    (data.deviceFaults || []).length,
+    data.dbErrorCount || 0,
+    (data.taskFails || []).length,
+    (data.trayAnomalies || []).length,
+    (data.wmsWaits || []).length
+  ];
 
   try {
     errorChartInst = new Chart(ctx, {
       type: 'doughnut',
       data: {
-        labels: ['NOREAD条码', '设备故障', '数据库异常', '任务写入失败', '托盘异常', 'WMS等待'],
+        labels: labels,
         datasets: [{
-          data: [noreadCount, parsed.deviceFaults.length, parsed.dbErrors.length, parsed.taskFails.length, parsed.trayAnomalies.length, parsed.wmsWaits.length],
+          data: values,
           backgroundColor: ['#e74c3c','#f39c12','#e67e22','#9b59b6','#3498db','#1abc9c'],
           borderColor: '#0d1528',
           borderWidth: 2
@@ -468,45 +370,35 @@ function renderErrorChart(parsed) {
         responsive: true,
         maintainAspectRatio: false,
         plugins: {
-          legend: { position: 'bottom', labels: { color: '#7788aa', padding: 12, font: { size: 10 } } }
+          legend: { position: 'bottom', labels: { color: '#7788aa', padding: 12, font: {size:10} } }
         }
       }
     });
-    console.log('[Chart] Error distribution chart rendered');
   } catch(e) {
-    console.error('[Chart] Error rendering chart:', e);
-    document.getElementById('chartPanel').innerHTML = '<div class="chart-fallback">图表渲染失败: ' + e.message + '</div>';
+    console.error('[Chart] Error:', e);
+    panel.innerHTML = '<div class="chart-fallback">图表渲染失败: ' + e.message + '</div>';
   }
 }
 
-function renderHourlyChart(raw) {
-  var ctx;
+function renderHourlyChart(data) {
+  var panel = document.getElementById('hourlyPanel');
   try {
-    ctx = document.getElementById('hourlyChart').getContext('2d');
+    var ctx = document.getElementById('hourlyChart').getContext('2d');
   } catch(e) {
-    console.error('[Chart] Cannot get canvas context:', e);
-    document.getElementById('hourlyPanel').innerHTML = '<div class="chart-fallback">图表渲染失败</div>';
+    panel.innerHTML = '<div class="chart-fallback">图表渲染失败</div>';
     return;
   }
-
   if (typeof Chart === 'undefined') {
-    document.getElementById('hourlyPanel').innerHTML = '<div class="chart-fallback">Chart.js 未加载</div>';
+    panel.innerHTML = '<div class="chart-fallback">Chart.js 未加载</div>';
     return;
   }
-
   if (hourlyChartInst) { hourlyChartInst.destroy(); hourlyChartInst = null; }
-
-  var hourlyErrors = new Array(24).fill(0);
-  var hourlyNormal = new Array(24).fill(0);
-  for (var i = 0; i < raw.length; i++) {
-    var h = parseInt(raw[i].time.substring(0, 2));
-    if (isNaN(h)) continue;
-    if (raw[i].level === 'E') hourlyErrors[h]++;
-    else hourlyNormal[h]++;
-  }
 
   var labels = [];
   for (var i = 0; i < 24; i++) labels.push(i + '时');
+  var h = data.hourly || [];
+  var errData = h.map(function(x) { return x.errors || 0; });
+  var normData = h.map(function(x) { return x.normal || 0; });
 
   try {
     hourlyChartInst = new Chart(ctx, {
@@ -514,277 +406,133 @@ function renderHourlyChart(raw) {
       data: {
         labels: labels,
         datasets: [
-          { label: '错误', data: hourlyErrors, backgroundColor: '#e74c3c', borderRadius: 2 },
-          { label: '正常', data: hourlyNormal, backgroundColor: '#2ecc71', borderRadius: 2 }
+          { label: '错误', data: errData, backgroundColor: '#e74c3c', borderRadius: 2 },
+          { label: '正常', data: normData, backgroundColor: '#2ecc71', borderRadius: 2 }
         ]
       },
       options: {
         responsive: true,
         maintainAspectRatio: false,
         scales: {
-          x: { ticks: { color: '#7788aa', font: { size: 9 } }, grid: { color: '#1a2a4a' } },
+          x: { ticks: { color: '#7788aa', font: {size:9} }, grid: { color: '#1a2a4a' } },
           y: { ticks: { color: '#7788aa' }, grid: { color: '#1a2a4a' } }
         },
-        plugins: {
-          legend: { labels: { color: '#7788aa', font: { size: 10 } } }
-        }
+        plugins: { legend: { labels: { color: '#7788aa', font: {size:10} } } }
       }
     });
-    console.log('[Chart] Hourly chart rendered');
   } catch(e) {
-    console.error('[Chart] Error rendering hourly chart:', e);
-    document.getElementById('hourlyPanel').innerHTML = '<div class="chart-fallback">图表渲染失败: ' + e.message + '</div>';
+    console.error('[Chart] Error:', e);
+    panel.innerHTML = '<div class="chart-fallback">图表渲染失败: ' + e.message + '</div>';
   }
 }
 
-function renderAll(dateKey) {
-  console.log('[Render] Rendering date: ' + dateKey);
-  if (!allLogs[dateKey]) {
-    console.error('[Render] No data for date: ' + dateKey);
+function renderWeeklyBarChart(data) {
+  // For weekly view: bar chart by day
+  var panel = document.getElementById('hourlyPanel');
+  try {
+    var ctx = document.getElementById('hourlyChart').getContext('2d');
+  } catch(e) {
+    panel.innerHTML = '<div class="chart-fallback">图表渲染失败</div>';
     return;
   }
+  if (typeof Chart === 'undefined') {
+    panel.innerHTML = '<div class="chart-fallback">Chart.js 未加载</div>';
+    return;
+  }
+  if (hourlyChartInst) { hourlyChartInst.destroy(); hourlyChartInst = null; }
 
-  var data = allLogs[dateKey];
-  var raw = data.raw;
-  var parsed = data.parsed;
+  var days = (data.days || []).sort();
+  var dayErrors = [];
+  var dayNormals = [];
 
-  renderStats(parsed, raw);
-  renderNOREADPanel(parsed);
-  renderDeviceFaultPanel(parsed);
-
-  // Delay chart rendering slightly to ensure canvas is in DOM
-  setTimeout(function() {
-    renderErrorChart(parsed);
-    renderHourlyChart(raw);
-  }, 100);
-
-  console.log('[Render] Complete');
-}
-
-function getDateFromRaw(rawEntries) {
-  if (!rawEntries || rawEntries.length === 0) return '未知';
-  return rawEntries[0].fullTime.substring(0, 10);
-}
-
-function formatDate(dateStr) {
-  if (!dateStr) return '';
-  var parts = dateStr.split('-');
-  return parts[0] + '年' + parseInt(parts[1]) + '月' + parseInt(parts[2]) + '日';
-}
-
-// ===================== IMPORT =====================
-function showLoading(show) {
-  var el = document.getElementById('loadingOverlay');
-  if (show) el.classList.remove('hidden');
-  else el.classList.add('hidden');
-}
-
-function handleFiles(files) {
-  if (!files || files.length === 0) return;
-  console.log('[Import] Processing ' + files.length + ' file(s)');
-
-  showLoading(true);
-
-  var promises = [];
-  for (var f = 0; f < files.length; f++) {
-    (function(file) {
-      promises.push(new Promise(function(resolve, reject) {
-        var reader = new FileReader();
-        reader.onload = function(e) {
-          try {
-            var text = e.target.result;
-            var lines = text.split('\n');
-
-            var datePrefix = file.name.replace(/\.(log|txt)$/i, '');
-            if (/^\d{8}$/.test(datePrefix)) {
-              datePrefix = datePrefix.substring(0,4) + '-' + datePrefix.substring(4,6) + '-' + datePrefix.substring(6,8);
-            }
-
-            var result = parseLogLines(lines, datePrefix);
-            var dateKey = getDateFromRaw(result.raw) || datePrefix;
-            console.log('[Import] File: ' + file.name + ', dateKey: ' + dateKey + ', entries: ' + result.raw.length);
-
-            var parsed = classifyErrors(result.errors, result.raw);
-
-            resolve({ dateKey: dateKey, raw: result.raw, parsed: parsed, filename: file.name });
-          } catch(err) {
-            console.error('[Import] Error processing ' + file.name + ':', err);
-            reject(err);
-          }
-        };
-        reader.onerror = function() {
-          console.error('[Import] Failed to read file: ' + file.name);
-          reject(new Error('Failed to read file: ' + file.name));
-        };
-        reader.readAsText(file, 'UTF-8');
-      }));
-    })(files[f]);
+  for (var i = 0; i < days.length; i++) {
+    var dd = DATA.daily[days[i]];
+    if (dd) {
+      dayErrors.push(dd.stats.errorCount);
+      dayNormals.push(dd.stats.normalCount);
+    } else {
+      dayErrors.push(0);
+      dayNormals.push(0);
+    }
   }
 
-  Promise.all(promises).then(function(results) {
-    console.log('[Import] All files processed, ' + results.length + ' results');
-    for (var i = 0; i < results.length; i++) {
-      var r = results[i];
-      allLogs[r.dateKey] = { raw: r.raw, parsed: r.parsed, filename: r.filename };
-    }
-    saveToStorage();
-    updateDateSelector();
-
-    var dates = Object.keys(allLogs).sort();
-    if (dates.length > 0) {
-      currentDate = dates[dates.length - 1];
-      document.getElementById('dateSelect').value = currentDate;
-      renderAll(currentDate);
-    }
-
-    showLoading(false);
-    showToast('成功导入 ' + results.length + ' 个日志文件', false);
-  }).catch(function(err) {
-    showLoading(false);
-    console.error('[Import] Failed:', err);
-    showToast('导入失败: ' + err.message, true);
+  // Day of week labels (Chinese)
+  var dayNames = ['周日','周一','周二','周三','周四','周五','周六'];
+  var labels = days.map(function(d) {
+    var dt = new Date(d.substring(0,4)+'-'+d.substring(4,6)+'-'+d.substring(6,8));
+    return formatDateShort(d) + ' ' + dayNames[dt.getDay()];
   });
 
-  document.getElementById('fileInput').value = '';
-}
-
-function switchDate() {
-  var sel = document.getElementById('dateSelect');
-  currentDate = sel.value;
-  console.log('[Switch] Date: ' + currentDate);
-  if (currentDate) renderAll(currentDate);
-}
-
-function updateDateSelector() {
-  var sel = document.getElementById('dateSelect');
-  var dates = Object.keys(allLogs).sort();
-  sel.innerHTML = dates.map(function(d) {
-    return '<option value="' + d + '"' + (d === currentDate ? ' selected' : '') + '>' + formatDate(d) + ' (' + allLogs[d].filename + ')</option>';
-  }).join('');
-  if (dates.length === 0) sel.innerHTML = '<option value="">请先导入日志文件...</option>';
-}
-
-// ===================== STORAGE =====================
-function saveToStorage() {
   try {
-    var compact = {};
-    var keys = Object.keys(allLogs);
-    for (var i = 0; i < keys.length; i++) {
-      var key = keys[i];
-      var val = allLogs[key];
-      compact[key] = {
-        raw: val.raw.map(function(e) { return { level: e.level, time: e.time, msg: e.msg, fullTime: e.fullTime }; }),
-        filename: val.filename
-      };
-    }
-    localStorage.setItem(DB_KEY, JSON.stringify(compact));
-    console.log('[Storage] Saved ' + keys.length + ' date(s)');
-  } catch(e) {
-    console.error('[Storage] Save failed:', e);
-  }
-}
-
-function loadFromStorage() {
-  try {
-    var data = localStorage.getItem(DB_KEY);
-    if (data) {
-      var compact = JSON.parse(data);
-      var keys = Object.keys(compact);
-      console.log('[Storage] Loading ' + keys.length + ' date(s) from storage');
-      for (var i = 0; i < keys.length; i++) {
-        var key = keys[i];
-        var val = compact[key];
-        var parsed = classifyErrors(val.raw.filter(function(e) { return e.level === 'E'; }), val.raw);
-        allLogs[key] = { raw: val.raw, parsed: parsed, filename: val.filename };
+    hourlyChartInst = new Chart(ctx, {
+      type: 'bar',
+      data: {
+        labels: labels,
+        datasets: [
+          { label: '错误', data: dayErrors, backgroundColor: '#e74c3c', borderRadius: 2 },
+          { label: '正常', data: dayNormals, backgroundColor: '#2ecc71', borderRadius: 2 }
+        ]
+      },
+      options: {
+        responsive: true,
+        maintainAspectRatio: false,
+        scales: {
+          x: { ticks: { color: '#7788aa', font: {size:9} }, grid: { color: '#1a2a4a' } },
+          y: { ticks: { color: '#7788aa' }, grid: { color: '#1a2a4a' } }
+        },
+        plugins: { legend: { labels: { color: '#7788aa', font: {size:10} } } }
       }
-      updateDateSelector();
-      var dates = Object.keys(allLogs).sort();
-      if (dates.length > 0) {
-        currentDate = dates[dates.length - 1];
-        document.getElementById('dateSelect').value = currentDate;
-        renderAll(currentDate);
-      }
-      return true;
-    }
+    });
   } catch(e) {
-    console.error('[Storage] Load failed:', e);
+    console.error('[Chart] Error:', e);
+    panel.innerHTML = '<div class="chart-fallback">图表渲染失败: ' + e.message + '</div>';
   }
-  return false;
-}
-
-function clearAll() {
-  if (!confirm('确定要清空所有导入的日志数据吗？此操作不可恢复。')) return;
-  allLogs = {};
-  currentDate = null;
-  localStorage.removeItem(DB_KEY);
-  document.getElementById('dateSelect').innerHTML = '<option value="">请先导入日志文件...</option>';
-  document.getElementById('statsBar').innerHTML = '<div class="stat-card"><div class="stat-value" style="color:#4da8da">--</div><div class="stat-label">请导入 .log 文件开始分析</div></div>';
-  document.getElementById('noreadPanel').innerHTML = '<div class="empty-state"><div class="empty-state-icon">&#128203;</div><div>请导入日志文件</div></div>';
-  document.getElementById('deviceFaultPanel').innerHTML = '<div class="empty-state"><div class="empty-state-icon">&#128295;</div><div>请导入日志文件</div></div>';
-  document.getElementById('noreadCount').textContent = '';
-  document.getElementById('faultCount').textContent = '';
-  if (errorChartInst) { errorChartInst.destroy(); errorChartInst = null; }
-  if (hourlyChartInst) { hourlyChartInst.destroy(); hourlyChartInst = null; }
-  document.getElementById('chartPanel').innerHTML = '<canvas id="errorChart"></canvas>';
-  document.getElementById('hourlyPanel').innerHTML = '<canvas id="hourlyChart"></canvas>';
 }
 
 // ===================== EXPORT PDF =====================
 function exportPDF() {
-  if (!currentDate || !allLogs[currentDate]) {
-    showToast('请先导入并选择日志日期', true);
-    return;
-  }
-  if (typeof html2canvas === 'undefined') {
-    showToast('PDF 导出组件未加载，请检查网络连接', true);
-    return;
-  }
-  if (typeof window.jspdf === 'undefined') {
-    showToast('PDF 生成组件未加载，请检查网络连接', true);
-    return;
-  }
+  if (typeof html2canvas === 'undefined') { alert('PDF 导出组件未加载'); return; }
+  if (typeof window.jspdf === 'undefined') { alert('PDF 生成组件未加载'); return; }
 
-  showToast('正在生成 PDF...', false);
+  showToast('正在生成 PDF...');
   html2canvas(document.body, { backgroundColor: '#0a0f1e', scale: 1.5 }).then(function(canvas) {
     var imgData = canvas.toDataURL('image/png');
     var pdf = new window.jspdf.jsPDF('landscape', 'mm', 'a4');
     var imgWidth = 297;
     var imgHeight = (canvas.height * imgWidth) / canvas.width;
     pdf.addImage(imgData, 'PNG', 0, 0, imgWidth, imgHeight);
-    pdf.save('WCS_Report_' + currentDate + '.pdf');
-    showToast('PDF 报告已导出', false);
+    var label = currentView === 'weekly' ? 'WCS_Weekly_' + currentKey : 'WCS_Daily_' + currentKey;
+    pdf.save(label + '.pdf');
+    showToast('PDF 报告已导出');
   }).catch(function(e) {
-    console.error('[PDF] Export failed:', e);
-    showToast('PDF 导出失败: ' + e.message, true);
+    console.error('[PDF] Error:', e);
+    showToast('PDF 导出失败: ' + e.message);
   });
 }
 
 // ===================== UTILS =====================
-function showToast(msg, isError) {
+function formatDate(dateStr) {
+  if (!dateStr || dateStr.length < 8) return dateStr || '';
+  return dateStr.substring(0,4) + '年' + parseInt(dateStr.substring(4,6)) + '月' + parseInt(dateStr.substring(6,8)) + '日';
+}
+
+function formatDateShort(dateStr) {
+  if (!dateStr || dateStr.length < 8) return dateStr || '';
+  return dateStr.substring(4,6) + '/' + dateStr.substring(6,8);
+}
+
+function showToast(msg) {
   var existing = document.querySelector('.toast');
   if (existing) existing.remove();
-
   var toast = document.createElement('div');
-  toast.className = 'toast' + (isError ? ' error' : '');
+  toast.className = 'toast';
   toast.textContent = msg;
   document.body.appendChild(toast);
   setTimeout(function() { toast.remove(); }, 3000);
 }
 
-// Drag & drop
-document.addEventListener('dragover', function(e) { e.preventDefault(); });
-document.addEventListener('drop', function(e) {
-  e.preventDefault();
-  if (e.dataTransfer.files.length > 0) handleFiles(e.dataTransfer.files);
-});
-
-// ===================== INIT =====================
-console.log('[Init] Starting...');
-var loaded = loadFromStorage();
-if (!loaded) {
-  console.log('[Init] No stored data, showing empty state');
-}
-console.log('[Init] Done. allLogs keys: ' + Object.keys(allLogs).length);
+// ===================== START =====================
+document.addEventListener('DOMContentLoaded', init);
 </script>
 </body>
 </html>
