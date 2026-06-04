@@ -152,13 +152,12 @@ function badgeClass(ft){if(ft.includes('NOREAD'))return'badge-noread';if(ft.incl
 function cntStyle(n){return'cell-count'+(n>500?' high':n>100?' mid':' low');}
 
 // ============ Init ============
-window.addEventListener('DOMContentLoaded',async()=>{
-const saved=localStorage.getItem('wcsDashData');
-if(saved){try{allData=JSON.parse(saved)}catch(e){}}
-try{const r=await fetch('data.json');const p=await r.json();
-if(p.daily)for(const[k,v]of Object.entries(p.daily)){if(!allData[k]){allData[k]=v;allData[k].source='preload'}else allData[k]={...allData[k],...v,source:'preload'}}
+function initDashboard(){
+try{const saved=localStorage.getItem('wcsDashData');if(saved)allData=JSON.parse(saved)}catch(e){console.log('localStorage load failed')}
+fetch('data.json').then(r=>r.json()).then(p=>{
+if(p.daily)for(const[k,v]of Object.entries(p.daily)){if(!allData[k])allData[k]=v;else Object.assign(allData[k],v)}
 if(p.weekly)for(const[k,v]of Object.entries(p.weekly))allData['_w_'+k]=v;
-}catch(e){}
+}).catch(e=>{console.log('data.json load failed:',e.message)}).finally(()=>{
 const dates=Object.keys(allData).filter(k=>!k.startsWith('_')).sort();
 if(!dates.length){document.getElementById('faultTableBody').innerHTML='<div style="padding:40px;text-align:center;color:var(--text-dim)">暂无数据，请导入 .log 日志文件</div>';return}
 currentDate=dates[dates.length-1];
@@ -166,7 +165,8 @@ const d=new Date(parseInt(currentDate.substring(0,4)),parseInt(currentDate.subst
 const e7=new Date(d);e7.setDate(d.getDate()-6);weekStart=fmtDate(e7);weekEnd=fmtDate(d);
 document.getElementById('weekStart').value=weekStart;document.getElementById('weekEnd').value=weekEnd;
 saveData();renderAll();
-});
+})}
+window.addEventListener('DOMContentLoaded',initDashboard);
 
 function fmtDate(d){const y=d.getFullYear(),m=String(d.getMonth()+1).padStart(2,'0'),day=String(d.getDate()).padStart(2,'0');return y+'-'+m+'-'+day}
 function dateKeyFromFmt(f){return f.replace(/-/g,'')}
